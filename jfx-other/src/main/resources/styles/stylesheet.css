@@ -1,0 +1,37 @@
+.mainFxmlClass {
+
+}
+
+#root{
+    -fx-background-color:#337766;
+    -fx-background-radius:3;
+    -fx-border-color:#776622;
+    -fx-border-width:3 3 3 3;
+    -fx-border-radius:3;
+}
+
+.label{
+    -fx-font-size: 32;
+    -fx-text-fill: rgb(204,50,50);
+
+}
+
+.button:hover{
+
+}
+
+.newGroup{
+
+}
+
+.text-field{
+
+}
+
+.listview .listcell:even{
+
+}
+
+.listview .listcell:odd{
+
+}

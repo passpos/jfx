@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.controller.FirstController">
+    <children>
+        <Label fx:id="label" text="label"></Label>
+        <Button fx:id="btn1" text="点击" prefWidth="50.0" prefHeight="20.0" AnchorPane.topAnchor="100" onAction="#action">
+            <AnchorPane.leftAnchor>100</AnchorPane.leftAnchor>
+        </Button>
+    </children>
+    <stylesheets>
+        <URL value="@/styles/first.css"/>
+    </stylesheets>
+</AnchorPane>

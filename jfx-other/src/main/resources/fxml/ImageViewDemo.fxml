@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="apimageview" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx.controller.ImageViewDemoController">
+    <Button text="点击"></Button>
+    <BorderPane>
+        <left>
+            <ListView>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="data1"></String>
+                        <String fx:value="data2"></String>
+                        <String fx:value="data3"></String>
+                        <String fx:value="data4"></String>
+                    </FXCollections>
+                </items>
+            </ListView>
+        </left>
+        <right>
+            <ComboBox>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="data1"></String>
+                        <String fx:value="data2"></String>
+                        <String fx:value="data3"></String>
+                        <String fx:value="data4"></String>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </right>
+    </BorderPane>
+    <ImageView AnchorPane.topAnchor="20" fitWidth="350" preserveRatio="true">
+        <Image url="@/images/2.jpg"></Image>
+    </ImageView>
+    <stylesheets>
+        <URL value="@/styles/imageviewdemo.css"/>
+    </stylesheets>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1">
+    <Button fx:id="btn1" text="按我" prefWidth="50.0"></Button>
+    <Button fx:id="btn2" text="按我" prefWidth="50.0" AnchorPane.leftAnchor="70.0">
+        <style>
+            -fx-background-color:#BFEFFF;
+            -fx-border-color:#CD0000;
+            -fx-border-width:5 5 5 5;
+            -fx-border-radius:3;
+        </style>
+    </Button>
+    <Label text="演示文本" AnchorPane.leftAnchor="140.0">
+    </Label>
+    <stylesheets>
+        <URL value="@/styles/stylesheet.css"/>
+    </stylesheets>
+</AnchorPane>

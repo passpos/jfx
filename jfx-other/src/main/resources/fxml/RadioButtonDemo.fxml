@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.RadioButtonDemoController">
+    <fx:define>
+        <ToggleGroup fx:id="group"></ToggleGroup>
+        <Insets fx:id="margin" top="10" left="10" bottom="10" right="10"></Insets>
+        <Button fx:id="btn" text="按我"></Button>
+    </fx:define>
+    <HBox prefHeight="400.0" prefWidth="300.0" spacing="10">
+        <alignment>
+            <Pos fx:constant="CENTER"></Pos>
+        </alignment>
+        <RadioButton text="A" toggleGroup="$group"></RadioButton>
+        <RadioButton text="B" toggleGroup="$group"></RadioButton>
+        <RadioButton text="C" toggleGroup="$group"></RadioButton>
+        <RadioButton text="D" toggleGroup="$group"></RadioButton>
+        <fx:reference source="btn"></fx:reference>
+        <fx:include source="other.fxml"></fx:include>>
+    </HBox>
+    <Button fx:id="btn1" text="按我" prefWidth="50.0"></Button>
+    <Button fx:id="btn2" text="按我" prefWidth="${btn1.prefWidth}"></Button>
+</AnchorPane>
