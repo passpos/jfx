@@ -19,9 +19,9 @@ package jfx.app;
 import jfx.features.other.ReflectionApp;
 import jfx.features.other.CloneApp;
 import java.util.ArrayList;
-import jfx.utils.app.AbstractAppBox;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 
 /**
  *
