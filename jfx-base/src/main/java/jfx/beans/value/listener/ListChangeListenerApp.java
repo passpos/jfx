@@ -16,7 +16,7 @@
  */
 package jfx.beans.value.listener;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Package javafx.collections 函数式接口；

@@ -17,7 +17,7 @@
 
 package jfx.beans;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

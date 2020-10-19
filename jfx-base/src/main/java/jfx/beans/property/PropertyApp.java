@@ -17,7 +17,7 @@
 package jfx.beans.property;
 
 import javafx.beans.binding.IntegerExpression;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

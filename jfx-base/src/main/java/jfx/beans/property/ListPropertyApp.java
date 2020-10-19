@@ -17,7 +17,7 @@
 package jfx.beans.property;
 
 import java.util.Comparator;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

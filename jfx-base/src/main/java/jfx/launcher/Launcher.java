@@ -16,7 +16,7 @@
  */
 package jfx.launcher;
 
-import jfx.utils.app.Switcher;
+import jfx.core.app.Switcher;
 import jfx.app.AppBox;
 import jfx.app.SideBox;
 import javafx.application.Application;

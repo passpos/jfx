@@ -18,7 +18,7 @@ package jfx.collections;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *
