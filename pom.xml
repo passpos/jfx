@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+        <module>jfx-core</module>
         <module>jfx-base</module>
         <module>jfx-controls</module>
         <module>jfx-demo</module>
@@ -17,7 +18,6 @@
         <module>jfx-graphics</module>
         <module>jfx-graphics-scene</module>
         <module>jfx-other</module>
-        <module>jfx-utils</module>
     </modules>
     <dependencies>
         <dependency>
