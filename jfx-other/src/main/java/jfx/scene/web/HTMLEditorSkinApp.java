@@ -2,7 +2,7 @@ package jfx.scene.web;
 
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.HTMLEditorSkin;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 工具栏1 - ToolBar toolbar1

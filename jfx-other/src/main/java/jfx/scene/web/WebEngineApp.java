@@ -2,7 +2,7 @@ package jfx.scene.web;
 
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import netscape.javascript.JSObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

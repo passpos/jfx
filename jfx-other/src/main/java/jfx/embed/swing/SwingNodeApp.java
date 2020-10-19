@@ -19,7 +19,7 @@ package jfx.embed.swing;
 import javafx.embed.swing.SwingNode;
 import javax.swing.JPanel;
 import jfx.swing.JFrameApp;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * SwingNode extends Node

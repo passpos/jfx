@@ -22,9 +22,9 @@ import jfx.fxml.*;
 import jfx.scene.media.*;
 import jfx.scene.web.*;
 import jfx.swing.*;
-import jfx.utils.app.AbstractAppBox;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

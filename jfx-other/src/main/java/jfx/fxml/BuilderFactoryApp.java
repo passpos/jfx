@@ -13,7 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import jfx.fxml.builder.PersonBuilderFactory;
 import jfx.fxml.builder.PersonBuilderMapFactory;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

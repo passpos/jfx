@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javax.swing.JEditorPane;
 import javax.swing.text.html.HTMLEditorKit;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * JEditorPane得到的文本传递到TextArea中后乱码
