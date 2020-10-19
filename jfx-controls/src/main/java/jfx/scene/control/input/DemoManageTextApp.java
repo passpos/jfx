@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.input;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.function.Consumer;

@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.menubox;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;

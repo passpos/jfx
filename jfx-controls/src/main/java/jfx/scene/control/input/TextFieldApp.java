@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.input;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import java.util.function.UnaryOperator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

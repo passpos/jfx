@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.input;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextFormatter;

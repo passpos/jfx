@@ -6,7 +6,7 @@
 package jfx.scene.control.pane;
 
 import javafx.scene.control.Button;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * DialogPane 位于 javafx.controls 模块，而不是java.graphics模块

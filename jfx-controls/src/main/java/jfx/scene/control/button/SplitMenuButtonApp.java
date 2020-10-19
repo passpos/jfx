@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.button;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.MenuItem;

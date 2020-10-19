@@ -59,8 +59,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import jfx.utils.app.ContentBox;
-import jfx.utils.entity.FxStudent;
+import jfx.core.app.ContentBox;
+import jfx.core.entity.FxStudent;
 import utils.entity.demo.sample.Student;
 
 /**

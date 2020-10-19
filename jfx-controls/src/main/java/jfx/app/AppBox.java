@@ -30,9 +30,9 @@ import jfx.scene.control.menubox.*;
 import jfx.scene.control.pane.*;
 import jfx.scene.control.progress.*;
 import jfx.scene.control.view.*;
-import jfx.utils.app.AbstractAppBox;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

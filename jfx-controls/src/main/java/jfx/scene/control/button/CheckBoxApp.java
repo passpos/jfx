@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.button;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import java.util.Iterator;
 import java.util.function.Consumer;
 import javafx.event.EventHandler;

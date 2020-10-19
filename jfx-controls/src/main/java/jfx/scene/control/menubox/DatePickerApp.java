@@ -16,7 +16,7 @@
  */
 package jfx.scene.control.menubox;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import java.time.LocalDate;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -31,7 +31,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollToEvent;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.ScrollEvent;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * B82-88课

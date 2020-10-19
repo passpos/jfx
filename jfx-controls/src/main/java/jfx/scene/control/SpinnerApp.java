@@ -23,7 +23,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.util.StringConverter;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import utils.entity.demo.sample.Student;
 
 /**

@@ -5,7 +5,7 @@
  */
 package jfx.scene.control.button;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

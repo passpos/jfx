@@ -11,8 +11,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.cell.ChoiceBoxListCell;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import jfx.utils.app.ContentBox;
-import jfx.utils.entity.FxPerson;
+import jfx.core.app.ContentBox;
+import jfx.core.entity.FxPerson;
 
 /**
  *

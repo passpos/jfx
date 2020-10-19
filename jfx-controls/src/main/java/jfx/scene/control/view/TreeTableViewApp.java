@@ -30,8 +30,8 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import jfx.utils.app.ContentBox;
-import jfx.utils.entity.FxStudent;
+import jfx.core.app.ContentBox;
+import jfx.core.entity.FxStudent;
 
 /**
  *

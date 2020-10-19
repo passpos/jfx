@@ -7,7 +7,7 @@ package jfx.scene.control.cell.tree;
 
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *
