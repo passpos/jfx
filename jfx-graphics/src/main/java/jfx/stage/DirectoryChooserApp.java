@@ -23,7 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

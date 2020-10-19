@@ -18,7 +18,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

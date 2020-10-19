@@ -24,7 +24,7 @@ import javafx.scene.shape.QuadCurveTo;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.VLineTo;
 import javafx.util.Duration;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

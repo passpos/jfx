@@ -7,7 +7,7 @@ package jfx.application;
 
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Platform的所有开放方法都是静态的，所以不能实例化（无方法可用）；

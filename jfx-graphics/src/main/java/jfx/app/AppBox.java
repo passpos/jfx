@@ -23,9 +23,9 @@ import jfx.animation.transition.*;
 import jfx.application.*;
 import jfx.concurrent.*;
 import jfx.stage.*;
-import jfx.utils.app.AbstractAppBox;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

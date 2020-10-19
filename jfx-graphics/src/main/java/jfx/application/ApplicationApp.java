@@ -18,7 +18,7 @@ package jfx.application;
 
 import javafx.application.Application;
 import jfx.application.demo.DemoApplication;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Application是抽象的；

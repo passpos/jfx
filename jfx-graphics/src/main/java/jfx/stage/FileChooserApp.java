@@ -33,7 +33,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

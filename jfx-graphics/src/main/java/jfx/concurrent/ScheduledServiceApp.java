@@ -18,7 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * ScheduledService是一个抽象类，用于安排一个可重用、按周期或按计划执行的任务

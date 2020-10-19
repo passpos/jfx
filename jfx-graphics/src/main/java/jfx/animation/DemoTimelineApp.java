@@ -20,7 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

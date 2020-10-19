@@ -15,8 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import jfx.utils.app.ContentBox;
-import static jfx.utils.app.ContentBox.ol;
+import jfx.core.app.ContentBox;
+import static jfx.core.app.ContentBox.ol;
 
 /**
  *

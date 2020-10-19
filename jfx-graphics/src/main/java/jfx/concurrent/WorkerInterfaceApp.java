@@ -6,7 +6,7 @@
 
 package jfx.concurrent;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

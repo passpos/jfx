@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Task是一个抽象类，用于安排一个一次性的任务
