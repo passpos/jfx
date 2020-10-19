@@ -24,7 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 图层混合

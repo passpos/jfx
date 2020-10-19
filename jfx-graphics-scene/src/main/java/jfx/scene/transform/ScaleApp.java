@@ -8,7 +8,7 @@ package jfx.scene.transform;
 import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 import javafx.scene.transform.Scale;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 缩放转换

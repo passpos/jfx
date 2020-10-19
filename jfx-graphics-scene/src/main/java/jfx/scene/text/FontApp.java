@@ -23,7 +23,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Win下，在 系统设置 - 个性化 - 字体，查看系统支持的字体名称和显示效果；

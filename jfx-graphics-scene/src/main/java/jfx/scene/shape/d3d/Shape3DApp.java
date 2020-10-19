@@ -17,7 +17,7 @@
 
 package jfx.scene.shape.d3d;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

@@ -7,7 +7,7 @@ package jfx.scene.layout.pane;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

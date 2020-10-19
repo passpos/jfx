@@ -22,7 +22,7 @@ import static javafx.scene.layout.AnchorPane.setTopAnchor;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 圆形的布局方式是以圆心为基准，而不是圆形的外切矩形的左上角；

@@ -25,7 +25,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 提供输入内容的非仿射转换的效果。最典型的透视变换用于为其他二维内容提供“人造”三维效果。

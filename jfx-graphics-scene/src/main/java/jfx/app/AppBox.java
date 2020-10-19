@@ -36,9 +36,9 @@ import jfx.scene.shape.path.PathApp;
 import jfx.scene.shape.path.SVGPathApp;
 import jfx.scene.text.*;
 import jfx.scene.transform.*;
-import jfx.utils.app.AbstractAppBox;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

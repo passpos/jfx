@@ -7,7 +7,7 @@ package jfx.scene.transform;
 
 import javafx.scene.control.Button;
 import javafx.scene.transform.Shear;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 剪切变换

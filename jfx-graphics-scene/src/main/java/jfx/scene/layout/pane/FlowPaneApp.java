@@ -18,7 +18,7 @@
 package jfx.scene.layout.pane;
 
 import javafx.scene.control.Button;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import static javafx.scene.layout.AnchorPane.setLeftAnchor;
 import static javafx.scene.layout.AnchorPane.setTopAnchor;
 import javafx.scene.transform.Affine;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 仿射转换

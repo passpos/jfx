@@ -18,9 +18,9 @@
 package jfx.app;
 
 import javafx.geometry.Pos;
-import jfx.utils.app.AbstractSideBox;
-import jfx.utils.app.ButtonWrapper;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ButtonWrapper;
+import jfx.core.app.ContentBox;
 
 /**
  *

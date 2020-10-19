@@ -17,7 +17,7 @@
 
 package jfx.scene.layout.border;
 
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

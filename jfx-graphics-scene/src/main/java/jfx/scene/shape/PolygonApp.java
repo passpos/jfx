@@ -22,7 +22,7 @@ import static javafx.scene.layout.AnchorPane.setTopAnchor;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  *

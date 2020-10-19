@@ -19,7 +19,7 @@ package jfx.scene.text;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import jfx.utils.app.ContentBox;
+import jfx.core.app.ContentBox;
 
 /**
  * Text是Shape的子类
