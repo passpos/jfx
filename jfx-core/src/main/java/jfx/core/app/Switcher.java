@@ -74,6 +74,7 @@ public class Switcher {
 
         setStageStyle();
         setRootStyle();
+        addRootListener();
     }
 
     public Application getLauncher() {
@@ -116,7 +117,6 @@ public class Switcher {
     public void setRootStyle() {
         root.setStyle("-fx-background-color:#aaa8a4");
 
-        addRootListener();
     }
 
     private void addRootListener() {
