@@ -59,9 +59,12 @@ public abstract class AbstractSideBox extends AnchorPane {
         this.getChildren().add(scrollPane);
         initStyle();
 
+        // App列表
         ArrayList<Class<? extends ContentBox>> appList = appBox.getAppList();
+
+        // 创建App对应的按钮列表
         appList.forEach((appClass) -> {
-            // 创建按钮
+            // 创建单个按钮
             ButtonWrapper btn = new ButtonWrapper(appBox, appClass);
             btn.init();
             btn.setMinWidth(240);
