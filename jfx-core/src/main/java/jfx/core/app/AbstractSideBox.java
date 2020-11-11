@@ -44,6 +44,8 @@ public abstract class AbstractSideBox extends AnchorPane {
         btnPane = new ScrollPane();
         btnBox = new VBox();
         btnPane.setContent(btnBox);
+        btnPane.setFitToHeight(true);
+        btnPane.setFitToWidth(true);
     }
 
     /**
