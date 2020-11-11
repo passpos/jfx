@@ -16,14 +16,11 @@
  */
 package jfx.core.app;
 
-import fx.desktop.widgets.ScrollBarBuilder;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -32,8 +29,6 @@ import javafx.scene.layout.AnchorPane;
 public class ButtonWrapper extends Button {
 
     private AbstractAppBox appBox;
-    private ScrollBarBuilder ssb;
-    private ScrollBar vScrollBar;
     private Class<? extends ContentBox> appClass;
     private ContentBox app;
     private String title;
@@ -133,10 +128,6 @@ public class ButtonWrapper extends Button {
         }
     }
 
-    public ScrollBar getvScrollBar() {
-        return vScrollBar;
-    }
-
     /**
      * step-15
      *
@@ -157,25 +148,11 @@ public class ButtonWrapper extends Button {
                 appBox.getChildren().clear();
                 appBox.getChildren().add(app);
 
-                if (vScrollBar == null && app.getHeight() > appBox.getHeight()) {
-                    ssb = new ScrollBarBuilder(appBox, app, false, true);
-                    ssb.build();
-                    vScrollBar = ssb.getVScrollBar();
-                } else if (vScrollBar != null) {
-                    appBox.getChildren().add(vScrollBar);
-                    AnchorPane.setRightAnchor(vScrollBar, 0.0);
-                } else {
-
-                }
-
                 ContentBox.getPrimaryStage().setTitle(title);
             }
         });
 
         // 下面的代码只会在初始化时，执行一次
-        if (ssb != null && vScrollBar != null) {
-            ssb.setVariableWidth(true, 2.0);
-        }
     }
 
     @Override
