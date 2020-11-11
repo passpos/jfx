@@ -143,7 +143,7 @@ public class TreeViewApp extends ContentBox {
 
     /**
      * 这里直接对根节点设置事件处理，那么对子节点的操作，会将事件传递到根节
-     * 点，从未得到事件的响应；
+     * 点，从而得到事件的响应；
      */
     public void eventDemo() {
         Button b = new Button("eventDemo - 点击");
