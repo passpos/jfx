@@ -74,12 +74,10 @@ public class ButtonWrapper extends Button {
      * step-25（设置默认时/AbsSideBox）
      */
     public void setApp() {
-        if (app == null) {
-            try {
-                app = appClass.getConstructor().newInstance();
-            } catch (SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException ex) {
-                ex.printStackTrace();
-            }
+        try {
+            app = appClass.getConstructor().newInstance();
+        } catch (SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException ex) {
+            ex.printStackTrace();
         }
 
         if (app == null) {
