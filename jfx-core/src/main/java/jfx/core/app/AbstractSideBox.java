@@ -94,7 +94,7 @@ public abstract class AbstractSideBox extends AnchorPane {
         btnBox.setPadding(new Insets(5.0));
         btnBox.setSpacing(5);
         btnBox.setAlignment(Pos.TOP_CENTER);
-        this.heightProperty().addListener(new ChangeListener<Number>() {
+        this.prefHeightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
                 ol(t1);
