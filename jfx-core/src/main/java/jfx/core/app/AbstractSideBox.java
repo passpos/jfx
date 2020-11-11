@@ -64,6 +64,7 @@ public abstract class AbstractSideBox extends AnchorPane {
             // 创建按钮
             ButtonWrapper btn = new ButtonWrapper(appBox, appClass);
             btn.init();
+            btn.setMinWidth(240);
             if (btn.isShowing()) {
                 this.defaultBtn = btn;
                 ol("isShowing - " + btn.getTitle());
@@ -82,14 +83,11 @@ public abstract class AbstractSideBox extends AnchorPane {
 
     private void initStyle() {
         this.setPrefWidth(width);
-        this.setMaxWidth(width);
 
         // 设置侧边栏背景色
         this.setStyle("-fx-background-color:#778899");
 
-        btnBox.setPrefWidth(width);
-        btnBox.setMaxWidth(250);
-        btnBox.setMinWidth(250);
+        btnBox.setStyle("-fx-background-color:#778899");
         btnBox.setPadding(new Insets(5.0));
         btnBox.setSpacing(5);
         btnBox.setAlignment(Pos.TOP_CENTER);
