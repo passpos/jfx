@@ -21,11 +21,6 @@
     <dependencies>
         <dependency>
             <groupId>com.realpai</groupId>
-            <artifactId>fx-widgets</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.realpai</groupId>
             <artifactId>fx-media</artifactId>
             <version>${project.version}</version>
         </dependency>
