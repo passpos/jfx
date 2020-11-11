@@ -32,7 +32,7 @@ public abstract class AbstractSideBox extends AnchorPane {
 
     private Switcher switcher;
     private AbstractAppBox appBox;
-    private ScrollPane btnPane;
+    private ScrollPane scrollPane;
     private VBox btnBox;
     protected ButtonWrapper defaultBtn;
     private double width = 250.0;
@@ -41,11 +41,11 @@ public abstract class AbstractSideBox extends AnchorPane {
      * step-1
      */
     public AbstractSideBox() {
-        btnPane = new ScrollPane();
         btnBox = new VBox();
-        btnPane.setContent(btnBox);
-        btnPane.setFitToHeight(true);
-        btnPane.setFitToWidth(true);
+        scrollPane = new ScrollPane();
+        scrollPane.setContent(btnBox);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setFitToWidth(true);
     }
 
     /**
@@ -56,7 +56,7 @@ public abstract class AbstractSideBox extends AnchorPane {
      * step-8 by Switcher-init()
      */
     public final void init() {
-        this.getChildren().add(btnPane);
+        this.getChildren().add(scrollPane);
         initStyle();
 
         ArrayList<Class<? extends ContentBox>> appList = appBox.getAppList();
@@ -83,9 +83,6 @@ public abstract class AbstractSideBox extends AnchorPane {
 
     private void initStyle() {
         this.setPrefWidth(width);
-
-        // 设置侧边栏背景色
-        this.setStyle("-fx-background-color:#778899");
 
         btnBox.setStyle("-fx-background-color:#778899");
         btnBox.setPadding(new Insets(5.0));
