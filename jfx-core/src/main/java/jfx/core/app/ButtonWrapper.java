@@ -139,11 +139,8 @@ public class ButtonWrapper extends Button {
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                if (app == null) {
-                    setApp();
-                } else {
-                    app.setConsoleStyle();
-                }
+                setApp();
+                app.setConsoleStyle();
 
                 appBox.getChildren().clear();
                 appBox.getChildren().add(app);
