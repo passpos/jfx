@@ -18,6 +18,8 @@
 package jfx.core.app;
 
 import java.util.ArrayList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
@@ -86,11 +88,19 @@ public abstract class AbstractSideBox extends AnchorPane {
 
     private void initStyle() {
         this.setPrefWidth(width);
+        this.setPrefHeight(50);
 
         btnBox.setStyle("-fx-background-color:#778899");
         btnBox.setPadding(new Insets(5.0));
         btnBox.setSpacing(5);
         btnBox.setAlignment(Pos.TOP_CENTER);
+        this.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+                ol(t1);
+                scrollPane.setPrefHeight(t1.doubleValue());
+            }
+        });
     }
 
     public Switcher getSwitcher() {
