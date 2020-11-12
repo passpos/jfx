@@ -44,11 +44,14 @@ public class HBoxApp extends ContentBox {
 
     public void test() {
         HBox hBox = new HBox();
+
+        // 限定最大尺寸
         hBox.setMaxSize(100, 20);
 
         Button b1 = new Button("blabla");
         Button b2 = new Button("blabla");
         Button b3 = new Button("blabla");
+        // 限定子组件的最小尺寸
         b1.setMinSize(100, 20);
         b2.setMinSize(100, 20);
         b3.setMinSize(100, 20);
