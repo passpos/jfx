@@ -17,14 +17,15 @@
 package jfx.app;
 
 import java.util.ArrayList;
+import jfx.core.app.AbstractAppBox;
+import jfx.core.app.AbstractSideBox;
+import jfx.core.app.ContentBox;
 import jfx.embed.swing.*;
+import jfx.features.other.*;
 import jfx.fxml.*;
 import jfx.scene.media.*;
 import jfx.scene.web.*;
 import jfx.swing.*;
-import jfx.core.app.AbstractAppBox;
-import jfx.core.app.AbstractSideBox;
-import jfx.core.app.ContentBox;
 
 /**
  *
@@ -64,11 +65,14 @@ public class AppBox extends AbstractAppBox {
         appList.add(Demo2JEditorPaneApp.class);
         appList.add(Demo3WebViewApp.class);
 
-        // JabaFX Swing
+        // JavaFX Swing
         appList.add(SwingNodeApp.class);
 
         // Swing
         appList.add(JFrameApp.class);
 
+        // Features
+        appList.add(ReflectionApp.class);
+        appList.add(CloneApp.class);
     }
 }
