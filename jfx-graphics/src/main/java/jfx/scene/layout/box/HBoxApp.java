@@ -14,8 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package jfx.scene.layout.box;
+
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import jfx.core.app.ContentBox;
 
 /**
  * 水平排列子组件的布局方式
@@ -29,6 +32,32 @@ package jfx.scene.layout.box;
  * 4. 当HBox的父组件尺寸固定（如设置了maxSize），而HBox的尺寸开放时：
  * @author realpai <paiap@outlook.com>
  */
-public class HBoxApp {
+public class HBoxApp extends ContentBox {
+
+    public static final boolean SHOWING = false;
+    public static final String TITLE = "Layout - HBox";
+
+    @Override
+    public void index() {
+        test();
+    }
+
+    public void test() {
+        HBox hBox = new HBox();
+        hBox.setMaxSize(100, 20);
+
+        Button b1 = new Button("blabla");
+        Button b2 = new Button("blabla");
+        Button b3 = new Button("blabla");
+        b1.setMinSize(100, 20);
+        b2.setMinSize(100, 20);
+        b3.setMinSize(100, 20);
+
+        hBox.getChildren().addAll(b1, b2, b3);
+        System.out.println(hBox.widthProperty().getValue());
+        System.out.println(hBox.prefWidthProperty().getValue());
+        System.out.println(hBox.maxWidthProperty().getValue());
+        this.getChildren().add(hBox);
+    }
 
 }
