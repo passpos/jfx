@@ -33,7 +33,7 @@ import jfx.core.app.ContentBox;
  */
 public class StageApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Stage - Stage";
     public Stage stage;
 
