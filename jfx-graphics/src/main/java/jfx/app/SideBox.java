@@ -105,15 +105,15 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Layout - ")) {
-            if (title.contains("Pane")) {
+            if (title.contains("Background")) {
                 btn.setStyle("-fx-background-color: #ffe4aa");
-            } else if (title.contains("Box")) {
-                btn.setStyle("-fx-background-color: #ffe499");
-            } else if (title.contains("Background")) {
-                btn.setStyle("-fx-background-color: #ffe4cc");
             } else if (title.contains("Border")) {
                 btn.setStyle("-fx-background-color: #ffe499");
+            } else if (title.contains("Box")) {
+                btn.setStyle("-fx-background-color: #ffe4cc");
             } else if (title.contains("Constraints")) {
+                btn.setStyle("-fx-background-color: #ffe499");
+            } else if (title.contains("Pane")) {
                 btn.setStyle("-fx-background-color: #ffe4cc");
             } else {
                 btn.setStyle("-fx-background-color: #ffe499");
