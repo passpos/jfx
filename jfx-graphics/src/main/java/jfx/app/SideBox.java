@@ -20,6 +20,7 @@ package jfx.app;
 import javafx.geometry.Pos;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ButtonWrapper;
+import jfx.core.app.ContentBox;
 
 /**
  *
@@ -68,6 +69,111 @@ public class SideBox extends AbstractSideBox {
             }
         }
 
+        // jfx.scene
+        if (title.startsWith("Canvas - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aae4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #aae4c4");
+            }
+        }
+
+        if (title.startsWith("Effect - ")) {
+            if (title.contains("Shadow")) {
+                btn.setStyle("-fx-background-color: #aa99c4");
+            } else if (title.contains("Blur")) {
+                btn.setStyle("-fx-background-color: #aa99ac");
+            } else {
+                btn.setStyle("-fx-background-color: #aa99b5");
+            }
+        }
+
+        if (title.startsWith("Geometry - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #ffe4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #ffe499");
+            }
+        }
+
+        if (title.startsWith("Image - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aae4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #aae499");
+            }
+        }
+
+        if (title.startsWith("Input - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aa99c4");
+            } else {
+                btn.setStyle("-fx-background-color: #aa99b5");
+            }
+        }
+
+        if (title.startsWith("Layout - ")) {
+            if (title.contains("Pane")) {
+                btn.setStyle("-fx-background-color: #ffe4aa");
+            } else if (title.contains("Box")) {
+                btn.setStyle("-fx-background-color: #ffe499");
+            } else if (title.contains("Background")) {
+                btn.setStyle("-fx-background-color: #ffe4cc");
+            } else if (title.contains("Border")) {
+                btn.setStyle("-fx-background-color: #ffe499");
+            } else if (title.contains("Constraints")) {
+                btn.setStyle("-fx-background-color: #ffe4cc");
+            } else {
+                btn.setStyle("-fx-background-color: #ffe499");
+            }
+        }
+
+        if (title.startsWith("Paint - ")) {
+            if (title.contains("Material")) {
+                btn.setStyle("-fx-background-color: #aae4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #aae4c4");
+            }
+        }
+
+        if (title.startsWith("Robot - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aa99c4");
+            } else {
+                btn.setStyle("-fx-background-color: #aa99aa");
+            }
+        }
+
+        if (title.startsWith("Shape - ")) {
+            if (title.contains("Line") || title.contains("line")) {
+                btn.setStyle("-fx-background-color: #ffe4aa");
+            } else if (title.contains("Curve")) {
+                btn.setStyle("-fx-background-color: #ffe499");
+            } else if (title.contains("Path")) {
+                btn.setStyle("-fx-background-color: #ffe4cc");
+            } else if (title.contains("3D")) {
+                btn.setStyle("-fx-background-color: #ffe499");
+            } else {
+                btn.setStyle("-fx-background-color: #ffe4cc");
+            }
+        }
+
+        if (title.startsWith("Text - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aae4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #aae4c4");
+            }
+        }
+
+        if (title.startsWith("Transform - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aa99c4");
+            } else {
+                btn.setStyle("-fx-background-color: #aa99aa");
+            }
+        }
+
         btn.setAlignment(Pos.CENTER_LEFT);
     }
 
@@ -76,6 +182,7 @@ public class SideBox extends AbstractSideBox {
         if (defaultBtn == null) {
             this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(0);
         }
+        ContentBox.getPrimaryStage().setTitle(defaultBtn.getTitle());
     }
 
 }
