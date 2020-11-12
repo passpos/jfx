@@ -61,14 +61,6 @@ public class SideBox extends AbstractSideBox {
             }
         }
 
-        if (title.startsWith("Stage - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
-        }
-
         // jfx.scene
         if (title.startsWith("Canvas - ")) {
             if (title.contains("Demo")) {
@@ -171,6 +163,14 @@ public class SideBox extends AbstractSideBox {
                 btn.setStyle("-fx-background-color: #aa99c4");
             } else {
                 btn.setStyle("-fx-background-color: #aa99aa");
+            }
+        }
+
+        if (title.startsWith("Stage - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aa99c4");
+            } else {
+                btn.setStyle("-fx-background-color: #aa66aa");
             }
         }
 
