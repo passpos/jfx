@@ -71,9 +71,9 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Effect - ")) {
-            if (title.contains("Shadow")) {
+            if (title.contains("Blur")) {
                 btn.setStyle("-fx-background-color: #aa99c4");
-            } else if (title.contains("Blur")) {
+            } else if (title.contains("Shadow")) {
                 btn.setStyle("-fx-background-color: #aa99ac");
             } else {
                 btn.setStyle("-fx-background-color: #aa99b5");
