@@ -81,8 +81,10 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Geometry - ")) {
-            if (title.contains("Demo")) {
+            if (title.contains("Enum")) {
                 btn.setStyle("-fx-background-color: #ffe4aa");
+            } else if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aa99ac");
             } else {
                 btn.setStyle("-fx-background-color: #ffe499");
             }

@@ -16,6 +16,7 @@
  */
 package jfx.scene.layout.box;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import jfx.core.app.ContentBox;
@@ -40,6 +41,14 @@ public class HBoxApp extends ContentBox {
     @Override
     public void index() {
         test();
+    }
+
+    public void baseDemo() {
+        HBox hBox = new HBox();
+
+        // 设置内边距
+        hBox.setPadding(new Insets(3, 5, 4, 7));
+        this.getChildren().add(hBox);
     }
 
     public void test() {

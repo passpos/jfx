@@ -25,6 +25,7 @@ import jfx.concurrent.*;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ContentBox;
+import jfx.geometry.*;
 import jfx.scene.*;
 import jfx.scene.canvas.*;
 import jfx.scene.effect.*;
@@ -129,6 +130,10 @@ public class AppBox extends AbstractAppBox {
         appList.add(InnerShadowApp.class);
 
         // Geometry
+        appList.add(InsetsApp.class);
+        // Geometry - Enum
+        appList.add(PosApp.class);
+
         // Image
         appList.add(ImageApp.class);
         appList.add(ImageViewApp.class);
