@@ -38,7 +38,10 @@ public class AnchorPaneApp extends ContentBox {
         btn.setLayoutX(300);
         btn.setLayoutY(20);
 
-        // AnchorPane管理布局优先生效；
+        /* AnchorPane管理布局优先生效；
+         * 当父组件为AnchorPane是，可以这样布局子组件。
+         * 下面设置子组件 btn 距离父组件的顶部与左侧分别为50、100；
+         */
         AnchorPane.setTopAnchor(btn, 50.0);
         AnchorPane.setLeftAnchor(btn, 100.0);
 
