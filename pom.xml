@@ -14,10 +14,9 @@
         <module>jfx-base</module>
         <module>jfx-controls</module>
         <module>jfx-demo</module>
-        <module>jfx-features</module>
         <module>jfx-graphics</module>
-        <module>jfx-graphics-scene</module>
         <module>jfx-other</module>
+        <module>jfx-test</module>
     </modules>
     <dependencies>
         <dependency>
