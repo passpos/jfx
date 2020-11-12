@@ -3,15 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.passpos</groupId>
-        <artifactId>JFX</artifactId>
+        <artifactId>jfx-demo</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jfx-demo</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>jfx-demo-picture</module>
-        <module>jfx-demo-tray</module>
-        <module>jfx-demo-stage</module>
-        <module>jfx-demo-controls</module>
-    </modules>
+    <artifactId>jfx-demo-controls</artifactId>
+    <packaging>jar</packaging>
 </project>
