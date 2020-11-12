@@ -92,13 +92,6 @@ public class AppBox extends AbstractAppBox {
         appList.add(ServiceApp.class);
         appList.add(ScheduledServiceApp.class);
 
-        // Satge
-        appList.add(DirectoryChooserApp.class);
-        appList.add(FileChooserApp.class);
-        appList.add(ScreenApp.class);
-        appList.add(StageApp.class);
-        appList.add(WindowApp.class);
-
         // Scene
         appList.add(SceneApp.class);
         appList.add(SubSceneApp.class);
@@ -124,15 +117,15 @@ public class AppBox extends AbstractAppBox {
         appList.add(BlendApp.class);
         appList.add(LightingApp.class);
 
-        // Effect - Shadow
-        appList.add(ShadowApp.class);
-        appList.add(DropShadowApp.class);
-        appList.add(InnerShadowApp.class);
-
         // Effect - Blur
         appList.add(BoxBlurApp.class);
         appList.add(GaussianBlurApp.class);
         appList.add(MotionBlurApp.class);
+
+        // Effect - Shadow
+        appList.add(ShadowApp.class);
+        appList.add(DropShadowApp.class);
+        appList.add(InnerShadowApp.class);
 
         // Geometry
         // Image
@@ -172,17 +165,9 @@ public class AppBox extends AbstractAppBox {
         appList.add(ArcApp.class);
         appList.add(PolygonApp.class);
 
-        // Shape - Line
-        appList.add(LineApp.class);
-        appList.add(PolylineApp.class);
-
         // Shape - Curve
         appList.add(QuadCurveApp.class);
         appList.add(CubicCurveApp.class);
-
-        // Shape - Path
-        appList.add(PathApp.class);
-        appList.add(SVGPathApp.class);
 
         // Shape - 3D
         appList.add(CoordinateSpaceApp.class);
@@ -190,6 +175,14 @@ public class AppBox extends AbstractAppBox {
         appList.add(CylinderApp.class);
         appList.add(SphereApp.class);
         appList.add(MeshViewApp.class);
+
+        // Shape - Line
+        appList.add(LineApp.class);
+        appList.add(PolylineApp.class);
+
+        // Shape - Path
+        appList.add(PathApp.class);
+        appList.add(SVGPathApp.class);
 
         // Text
         appList.add(TextApp.class);
@@ -201,5 +194,12 @@ public class AppBox extends AbstractAppBox {
         appList.add(RotateApp.class);
         appList.add(ShearApp.class);
         appList.add(AffineApp.class);
+
+        // Satge
+        appList.add(DirectoryChooserApp.class);
+        appList.add(FileChooserApp.class);
+        appList.add(ScreenApp.class);
+        appList.add(StageApp.class);
+        appList.add(WindowApp.class);
     }
 }
