@@ -18,6 +18,7 @@ package jfx.scene.layout.box;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import jfx.core.app.ContentBox;
 
@@ -40,19 +41,30 @@ public class HBoxApp extends ContentBox {
 
     @Override
     public void index() {
+        baseDemo();
         test();
     }
 
     public void baseDemo() {
         HBox hBox = new HBox();
+        Button b1 = new Button("blabla");
+        Button b2 = new Button("blabla");
+        Button b3 = new Button("blabla");
+        hBox.getChildren().addAll(b1, b2, b3);
 
-        // 设置内边距
-        hBox.setPadding(new Insets(3, 5, 4, 7));
+        // 设置HBox的内边距，不影响子组件
+        hBox.setPadding(new Insets(3, 55, 4, 70));
+
+        // 设置子组件间的空隙，不影响HBox
+        hBox.setSpacing(20);
+        
+        hBox.setStyle("-fx-background-color: #793");
         this.getChildren().add(hBox);
     }
 
     public void test() {
         HBox hBox = new HBox();
+        hBox.setStyle("-fx-background-color: #829");
 
         // 限定最大尺寸
         hBox.setMaxSize(100, 20);
@@ -70,6 +82,7 @@ public class HBoxApp extends ContentBox {
         System.out.println(hBox.prefWidthProperty().getValue());
         System.out.println(hBox.maxWidthProperty().getValue());
         this.getChildren().add(hBox);
+        AnchorPane.setTopAnchor(hBox, 100.0);
     }
 
 }
