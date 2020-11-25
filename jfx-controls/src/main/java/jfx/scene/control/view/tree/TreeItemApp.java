@@ -125,7 +125,7 @@ public class TreeItemApp extends ContentBox {
             public void handle(TreeItem.TreeModificationEvent<String> t) {
                 ol(t.getNewValue());
             }
-        }
+        };
         root.addEventHandler(TreeItem.<String>valueChangedEvent(), eh);
     }
 
@@ -133,11 +133,12 @@ public class TreeItemApp extends ContentBox {
      * 父节点下展开项数量的变化事件
      */
     public void countChangeEvenet() {
-        root.addEventHandler(TreeItem.expandedItemCountChangeEvent(), new EventHandler<TreeItem.TreeModificationEvent<String>>() {
+        EventHandler<TreeItem.TreeModificationEvent<String>> eh = new EventHandler<>() {
             @Override
             public void handle(TreeItem.TreeModificationEvent<String> t) {
             }
-        });
+        };
+        root.addEventHandler(TreeItem.expandedItemCountChangeEvent(), eh);
     }
 
 }
