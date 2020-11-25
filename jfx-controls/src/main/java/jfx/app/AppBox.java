@@ -43,6 +43,7 @@ import jfx.scene.control.view.tree.TreeCellApp;
 import jfx.scene.control.view.tree.TreeCellDemo1;
 import jfx.scene.control.view.tree.TreeCellDemo2;
 import jfx.scene.control.view.tree.TreeItemApp;
+import jfx.scene.control.view.tree.TreeItemDemo;
 import jfx.scene.control.view.tree.TreeViewApp;
 import jfx.scene.control.view.treetable.TreeTableViewApp;
 
@@ -140,6 +141,7 @@ public class AppBox extends AbstractAppBox {
         // Tree
         appList.add(TreeViewApp.class);
         appList.add(TreeItemApp.class);
+        appList.add(TreeItemDemo.class);
         appList.add(TreeCellApp.class);
         appList.add(TreeCellDemo1.class);
         appList.add(TreeCellDemo2.class);
