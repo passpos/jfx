@@ -105,10 +105,12 @@ public class TreeItemDemo extends ContentBox {
                 File f = TreeItem.getValue();
                 // 若文件是一个目录，则取得其下所有的子；
                 if (f != null && f.isDirectory()) {
+                    // 目录下的所有文件
                     File[] files = f.listFiles();
-                    if (files != null) {
-                        ObservableList<TreeItem<File>> children = FXCollections.observableArrayList();
+                    ObservableList<TreeItem<File>> children = FXCollections.observableArrayList();
 
+                    // 判断目录是否为空
+                    if (files != null) {
                         for (File childFile : files) {
                             children.add(createNode(childFile));
                         }
