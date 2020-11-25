@@ -47,8 +47,8 @@ public class TreeItemDemo extends ContentBox {
 
     /**
      * 此方法创建一个TreeItem来表示给定的File。它通过匿名重写
-     * TreeItem.getChildren（）和TreeItem.isLeaf（）方法来做到这一点，但最好通过
-     * 创建TreeItem的“ FileTreeItem”子类来抽象该方法。
+     * TreeItem.getChildren()和TreeItem.isLeaf()方法来做到这一点，但最好通过创建
+     * TreeItem的“ FileTreeItem”子类来抽象该方法。
      * 但是，这留给用户作练习；
      */
     private TreeItem<File> createNode(final File f) {
