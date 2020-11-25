@@ -104,10 +104,9 @@ public class SideBox extends AbstractSideBox {
             } else {
                 btn.setStyle("-fx-background-color: #aae4c4");
             }
-
         }
 
-        if (title.startsWith("View - ")) {
+        if (title.startsWith("List - ")) {
             if (title.contains("Demo")) {
                 btn.setStyle("-fx-background-color: #aa99c4");
             } else {
@@ -115,11 +114,19 @@ public class SideBox extends AbstractSideBox {
             }
         }
 
-        if (title.startsWith("ListCell - ")) {
+        if (title.startsWith("Table - ")) {
             if (title.contains("Demo")) {
                 btn.setStyle("-fx-background-color: #ffe4aa");
             } else {
                 btn.setStyle("-fx-background-color: #ffe4c4");
+            }
+        }
+
+        if (title.startsWith("Tree - ")) {
+            if (title.contains("Demo")) {
+                btn.setStyle("-fx-background-color: #aae4aa");
+            } else {
+                btn.setStyle("-fx-background-color: #aae4c4");
             }
         }
 

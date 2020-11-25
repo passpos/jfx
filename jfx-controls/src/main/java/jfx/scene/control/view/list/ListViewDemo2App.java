@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package jfx.scene.control.view;
+package jfx.scene.control.view.list;
 
 import java.util.Comparator;
 import java.util.function.Predicate;

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package jfx.scene.control.cell.list;
+package jfx.scene.control.view.list;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

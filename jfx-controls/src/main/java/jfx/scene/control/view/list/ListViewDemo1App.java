@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view;
+package jfx.scene.control.view.list;
 
 import java.util.function.Consumer;
 import javafx.beans.InvalidationListener;
