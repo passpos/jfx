@@ -18,19 +18,15 @@ package jfx.scene.control.view.tree;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollToEvent;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 
 /**
@@ -50,7 +46,6 @@ public class TreeViewApp extends ContentBox {
         baseDemo();
         selectionModeDemo();
         focusChangeDemo();
-//        editDemo();
 //        customTreeCell();
         cellFactoryDemo();
     }
@@ -127,56 +122,6 @@ public class TreeViewApp extends ContentBox {
         tv.requestFocus();
     }
 
-    public void editDemo() {
-        tv.setEditable(true);
-        tv.setCellFactory(TextFieldTreeCell.forTreeView());
-        tv.setCellFactory(TextFieldTreeCell.forTreeView(new StringConverter<String>() {
-            @Override
-            public String toString(String t) {
-                return t + " - 这个好";
-            }
-
-            @Override
-            public String fromString(String string) {
-                return string;
-            }
-
-        }));
-
-        Button b = new Button("editDemo - 点击");
-        b.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                root.setValue("中国");
-                root.setGraphic(new Button(root.getValue()));
-            }
-        });
-        getChildren().add(b);
-        setLeftAnchor(b, 160.0);
-    }
-
-    public void customTreeCell() {
-        tv.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
-            @Override
-            public TreeCell<String> call(TreeView<String> param) {
-                TreeCell<String> tc = new TreeCell<String>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!empty) {
-                            HBox hBox = new HBox();
-                            hBox.getChildren().add(new Label(item));
-                            this.setGraphic(hBox);
-                        } else if (empty) {
-                            this.setGraphic(null);
-                        }
-                    }
-
-                };
-                return tc;
-            }
-        });
-    }
 
     /**
      * TreeView通过CellFactory，对其下的所有子项（TreeItem）设置视觉事件；
@@ -184,14 +129,10 @@ public class TreeViewApp extends ContentBox {
      * - 自定义的节点结构；
      * - 可编辑的节点；
      * -
-     * 细节参考TreeCell；
+     * 细节参考TreeCell及其Demo；
      */
     public void cellFactoryDemo() {
-        tv.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
-
-            @Override
-            public TreeCell<String> call(TreeView<String> param) {
-                TreeCell<String> tc = new TreeCell<String>() {
+        TreeCell<String> tc = new TreeCell<String>() {
                     @Override
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
@@ -204,8 +145,13 @@ public class TreeViewApp extends ContentBox {
                         }
                     }
                 };
+        Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
+
+            @Override
+            public TreeCell<String> call(TreeView<String> param) {
                 return tc;
             }
-        });
+        };
+        tv.setCellFactory(cb);
     }
 }
