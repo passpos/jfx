@@ -35,11 +35,14 @@ import jfx.scene.control.view.list.ChoiceBoxListCellApp;
 import jfx.scene.control.view.list.ComboBoxListCellApp;
 import jfx.scene.control.view.list.ListCellApp;
 import jfx.scene.control.view.list.ListViewApp;
-import jfx.scene.control.view.list.ListViewDemo1App;
-import jfx.scene.control.view.list.ListViewDemo2App;
+import jfx.scene.control.view.list.ListViewDemo1;
+import jfx.scene.control.view.list.ListViewDemo2;
 import jfx.scene.control.view.list.TextFieldListCellApp;
 import jfx.scene.control.view.table.TableViewApp;
 import jfx.scene.control.view.tree.TreeCellApp;
+import jfx.scene.control.view.tree.TreeCellDemo1;
+import jfx.scene.control.view.tree.TreeCellDemo2;
+import jfx.scene.control.view.tree.TreeItemApp;
 import jfx.scene.control.view.tree.TreeViewApp;
 import jfx.scene.control.view.treetable.TreeTableViewApp;
 
@@ -99,7 +102,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ChoiceDialogApp.class);
         appList.add(TextInputDialogApp.class);
         appList.add(AlertTypeApp.class);
-        appList.add(DemoCustomeStageApp.class);
+        appList.add(CustomeStageDemo.class);
 
         // Input
         appList.add(TextAreaApp.class);
@@ -112,8 +115,8 @@ public class AppBox extends AbstractAppBox {
         appList.add(MenuBarApp.class);
         appList.add(ChoiceBoxApp.class);
         appList.add(ComboBoxApp.class);
-        appList.add(ChoiceBoxDemoApp.class);
-        appList.add(ComboBoxDemoApp.class);
+        appList.add(ChoiceBoxDemo.class);
+        appList.add(ComboBoxDemo.class);
 
         // Pane
         appList.add(ScrollPaneApp.class);
@@ -123,8 +126,8 @@ public class AppBox extends AbstractAppBox {
 
         // List
         appList.add(ListViewApp.class);
-        appList.add(ListViewDemo1App.class);
-        appList.add(ListViewDemo2App.class);
+        appList.add(ListViewDemo1.class);
+        appList.add(ListViewDemo2.class);
         appList.add(ListCellApp.class);
         appList.add(CheckBoxListCellApp.class);
         appList.add(ChoiceBoxListCellApp.class);
@@ -136,7 +139,10 @@ public class AppBox extends AbstractAppBox {
 
         // Tree
         appList.add(TreeViewApp.class);
+        appList.add(TreeItemApp.class);
         appList.add(TreeCellApp.class);
+        appList.add(TreeCellDemo1.class);
+        appList.add(TreeCellDemo2.class);
 
         // TreeTable
         appList.add(TreeTableViewApp.class);
