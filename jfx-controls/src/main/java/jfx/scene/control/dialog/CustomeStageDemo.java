@@ -29,10 +29,10 @@ import jfx.core.app.ContentBox;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class DemoCustomeStageApp extends ContentBox {
+public class CustomeStageDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Dialog - 自定义Stage";
+    public static final String TITLE = "Dialog - 自定义Stage Demo";
     private Stage stage;
 
     @Override
