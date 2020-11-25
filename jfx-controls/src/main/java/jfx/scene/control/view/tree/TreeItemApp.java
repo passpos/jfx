@@ -19,12 +19,16 @@ import static jfx.core.app.ContentBox.ol;
 import utils.entity.demo.sample.Person;
 
 /**
+ * TreeView下的节点；
+ *
+ * 注意：TreeItem不是节点！
+ * 因此不会在TreeItem上触发任何视觉事件。为了获得这些事件，有必要将相关的观察者
+ * 添加到TreeCell实例中（通过自定义单元工厂）。
+ *
  * 该模型允许注册侦听器，当出现以下几种情况时，将通知它们：
+ * - 值改变；
  * - 项数改变；
  * - 位置改变；
- * - 值本身改变；
- * 但是请注意，TreeItem不是节点，因此不会在TreeItem上触发任何视觉事件。为了获得
- * 这些事件，有必要将相关的观察者添加到TreeCell实例中（通过自定义单元工厂）。
  *
  * 直接对根节点设置事件处理，那么对子节点的操作，会将事件传递到根节点，从而得到
  * 事件的响应；
@@ -116,14 +120,13 @@ public class TreeItemApp extends ContentBox {
                 root.setValue("newName");
             }
         });
-        root.addEventHandler(
-                TreeItem.<String>valueChangedEvent(),
-                new EventHandler<TreeItem.TreeModificationEvent<String>>() {
+        EventHandler<TreeItem.TreeModificationEvent<String>> eh = new EventHandler<>() {
             @Override
             public void handle(TreeItem.TreeModificationEvent<String> t) {
                 ol(t.getNewValue());
             }
-        });
+        }
+        root.addEventHandler(TreeItem.<String>valueChangedEvent(), eh);
     }
 
     /**
