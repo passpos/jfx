@@ -53,7 +53,7 @@ public class TreeItemApp extends ContentBox {
         // 节点下是否为空；
         ol("isLeaf() - " + root.isLeaf());
 
-        // 当前节点的上个节点（根节点获取不到上一个节点）
+        // root的上个节点为空
         ol("previousSibling() - " + root.previousSibling());
 
         // 当前节点的下个节点
