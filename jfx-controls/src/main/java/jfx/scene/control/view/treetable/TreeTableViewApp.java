@@ -40,7 +40,7 @@ import jfx.core.entity.FxStudent;
 public class TreeTableViewApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "View - TreeTableView";
+    public static final String TITLE = "TreeTable - TreeTableView";
     private TreeTableView<FxStudent> ttv;
     private TreeTableColumn<FxStudent, String> nc;
     private TreeTableColumn<FxStudent, Number> ac;

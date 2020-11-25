@@ -35,6 +35,8 @@ import jfx.scene.control.view.list.ChoiceBoxListCellApp;
 import jfx.scene.control.view.list.ComboBoxListCellApp;
 import jfx.scene.control.view.list.ListCellApp;
 import jfx.scene.control.view.list.ListViewApp;
+import jfx.scene.control.view.list.ListViewDemo1App;
+import jfx.scene.control.view.list.ListViewDemo2App;
 import jfx.scene.control.view.list.TextFieldListCellApp;
 import jfx.scene.control.view.table.TableViewApp;
 import jfx.scene.control.view.tree.TreeCellApp;
@@ -121,6 +123,8 @@ public class AppBox extends AbstractAppBox {
 
         // List
         appList.add(ListViewApp.class);
+        appList.add(ListViewDemo1App.class);
+        appList.add(ListViewDemo2App.class);
         appList.add(ListCellApp.class);
         appList.add(CheckBoxListCellApp.class);
         appList.add(ChoiceBoxListCellApp.class);

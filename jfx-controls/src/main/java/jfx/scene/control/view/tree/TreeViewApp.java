@@ -54,7 +54,7 @@ import jfx.core.app.ContentBox;
 public class TreeViewApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "View - TreeView";
+    public static final String TITLE = "Tree - TreeView";
     private TreeView<String> tv;
     private TreeItem<String> root;
 

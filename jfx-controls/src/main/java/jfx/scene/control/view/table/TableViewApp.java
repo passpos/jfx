@@ -70,7 +70,7 @@ import utils.entity.demo.sample.Student;
 public class TableViewApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "View - TableView";
+    public static final String TITLE = "Table - TableView";
     private TableView<Student> tbv;
     private ObservableList<Student> oal1;
     private ObservableList<FxStudent> oal2;
