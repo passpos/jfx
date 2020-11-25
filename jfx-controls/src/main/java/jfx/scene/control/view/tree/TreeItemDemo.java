@@ -40,6 +40,11 @@ public class TreeItemDemo extends ContentBox {
         getChildren().add(tv);
     }
 
+    /**
+     * 该方法对一个文件根创建TreeView
+     *
+     * @return
+     */
     private TreeView<File> buildFileSystemBrowser() {
         TreeItem<File> fr = createNode(new File("/"));
         return new TreeView<>(fr);
