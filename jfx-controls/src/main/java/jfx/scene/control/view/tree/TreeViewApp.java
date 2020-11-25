@@ -20,7 +20,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollToEvent;
@@ -29,20 +28,7 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTreeCell;
-import javafx.scene.image.WritableImage;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
@@ -63,10 +49,9 @@ public class TreeViewApp extends ContentBox {
         fillData();
         baseDemo();
 //        listenerDemo();
-//        eventDemo();
 //        editDemo();
 //        customTreeCell();
-        dragDemo();
+        cellFactoryDemo();
     }
 
     /**
@@ -78,14 +63,6 @@ public class TreeViewApp extends ContentBox {
         root = new TreeItem<>("中国");
         root.setExpanded(true);
         root.setValue("China");
-        root.isLeaf();    // 节点下是否为空；
-        // 当前节点的上下节点（根节点获取不到上一个节点）
-        // root.previousSibling().getValue();
-        // root.nextSibling().getValue();
-        // 父节点
-        // root.getParent().getValue();
-        // 子节点
-        // root.getChildren();
 
         TreeItem<String> ti1 = new TreeItem<>("黑龙江省");
         TreeItem<String> leaf1 = new TreeItem<>("哈尔滨市");
@@ -104,7 +81,7 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * B101
+     * B101 滚动事件
      */
     public void baseDemo() {
         tv.setPrefWidth(150.0);
@@ -122,7 +99,10 @@ public class TreeViewApp extends ContentBox {
         });
     }
 
-    public void listenerDemo() {
+    /**
+     * 选择事件
+     */
+    public void selectionModeDemo() {
         tv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         tv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
@@ -130,7 +110,9 @@ public class TreeViewApp extends ContentBox {
                 ol(t1.getValue());
             }
         });
+    }
 
+    public void focusChangeDemo() {
         tv.getFocusModel().focus(3);
         tv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
@@ -139,33 +121,6 @@ public class TreeViewApp extends ContentBox {
             }
         });
         tv.requestFocus();
-    }
-
-    /**
-     * 这里直接对根节点设置事件处理，那么对子节点的操作，会将事件传递到根节
-     * 点，从而得到事件的响应；
-     */
-    public void eventDemo() {
-        Button b = new Button("eventDemo - 点击");
-        getChildren().add(b);
-        setLeftAnchor(b, 300.0);
-        b.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                root.setValue("newName");
-            }
-        });
-        root.addEventHandler(TreeItem.<String>valueChangedEvent(), new EventHandler<TreeItem.TreeModificationEvent<String>>() {
-            @Override
-            public void handle(TreeItem.TreeModificationEvent<String> t) {
-                ol(t.getNewValue());
-            }
-        });
-        root.addEventHandler(TreeItem.expandedItemCountChangeEvent(), new EventHandler<TreeItem.TreeModificationEvent<String>>() {
-            @Override
-            public void handle(TreeItem.TreeModificationEvent<String> t) {
-            }
-        });
     }
 
     public void editDemo() {
@@ -219,9 +174,16 @@ public class TreeViewApp extends ContentBox {
         });
     }
 
-    public void dragDemo() {
+    /**
+     * TreeView通过CellFactory，对其下的所有子项（TreeItem）设置视觉事件；
+     * 这些视觉事件包括：
+     * - 自定义的节点结构；
+     * - 可编辑的节点；
+     * -
+     * 细节参考TreeCell；
+     */
+    public void cellFactoryDemo() {
         tv.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
-            public TreeCell<String> temp;
 
             @Override
             public TreeCell<String> call(TreeView<String> param) {
@@ -238,66 +200,6 @@ public class TreeViewApp extends ContentBox {
                         }
                     }
                 };
-
-                tc.setOnDragDetected(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent t) {
-                        Dragboard sdd = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-                        ClipboardContent cc = new ClipboardContent();
-                        cc.putString(tc.getItem());
-
-                        Text text = new Text(tc.getItem());
-                        text.setFont(new Font(16));
-                        WritableImage wi = new WritableImage((int) tc.getWidth(), 20);
-                        text.snapshot(new SnapshotParameters(), wi);
-
-                        sdd.setDragView(wi);
-                        sdd.setContent(cc);
-                    }
-                });
-
-                tc.setOnDragOver(new EventHandler<DragEvent>() {
-                    @Override
-                    public void handle(DragEvent t) {
-                        t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-                        if (temp != null) {
-                            temp.setBorder(null);
-                        }
-                        temp = tc;
-                        if (t.getY() >= 0 && t.getY() <= tc.getHeight() - 10) {
-
-                        } else if (t.getY() > tc.getHeight() - 10 && t.getY() <= tc.getHeight()) {
-                            BorderStroke bs = new BorderStroke(
-                                    null,
-                                    null,
-                                    Paint.valueOf("#71C671"),
-                                    null,
-                                    BorderStrokeStyle.SOLID,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    new BorderWidths(0, 0, 2, 0),
-                                    null
-                            );
-                            Border border = new Border(bs);
-                            tc.setBorder(border);
-                        }
-                    }
-                });
-
-                tc.setOnDragDropped(new EventHandler<DragEvent>() {
-                    @Override
-                    public void handle(DragEvent t) {
-                        String value = t.getDragboard().getString();
-                        tc.getTreeItem().isLeaf();
-                        if (tc.getTreeItem().getParent() != null) {
-                            int index = tc.getTreeItem().getParent().getChildren().indexOf(tc.getTreeItem());
-                            tc.getTreeItem().getParent().getChildren().add(index + 1, new TreeItem<>(value));
-                        }
-                    }
-                });
-
                 return tc;
             }
         });
