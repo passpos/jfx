@@ -122,7 +122,6 @@ public class TreeViewApp extends ContentBox {
         tv.requestFocus();
     }
 
-
     /**
      * TreeView通过CellFactory，对其下的所有子项（TreeItem）设置视觉事件；
      * 这些视觉事件包括：
