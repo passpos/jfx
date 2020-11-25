@@ -32,7 +32,7 @@ import jfx.core.entity.FxPerson;
 public class TextFieldListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListCell - TextFieldListCell";
+    public static final String TITLE = "List - TextFieldListCell";
     private ListView<String> lv1;
     private ObservableList<String> oal1;
     private ListView<FxPerson> lv2;

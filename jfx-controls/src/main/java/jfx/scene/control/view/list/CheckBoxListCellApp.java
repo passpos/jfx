@@ -24,7 +24,7 @@ import jfx.core.entity.FxPerson;
 public class CheckBoxListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListCell - CheckBoxListCell";
+    public static final String TITLE = "List - CheckBoxListCell";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 

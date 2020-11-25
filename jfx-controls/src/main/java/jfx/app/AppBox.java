@@ -16,14 +16,6 @@
  */
 package jfx.app;
 
-import jfx.scene.control.view.list.CheckBoxListCellApp;
-import jfx.scene.control.view.list.ChoiceBoxListCellApp;
-import jfx.scene.control.view.list.TextFieldListCellApp;
-import jfx.scene.control.view.list.ComboBoxListCellApp;
-import jfx.scene.control.view.list.ListCellApp;
-import jfx.scene.control.view.treetable.TreeTableViewApp;
-import jfx.scene.control.view.tree.TreeViewApp;
-import jfx.scene.control.view.table.TableViewApp;
 import java.util.ArrayList;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
@@ -32,14 +24,22 @@ import jfx.scene.chart.*;
 import jfx.scene.control.*;
 import jfx.scene.control.bar.*;
 import jfx.scene.control.button.*;
-import jfx.scene.control.view.tree.TreeCellApp;
 import jfx.scene.control.dialog.*;
 import jfx.scene.control.enums.*;
 import jfx.scene.control.input.*;
 import jfx.scene.control.menubox.*;
 import jfx.scene.control.pane.*;
 import jfx.scene.control.progress.*;
+import jfx.scene.control.view.list.CheckBoxListCellApp;
+import jfx.scene.control.view.list.ChoiceBoxListCellApp;
+import jfx.scene.control.view.list.ComboBoxListCellApp;
+import jfx.scene.control.view.list.ListCellApp;
 import jfx.scene.control.view.list.ListViewApp;
+import jfx.scene.control.view.list.TextFieldListCellApp;
+import jfx.scene.control.view.table.TableViewApp;
+import jfx.scene.control.view.tree.TreeCellApp;
+import jfx.scene.control.view.tree.TreeViewApp;
+import jfx.scene.control.view.treetable.TreeTableViewApp;
 
 /**
  *
@@ -122,10 +122,10 @@ public class AppBox extends AbstractAppBox {
         // List
         appList.add(ListViewApp.class);
         appList.add(ListCellApp.class);
-        appList.add(TextFieldListCellApp.class);
-        appList.add(ChoiceBoxListCellApp.class);
         appList.add(CheckBoxListCellApp.class);
+        appList.add(ChoiceBoxListCellApp.class);
         appList.add(ComboBoxListCellApp.class);
+        appList.add(TextFieldListCellApp.class);
 
         // Table
         appList.add(TableViewApp.class);

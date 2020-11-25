@@ -40,7 +40,7 @@ import jfx.core.app.ContentBox;
 public class ListViewApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "View - ListView";
+    public static final String TITLE = "List - ListView";
     private ListView<String> lv;
     private ObservableList<String> oal;
 

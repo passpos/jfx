@@ -21,7 +21,7 @@ import jfx.core.entity.FxPerson;
 public class ChoiceBoxListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListCell - ChoiceBoxListCell";
+    public static final String TITLE = "List - ChoiceBoxListCell";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 

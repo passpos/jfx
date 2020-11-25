@@ -22,7 +22,7 @@ import jfx.core.entity.FxPerson;
 public class ComboBoxListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListCell - ComboBoxListCell";
+    public static final String TITLE = "List - ComboBoxListCell";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 

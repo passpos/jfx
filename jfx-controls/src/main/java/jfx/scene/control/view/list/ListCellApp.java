@@ -33,7 +33,7 @@ import jfx.core.app.ContentBox;
 public class ListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListCell - ListCell";
+    public static final String TITLE = "List - ListCell";
     private ListView<String> lv1;
     private ObservableList<String> oal1;
 

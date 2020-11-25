@@ -34,7 +34,7 @@ import jfx.core.entity.FxPerson;
 public class ListViewDemo2App extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "View - ListView Demo2";
+    public static final String TITLE = "List - ListView Demo2";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 
