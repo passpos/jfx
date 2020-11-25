@@ -31,7 +31,7 @@ import jfx.core.entity.FxPerson;
  * B87
  * @author realpai <paiap@outlook.com>
  */
-public class ListViewDemo2App extends ContentBox {
+public class ListViewDemo2 extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "List - ListView Demo2";
