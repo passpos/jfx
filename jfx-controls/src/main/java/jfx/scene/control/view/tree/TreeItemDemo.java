@@ -93,12 +93,17 @@ public class TreeItemDemo extends ContentBox {
                     File f = (File) getValue();
                     isLeaf = f.isFile();
                 }
-
                 return isLeaf;
             }
 
+            /**
+             * 构建子节点
+             * @param TreeItem
+             * @return
+             */
             private ObservableList<TreeItem<File>> buildChildren(TreeItem<File> TreeItem) {
                 File f = TreeItem.getValue();
+                // 若文件是一个目录，则取得其下所有的子；
                 if (f != null && f.isDirectory()) {
                     File[] files = f.listFiles();
                     if (files != null) {
