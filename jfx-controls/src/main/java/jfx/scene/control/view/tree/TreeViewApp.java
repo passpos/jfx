@@ -48,7 +48,8 @@ public class TreeViewApp extends ContentBox {
     public void index() {
         fillData();
         baseDemo();
-//        listenerDemo();
+        selectionModeDemo();
+        focusChangeDemo();
 //        editDemo();
 //        customTreeCell();
         cellFactoryDemo();
@@ -100,7 +101,7 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * 选择事件
+     * 选择模式监听
      */
     public void selectionModeDemo() {
         tv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -112,6 +113,9 @@ public class TreeViewApp extends ContentBox {
         });
     }
 
+    /**
+     * 焦点模式监听
+     */
     public void focusChangeDemo() {
         tv.getFocusModel().focus(3);
         tv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
