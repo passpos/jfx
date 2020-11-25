@@ -33,7 +33,7 @@ import utils.entity.demo.sample.Student;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class ComboBoxDemoApp extends ContentBox {
+public class ComboBoxDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "MenuBox - Demo ComboBox CellFactory";
