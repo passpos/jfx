@@ -132,6 +132,7 @@ public class TreeItemDemo extends ContentBox {
                 return FXCollections.emptyObservableList();
             }
         };
+
         return ti;
     }
 }
