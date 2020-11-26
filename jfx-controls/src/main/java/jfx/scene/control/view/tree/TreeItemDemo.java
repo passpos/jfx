@@ -58,7 +58,7 @@ public class TreeItemDemo extends ContentBox {
          * 可能需要更完整的实现来处理更多动态文件系统情况（例如，在显示
          * TreeView之后，文件夹中添加了文件）。再次，这留给读者作为练习。
          */
-        TreeItem<File> ti = new TreeItem<>(f) {
+        return new TreeItem<File>(f) {
             /**
              * 文件是否为叶（是目录还是文件）；
              * isLeaf()会被经常调用，而对File进行实际检查非常昂贵，所以缓存它。
@@ -132,7 +132,5 @@ public class TreeItemDemo extends ContentBox {
                 return FXCollections.emptyObservableList();
             }
         };
-
-        return ti;
     }
 }
