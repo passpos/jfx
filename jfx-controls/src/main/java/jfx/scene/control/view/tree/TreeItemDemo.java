@@ -51,16 +51,17 @@ public class TreeItemDemo extends ContentBox {
      */
     private TreeItem<File> createNode(final File f) {
         /**
-         * 我们对子项和叶子仅进行一次测试，然后将其设置为false，以便在此运行
-         * 期间不再进行检查。
+         * 我们对子项（children）和叶子（leaf）仅进行一次测试，然后将其设置为false，
+         * 以便在此运行期间不再进行检查。这通过缓存下面这两个布尔变量实现：
+         * - isFirstTimeLeaf
+         * - isFirstTimeChildren
          * 可能需要更完整的实现来处理更多动态文件系统情况（例如，在显示
          * TreeView之后，文件夹中添加了文件）。再次，这留给读者作为练习。
          */
         TreeItem<File> ti = new TreeItem<>(f) {
             /**
-             * 我们缓存文件是否为叶。 如果文件不是目录并且其中不包含任何文件，则
-             * 它是叶。
-             * 我们经常调用isLeaf（）来缓存它，因此对File进行实际检查非常昂贵。
+             * 文件是否为叶（是目录还是文件）；
+             * isLeaf()会被经常调用，而对File进行实际检查非常昂贵，所以缓存它。
              */
             private boolean isLeaf;
 
@@ -68,6 +69,11 @@ public class TreeItemDemo extends ContentBox {
              * 记录是否为第一次判断节点为leaf；
              */
             private boolean isFirstTimeLeaf = true;
+
+            /**
+             * 记录是否为第一次获取子项数据；
+             */
+            private boolean isFirstTimeChildren = true;
 
             /**
              * 若是文件，则为叶节点；
@@ -83,11 +89,6 @@ public class TreeItemDemo extends ContentBox {
                 }
                 return isLeaf;
             }
-
-            /**
-             * 记录是否为第一次获取子项数据；
-             */
-            private boolean isFirstTimeChildren = true;
 
             /**
              * 获取子节点的集合
