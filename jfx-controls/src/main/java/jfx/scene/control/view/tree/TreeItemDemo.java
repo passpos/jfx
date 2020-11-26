@@ -45,10 +45,9 @@ public class TreeItemDemo extends ContentBox {
     }
 
     /**
-     * 此方法创建一个TreeItem来表示给定的File。它通过匿名重写
-     * TreeItem.getChildren()和TreeItem.isLeaf()方法来做到这一点，但最好通过创建
-     * TreeItem的“ FileTreeItem”子类来抽象该方法。
-     * 但是，这留给用户作练习；
+     * 此方法创建一个TreeItem来表示给定的File。
+     * 它通过匿名重写TreeItem的getChildren()和TreeItem.isLeaf()方法来做到这一点，
+     * 但最好通过创建TreeItem的“ FileTreeItem”子类来抽象该方法。这留给用户作练习；
      */
     private TreeItem<File> createNode(final File f) {
         TreeItem<File> ti = new TreeItem<>(f) {
@@ -68,18 +67,6 @@ public class TreeItemDemo extends ContentBox {
             private boolean isFirstTimeChildren = true;
             private boolean isFirstTimeLeaf = true;
 
-            @Override
-            public ObservableList<TreeItem<File>> getChildren() {
-                if (isFirstTimeChildren) {
-                    isFirstTimeChildren = false;
-
-                    // First getChildren() call, so we actually go off and
-                    // determine the children of the File contained in this TreeItem.
-                    super.getChildren().setAll(buildChildren(this));
-                }
-                return super.getChildren();
-            }
-
             /**
              * 若是文件，则为叶节点；
              *
@@ -93,6 +80,22 @@ public class TreeItemDemo extends ContentBox {
                     isLeaf = f.isFile();
                 }
                 return isLeaf;
+            }
+
+            /**
+             * 获取子节点的集合
+             * @return
+             */
+            @Override
+            public ObservableList<TreeItem<File>> getChildren() {
+                if (isFirstTimeChildren) {
+                    isFirstTimeChildren = false;
+
+                    // First getChildren() call, so we actually go off and
+                    // determine the children of the File contained in this TreeItem.
+                    super.getChildren().setAll(buildChildren(this));
+                }
+                return super.getChildren();
             }
 
             /**
