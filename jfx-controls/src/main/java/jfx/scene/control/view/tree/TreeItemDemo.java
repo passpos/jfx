@@ -99,8 +99,9 @@ public class TreeItemDemo extends ContentBox {
                 if (isFirstTimeChildren) {
                     isFirstTimeChildren = false;
 
-                    // First getChildren() call, so we actually go off and
-                    // determine the children of the File contained in this TreeItem.
+                    /* 首先调用getChildren()，这样我们实际上确定此TreeItem中包含
+                     * 的File的子级。
+                     */
                     super.getChildren().setAll(buildChildren(this));
                 }
                 return super.getChildren();
