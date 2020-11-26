@@ -19,7 +19,7 @@ import jfx.core.app.ContentBox;
 public class TreeItemDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Tree - TreeItem";
+    public static final String TITLE = "Tree - TreeItem Demo 文件系统浏览器";
     public TreeView<String> tv;
     private TreeItem<String> root;
 
@@ -30,18 +30,12 @@ public class TreeItemDemo extends ContentBox {
     }
 
     public void baseDemo() {
-        root = new TreeItem<>("中国");
-        root.setExpanded(true);
-        root.setValue("China");
-
-        tv = new TreeView<>();
-        tv.setRoot(root);
-        tv.setPrefHeight(50);
-        getChildren().add(tv);
+        TreeView<File> ftv = buildFileSystemBrowser();
+        getChildren().add(ftv);
     }
 
     /**
-     * 该方法对一个文件根创建TreeView
+     * 该方法对一个文件根创建TreeView，其root节点就是这个文件根；
      *
      * @return
      */
