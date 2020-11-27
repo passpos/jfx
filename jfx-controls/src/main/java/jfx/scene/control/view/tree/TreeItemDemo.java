@@ -99,8 +99,9 @@ public class TreeItemDemo extends ContentBox {
                 if (isFirstTimeChildren) {
                     isFirstTimeChildren = false;
 
-                    /* 首先调用getChildren()，这样我们实际上确定此TreeItem中包含
-                     * 的File的子级。
+                    /* 首先调用getChildren()，这样我们就能实际上确定此TreeItem中
+                     * 包含的File的子级；
+                     * 初次运行getChildren()，下面的语句会导致再调用一次getChildren()；
                      */
                     super.getChildren().setAll(buildChildren(this));
                 }
@@ -109,19 +110,20 @@ public class TreeItemDemo extends ContentBox {
 
             /**
              * 构建子节点
-             * @param TreeItem
+             * @param ti
              * @return
              */
-            private ObservableList<TreeItem<File>> buildChildren(TreeItem<File> TreeItem) {
-                File f = TreeItem.getValue();
-                // 若文件是一个目录，则取得其下所有的子；
+            private ObservableList<TreeItem<File>> buildChildren(TreeItem<File> ti) {
+                File f = ti.getValue();
+                // 若是目录，则取得其下所有的子；
                 if (f != null && f.isDirectory()) {
-                    // 目录下的所有文件
+                    // 目录下的所有子
                     File[] files = f.listFiles();
-                    ObservableList<TreeItem<File>> children = FXCollections.observableArrayList();
 
-                    // 判断目录是否为空
+                    // 若目录非空
                     if (files != null) {
+                        ObservableList<TreeItem<File>> children;
+                        children = FXCollections.observableArrayList();
                         for (File childFile : files) {
                             children.add(createNode(childFile));
                         }
