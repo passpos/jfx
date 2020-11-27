@@ -34,6 +34,7 @@ public class ScrollPaneApp extends ContentBox {
     public void index() {
         baseDemo();
         contentDemo();
+        fitSizeDemo();
     }
 
     public void baseDemo() {
@@ -62,6 +63,7 @@ public class ScrollPaneApp extends ContentBox {
 
     public void contentDemo() {
         HBox hb = new HBox();
+        hb.setSpacing(3);
         hb.setStyle("-fx-background-color: #956");
         for (int i = 0; i < 4; i++) {
             hb.getChildren().add(new Button("按钮" + i));
@@ -70,6 +72,28 @@ public class ScrollPaneApp extends ContentBox {
         ScrollPane sp = new ScrollPane();
         sp.setContent(hb);
         sp.setPrefWidth(400);
-        setTopAnchor(sp, 30.0);
+
+        getChildren().add(sp);
+        setTopAnchor(sp, 50.0);
+    }
+
+    public void fitSizeDemo() {
+        HBox hb = new HBox();
+        hb.setSpacing(3);
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 0; i < 4; i++) {
+            hb.getChildren().add(new Button("按钮" + i));
+        }
+
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(hb);
+        sp.setPrefWidth(400);
+
+        // 设置为true后，ScrollPane内的HBox的尺寸跟随ScrollPane；
+        sp.setFitToWidth(true);
+        sp.setFitToHeight(true);
+
+        getChildren().add(sp);
+        setTopAnchor(sp, 100.0);
     }
 }
