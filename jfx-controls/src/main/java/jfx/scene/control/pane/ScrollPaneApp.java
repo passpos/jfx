@@ -39,13 +39,25 @@ public class ScrollPaneApp extends ContentBox {
 
     public void baseDemo() {
         hb = new HBox();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 7; i++) {
             hb.getChildren().add(new Button("按钮" + i));
         }
 
         sp = new ScrollPane();
         sp.setContent(hb);
+
+        // ScrollPane的尺寸即为用户的所有可见尺寸，可滚动的内容收藏于其中；
         sp.setPrefWidth(300);
-        this.getChildren().add(sp);
+
+        /* 设置为true后，内容的总尺寸将跟随ScrollPane的尺寸。
+         * 例如：
+         * 可以被压缩尺寸的Button等内容，其尺寸就会被压缩为ScrollPane的尺寸。此
+         * 时，ScrollPane的滑块就会消失，仅剩滑轨；
+         * 所以，通常不要设置下列两项为true；
+         */
+        sp.setFitToWidth(false);
+        sp.setFitToHeight(true);
+
+        getChildren().add(sp);
     }
 }
