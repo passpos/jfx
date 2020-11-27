@@ -27,23 +27,22 @@ import jfx.core.app.ContentBox;
  */
 public class ScrollPaneApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Pane - ScrollPane 滚动面板";
-    private HBox hb;
-    private ScrollPane sp;
 
     @Override
     public void index() {
         baseDemo();
+        contentDemo();
     }
 
     public void baseDemo() {
-        hb = new HBox();
+        HBox hb = new HBox();
         for (int i = 0; i < 7; i++) {
             hb.getChildren().add(new Button("按钮" + i));
         }
 
-        sp = new ScrollPane();
+        ScrollPane sp = new ScrollPane();
         sp.setContent(hb);
 
         // ScrollPane的尺寸即为用户的所有可见尺寸，可滚动的内容收藏于其中；
@@ -59,5 +58,18 @@ public class ScrollPaneApp extends ContentBox {
         sp.setFitToHeight(true);
 
         getChildren().add(sp);
+    }
+
+    public void contentDemo() {
+        HBox hb = new HBox();
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 0; i < 4; i++) {
+            hb.getChildren().add(new Button("按钮" + i));
+        }
+
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(hb);
+        sp.setPrefWidth(400);
+        setTopAnchor(sp, 30.0);
     }
 }
