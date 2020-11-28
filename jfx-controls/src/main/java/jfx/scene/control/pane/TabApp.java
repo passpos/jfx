@@ -12,6 +12,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import jfx.core.app.ContentBox;
 import static jfx.core.app.ContentBox.ol;
 
@@ -37,12 +38,17 @@ public class TabApp extends ContentBox {
 
     public void baseDemo() {
         // Tab Content
+        VBox vb = new VBox();
         HBox hb = new HBox();
         hb.getChildren().addAll(new Button("btn1"), new Button("btn2"));
 
         // Tab
         Tab t1 = new Tab();
         t1.setText("tab1 - closable");
+        for (int i = 1; i < 10; i++) {
+            vb.getChildren().add(new Button("按钮" + i));
+        }
+        t1.setContent(vb);
 
         // 标签不可关闭，关闭按钮也会消失；
         t1.setClosable(false);
@@ -57,10 +63,10 @@ public class TabApp extends ContentBox {
 
         tp.getTabs().add(t1);
         tp.getTabs().add(t2);
-        getChildren().add(tp);
 
-        tp.setPrefWidth(300);
+        tp.setPrefWidth(500);
         tp.setPrefHeight(150);
+        getChildren().add(tp);
     }
 
     /**
