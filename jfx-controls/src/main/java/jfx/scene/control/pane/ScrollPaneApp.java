@@ -53,8 +53,6 @@ public class ScrollPaneApp extends ContentBox {
         // ScrollPane的尺寸即为用户的所有可见尺寸，可滚动的内容收藏于其中；
         sp.setPrefWidth(300);
 
-        /*
-         */
         sp.setFitToWidth(false);
         sp.setFitToHeight(true);
 
