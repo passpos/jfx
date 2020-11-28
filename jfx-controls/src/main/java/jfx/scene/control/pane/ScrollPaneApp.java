@@ -33,13 +33,17 @@ public class ScrollPaneApp extends ContentBox {
     @Override
     public void index() {
         baseDemo();
-        contentDemo();
-        fitSizeDemo();
+        fitSizeDemo1();
+        fitSizeDemo2();
+        fitSizeDemo3();
+        fitSizeDemo4();
     }
 
     public void baseDemo() {
         HBox hb = new HBox();
-        for (int i = 0; i < 7; i++) {
+        hb.setSpacing(3);
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 1; i < 10; i++) {
             hb.getChildren().add(new Button("按钮" + i));
         }
 
@@ -49,11 +53,7 @@ public class ScrollPaneApp extends ContentBox {
         // ScrollPane的尺寸即为用户的所有可见尺寸，可滚动的内容收藏于其中；
         sp.setPrefWidth(300);
 
-        /* 设置为true后，内容的总尺寸将跟随ScrollPane的尺寸。
-         * 例如：
-         * 可以被压缩尺寸的Button等内容，其尺寸就会被压缩为ScrollPane的尺寸。此
-         * 时，ScrollPane的滑块就会消失，仅剩滑轨；
-         * 所以，通常不要设置下列两项为true；
+        /*
          */
         sp.setFitToWidth(false);
         sp.setFitToHeight(true);
@@ -61,11 +61,24 @@ public class ScrollPaneApp extends ContentBox {
         getChildren().add(sp);
     }
 
-    public void contentDemo() {
+    /**
+     * FitSize 设置为true后，内容的总尺寸将跟随ScrollPane的尺寸。
+     * 例如：
+     * 可以被压缩尺寸的Button等内容，其尺寸就会被压缩为ScrollPane的尺寸。此
+     * 时，ScrollPane的滑块就会消失，仅剩滑轨；
+     *
+     * 所以，通常不设置 FitSize 为 true ；
+     *
+     * 若不设置FitSize，或者设置为false，则内容的尺寸不会跟随ScrollPane；
+     * 此时，若：
+     * - 内容尺寸小于ScrollPane尺寸，则不显示ScrollBar；
+     * - 内容尺寸大于ScrollPane尺寸，则显示ScrollBar，不压缩内容尺寸；
+     */
+    public void fitSizeDemo1() {
         HBox hb = new HBox();
         hb.setSpacing(3);
         hb.setStyle("-fx-background-color: #956");
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i < 4; i++) {
             hb.getChildren().add(new Button("按钮" + i));
         }
 
@@ -77,11 +90,17 @@ public class ScrollPaneApp extends ContentBox {
         setTopAnchor(sp, 50.0);
     }
 
-    public void fitSizeDemo() {
+    /**
+     * 设置为true后，ScrollPane内的HBox的尺寸跟随ScrollPane；
+     * 此时，若：
+     * - 内容尺寸小于ScrollPane尺寸，则不显示ScrollBar；
+     * - 内容尺寸大于ScrollPane尺寸，则不显示ScrollBar，且压缩内容尺寸；
+     */
+    public void fitSizeDemo2() {
         HBox hb = new HBox();
         hb.setSpacing(3);
         hb.setStyle("-fx-background-color: #956");
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i < 4; i++) {
             hb.getChildren().add(new Button("按钮" + i));
         }
 
@@ -89,11 +108,51 @@ public class ScrollPaneApp extends ContentBox {
         sp.setContent(hb);
         sp.setPrefWidth(400);
 
-        // 设置为true后，ScrollPane内的HBox的尺寸跟随ScrollPane；
         sp.setFitToWidth(true);
         sp.setFitToHeight(true);
 
         getChildren().add(sp);
         setTopAnchor(sp, 100.0);
+    }
+
+    /**
+     * 设置为true后，ScrollPane内的HBox的尺寸跟随ScrollPane；
+     */
+    public void fitSizeDemo3() {
+        HBox hb = new HBox();
+        hb.setSpacing(3);
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 1; i < 7; i++) {
+            hb.getChildren().add(new Button("按钮" + i));
+        }
+
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(hb);
+        sp.setPrefWidth(300);
+
+        sp.setFitToWidth(true);
+        sp.setFitToHeight(true);
+
+        getChildren().add(sp);
+        setTopAnchor(sp, 150.0);
+    }
+
+    /**
+     * 设置为false，ScrollPane内的HBox的尺寸跟随ScrollPane；
+     */
+    public void fitSizeDemo4() {
+        HBox hb = new HBox();
+        hb.setSpacing(3);
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 1; i < 10; i++) {
+            hb.getChildren().add(new Button("按钮" + i));
+        }
+
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(hb);
+        sp.setPrefWidth(300);
+
+        getChildren().add(sp);
+        setTopAnchor(sp, 200.0);
     }
 }
