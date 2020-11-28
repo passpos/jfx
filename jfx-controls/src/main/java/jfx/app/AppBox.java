@@ -30,22 +30,10 @@ import jfx.scene.control.input.*;
 import jfx.scene.control.menubox.*;
 import jfx.scene.control.pane.*;
 import jfx.scene.control.progress.*;
-import jfx.scene.control.view.list.CheckBoxListCellApp;
-import jfx.scene.control.view.list.ChoiceBoxListCellApp;
-import jfx.scene.control.view.list.ComboBoxListCellApp;
-import jfx.scene.control.view.list.ListCellApp;
-import jfx.scene.control.view.list.ListViewApp;
-import jfx.scene.control.view.list.ListViewDemo1;
-import jfx.scene.control.view.list.ListViewDemo2;
-import jfx.scene.control.view.list.TextFieldListCellApp;
-import jfx.scene.control.view.table.TableViewApp;
-import jfx.scene.control.view.tree.TreeCellApp;
-import jfx.scene.control.view.tree.TreeCellDemo1;
-import jfx.scene.control.view.tree.TreeCellDemo2;
-import jfx.scene.control.view.tree.TreeItemApp;
-import jfx.scene.control.view.tree.TreeItemDemo;
-import jfx.scene.control.view.tree.TreeViewApp;
-import jfx.scene.control.view.treetable.TreeTableViewApp;
+import jfx.scene.control.view.list.*;
+import jfx.scene.control.view.table.*;
+import jfx.scene.control.view.tree.*;
+import jfx.scene.control.view.treetable.*;
 
 /**
  *
@@ -123,6 +111,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ScrollPaneApp.class);
         appList.add(SplitPaneApp.class);
         appList.add(TabPaneApp.class);
+        appList.add(TabApp.class);
         appList.add(TitledPaneApp.class);
 
         // List
