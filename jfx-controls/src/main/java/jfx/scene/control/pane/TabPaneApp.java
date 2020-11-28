@@ -34,12 +34,13 @@ public class TabPaneApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Pane - TabPane 标签窗口";
-    public TabPane tp;
+    private TabPane tp;
 
     @Override
     public void index() {
-        tp = new TabPane();
         baseDemo();
+        sideDemo();
+        selectDemo();
     }
 
     public void baseDemo() {
@@ -51,6 +52,8 @@ public class TabPaneApp extends ContentBox {
         Tab tab = new Tab("tab1");
         tab.setContent(hb);
 
+        // TabPane
+        tp = new TabPane();
         tp.getTabs().add(tab);
         getChildren().add(tp);
 
@@ -65,10 +68,22 @@ public class TabPaneApp extends ContentBox {
          */
         tp.setRotateGraphic(false);
 
-        tp.setPrefWidth(700);
-        tp.setPrefHeight(400);
+        tp.setPrefWidth(400);
+        tp.setPrefHeight(200);
         tp.setStyle("-fx-background-color:#999999");
 
+    }
+
+    public void sideDemo() {
+        TabPane tabPane = new TabPane();
+
+        tabPane.setPrefWidth(400);
+        tabPane.setPrefHeight(200);
+
+        tabPane.setSide(Side.LEFT);
+
+        getChildren().add(tabPane);
+        setTopAnchor(tabPane, 210.0);
     }
 
     /**
