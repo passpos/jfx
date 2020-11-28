@@ -77,11 +77,11 @@ public class TabPaneApp extends ContentBox {
     }
 
     public void sideDemo() {
-        Tab tab = new Tab("tab1");
-        tab.setContent(new Button("按钮"));
+        Tab t2 = new Tab("tab2");
+        t2.setContent(new Button("按钮"));
 
         TabPane tabPane = new TabPane();
-        tabPane.getTabs().add(tab);
+        tabPane.getTabs().add(t2);
 
         tabPane.setPrefWidth(200);
         tabPane.setPrefHeight(100);
