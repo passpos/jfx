@@ -27,7 +27,7 @@ import jfx.core.app.ContentBox;
  */
 public class ScrollPaneApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Pane - ScrollPane 滚动面板";
 
     @Override
