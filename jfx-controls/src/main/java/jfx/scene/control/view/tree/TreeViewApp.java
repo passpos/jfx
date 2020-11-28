@@ -35,7 +35,7 @@ import jfx.core.app.ContentBox;
  */
 public class TreeViewApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeView";
     private TreeView<String> tv;
     private TreeItem<String> root;
@@ -44,15 +44,16 @@ public class TreeViewApp extends ContentBox {
     public void index() {
         fillData();
         baseDemo();
+        onScrollToDemo();
         selectionModeDemo();
         focusChangeDemo();
-//        customTreeCell();
         cellFactoryDemo();
     }
 
     /**
      * B101 TreeView 本身不会包含标题等文本信息，只是作为一个视图容器存在。
      */
+    @SuppressWarnings("unchecked")
     public void fillData() {
         tv = new TreeView<>();
 
@@ -81,16 +82,23 @@ public class TreeViewApp extends ContentBox {
      */
     public void baseDemo() {
         tv.setPrefWidth(150.0);
-        tv.scrollTo(6);
-        // 设置树项的固定高度
+
+        // 可见项的数量
+        tv.getExpandedItemCount();
+
+        // 设置子项的固定高度
         // tv.setFixedCellSize(32);
         tv.setShowRoot(true);
         int til = tv.getTreeItemLevel(root);
 
+    }
+
+    public void onScrollToDemo() {
+        tv.scrollTo(6);
         tv.setOnScrollTo(new EventHandler<ScrollToEvent<Integer>>() {
             @Override
             public void handle(ScrollToEvent<Integer> t) {
-
+                ol("onScrollTo - " + t);
             }
         });
     }
@@ -132,18 +140,18 @@ public class TreeViewApp extends ContentBox {
      */
     public void cellFactoryDemo() {
         TreeCell<String> tc = new TreeCell<String>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!empty) {
-                            HBox hBox = new HBox();
-                            hBox.getChildren().add(new Label(item));
-                            this.setGraphic(hBox);
-                        } else if (empty) {
-                            this.setGraphic(null);
-                        }
-                    }
-                };
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (!empty) {
+                    HBox hBox = new HBox();
+                    hBox.getChildren().add(new Label(item));
+                    this.setGraphic(hBox);
+                } else if (empty) {
+                    this.setGraphic(null);
+                }
+            }
+        };
         Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
 
             @Override
