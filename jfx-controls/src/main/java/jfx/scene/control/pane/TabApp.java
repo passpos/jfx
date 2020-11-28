@@ -22,7 +22,7 @@ import static jfx.core.app.ContentBox.ol;
  */
 public class TabApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Pane - Tab 标签";
     public TabPane tp;
 
