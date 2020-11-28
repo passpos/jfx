@@ -37,6 +37,7 @@ public class ScrollPaneApp extends ContentBox {
         fitSizeDemo2();
         fitSizeDemo3();
         fitSizeDemo4();
+        defaultSizeDemo();
     }
 
     public void baseDemo() {
@@ -152,5 +153,25 @@ public class ScrollPaneApp extends ContentBox {
 
         getChildren().add(sp);
         setTopAnchor(sp, 200.0);
+    }
+
+    /**
+     * 若未设置首选尺寸，则ScrollPane的尺寸跟随内容尺寸。
+     * 此时，ScrollPane虽然处于显示状态，但其滚动条不显示；
+     */
+    public void defaultSizeDemo() {
+        HBox hb = new HBox();
+        hb.setSpacing(3);
+        hb.setStyle("-fx-background-color: #956");
+        for (int i = 1; i < 10; i++) {
+            hb.getChildren().add(new Button("按钮" + i));
+        }
+
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(hb);
+        // sp.setPrefWidth(300);
+
+        getChildren().add(sp);
+        setTopAnchor(sp, 250.0);
     }
 }
