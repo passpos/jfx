@@ -54,15 +54,28 @@ public class TabPaneApp extends ContentBox {
         tp.getTabs().add(tab);
         getChildren().add(tp);
 
-        tp.getSelectionModel().select(tab);    // 默认选中；
-        tp.setSide(Side.TOP);                   // 设置标签位置（默认是在顶部）；
-        // 设置标签图标保持水平方向；
-        // 要使此设置起作用，要求图标加载和标签方向设置在窗体显示前完成；
+        // 默认选中；
+        tp.getSelectionModel().select(tab);
+
+        // 设置标签位置（默认是在顶部）；
+        tp.setSide(Side.TOP);
+
+        /* 设置标签图标保持水平方向；
+         * 要使此设置起作用，要求图标加载和标签方向设置在窗体显示前完成；
+         */
         tp.setRotateGraphic(false);
 
         tp.setPrefWidth(700);
         tp.setPrefHeight(400);
         tp.setStyle("-fx-background-color:#999999");
+
+    }
+
+    /**
+     * TabPane上通常有多个Tab，某个Tab可以被设置为选中；
+     * 也可以设置选中状态监听；
+     */
+    public void selectDemo() {
         tp.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override
             public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
@@ -71,7 +84,6 @@ public class TabPaneApp extends ContentBox {
             }
 
         });
-
     }
 
 }
