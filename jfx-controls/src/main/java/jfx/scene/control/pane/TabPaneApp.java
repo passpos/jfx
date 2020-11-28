@@ -27,7 +27,9 @@ import jfx.core.app.ContentBox;
 
 /**
  * TabPane是Control类型
- * Tab则是直接继承的Object，必须装入TabPane中；
+ * - Tab直接继承了Object，必须装入TabPane中；
+ * - TabPane中没有Tab，就会自动消失，不显示；
+ *
  * @author realpai <paiap@outlook.com>
  */
 public class TabPaneApp extends ContentBox {
@@ -75,7 +77,11 @@ public class TabPaneApp extends ContentBox {
     }
 
     public void sideDemo() {
+        Tab tab = new Tab("tab1");
+        tab.setContent(new Button("按钮"));
+
         TabPane tabPane = new TabPane();
+        tabPane.getTabs().add(tab);
 
         tabPane.setPrefWidth(200);
         tabPane.setPrefHeight(100);
