@@ -68,8 +68,8 @@ public class TabPaneApp extends ContentBox {
          */
         tp.setRotateGraphic(false);
 
-        tp.setPrefWidth(400);
-        tp.setPrefHeight(200);
+        tp.setPrefWidth(200);
+        tp.setPrefHeight(100);
         tp.setStyle("-fx-background-color:#999999");
 
     }
@@ -77,13 +77,13 @@ public class TabPaneApp extends ContentBox {
     public void sideDemo() {
         TabPane tabPane = new TabPane();
 
-        tabPane.setPrefWidth(400);
-        tabPane.setPrefHeight(200);
+        tabPane.setPrefWidth(200);
+        tabPane.setPrefHeight(100);
 
         tabPane.setSide(Side.LEFT);
 
         getChildren().add(tabPane);
-        setTopAnchor(tabPane, 210.0);
+        setTopAnchor(tabPane, 200.0);
     }
 
     /**
