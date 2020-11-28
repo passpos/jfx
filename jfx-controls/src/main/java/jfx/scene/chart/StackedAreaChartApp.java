@@ -18,7 +18,7 @@ import jfx.core.app.ContentBox;
  */
 public class StackedAreaChartApp extends ContentBox {
 
-    public final static boolean SHOWING = true;
+    public final static boolean SHOWING = false;
     public final static String TITLE = "Chart - StackedAreaChart/堆积区域图";
     private XYChart.Series<String, Number> xy1;
     private XYChart.Series<String, Number> xy2;
