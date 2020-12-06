@@ -47,7 +47,7 @@ public class TreeViewApp extends ContentBox {
         onScrollToDemo();
         selectionModeDemo();
         focusChangeDemo();
-        cellFactoryDemo();
+        //cellFactoryDemo();
     }
 
     /**
@@ -98,7 +98,7 @@ public class TreeViewApp extends ContentBox {
         tv.setOnScrollTo(new EventHandler<ScrollToEvent<Integer>>() {
             @Override
             public void handle(ScrollToEvent<Integer> t) {
-                ol("onScrollTo - " + t);
+                ol("onScrollTo - " + t.toString());
             }
         });
     }

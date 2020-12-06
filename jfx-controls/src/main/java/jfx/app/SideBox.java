@@ -38,7 +38,7 @@ public class SideBox extends AbstractSideBox {
             if (title.contains("Demo")) {
                 btn.setStyle("-fx-background-color: #aa99c4");
             } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
+                btn.setStyle("-fx-background-color: #aa77aa");
             }
         }
 
@@ -62,7 +62,7 @@ public class SideBox extends AbstractSideBox {
             if (title.contains("Demo")) {
                 btn.setStyle("-fx-background-color: #aa99c4");
             } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
+                btn.setStyle("-fx-background-color: #aa77aa");
             }
         }
 
@@ -86,7 +86,7 @@ public class SideBox extends AbstractSideBox {
             if (title.contains("Demo")) {
                 btn.setStyle("-fx-background-color: #aa99c4");
             } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
+                btn.setStyle("-fx-background-color: #aa77aa");
             }
         }
 
@@ -108,11 +108,11 @@ public class SideBox extends AbstractSideBox {
 
         if (title.startsWith("List - ")) {
             if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aaaaaa");
+                btn.setStyle("-fx-background-color: #aa99aa");
             } else if (title.contains("ListCell")) {
-                btn.setStyle("-fx-background-color: #aa88aa");
+                btn.setStyle("-fx-background-color: #aa77aa");
             } else {
-                btn.setStyle("-fx-background-color: #aaccaa");
+                btn.setStyle("-fx-background-color: #aaaaaa");
             }
         }
 
@@ -134,11 +134,11 @@ public class SideBox extends AbstractSideBox {
 
         if (title.startsWith("TreeTable - ")) {
             if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aaaaaa");
+                btn.setStyle("-fx-background-color: #aa99aa");
             } else if (title.contains("TreeTableCell")) {
-                btn.setStyle("-fx-background-color: #aa88aa");
+                btn.setStyle("-fx-background-color: #aa77aa");
             } else {
-                btn.setStyle("-fx-background-color: #aaccaa");
+                btn.setStyle("-fx-background-color: #aaaaaa");
             }
         }
 
