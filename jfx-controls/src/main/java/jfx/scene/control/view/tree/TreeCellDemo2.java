@@ -29,7 +29,7 @@ public class TreeCellDemo2 extends ContentBox {
     @Override
     public void index() {
         fillData();
-        customTreeCell();
+        //customTreeCell();
     }
 
     @SuppressWarnings("unchecked")

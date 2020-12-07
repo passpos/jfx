@@ -28,6 +28,7 @@ public class TreeCellDemo1 extends ContentBox {
         editDemo();
     }
 
+    @SuppressWarnings("unchecked")
     public void fillData() {
         tv = new TreeView<>();
 
