@@ -60,9 +60,15 @@ public class TreeItemApp extends ContentBox {
     }
 
     public void baseDemo() {
-        root = new TreeItem<>("中国");
+        String str = "中国";
+        root = new TreeItem<>(str);
         root.setExpanded(true);
+
+        // 节点的文本值
         root.setValue("China");
+
+        // 用于设置节点图标等操作
+        root.setGraphic(new Button(str));
 
         // 节点下是否为空；
         ol("isLeaf() - " + root.isLeaf());
