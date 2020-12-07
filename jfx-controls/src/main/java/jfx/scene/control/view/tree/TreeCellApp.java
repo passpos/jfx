@@ -5,8 +5,12 @@
  */
 package jfx.scene.control.view.tree;
 
+import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.control.cell.TextFieldTreeCell;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 
 /**
@@ -23,6 +27,7 @@ public class TreeCellApp extends ContentBox {
     @Override
     public void index() {
         fillData();
+        textFieldTreeCellDemo();
     }
 
     @SuppressWarnings("unchecked")
@@ -49,4 +54,34 @@ public class TreeCellApp extends ContentBox {
         getChildren().add(tv);
     }
 
+    /**
+     * TextFieldTreeCell
+     */
+    public void textFieldTreeCellDemo() {
+        StringConverter<String> sc = new StringConverter<String>() {
+            @Override
+            public String toString(String t) {
+                return t + " - 这个好";
+            }
+
+            @Override
+            public String fromString(String string) {
+                return string;
+            }
+
+        };
+        Callback<TreeView<String>, TreeCell<String>> cb = TextFieldTreeCell.forTreeView(sc);
+
+        tv.setCellFactory(cb);
+    }
+
+    /**
+     * CheckBoxTreeCell,
+     * ChoiceBoxTreeCell,
+     * ComboBoxTreeCell,
+     * TextFieldTreeCell
+     */
+    public void treeCell() {
+
+    }
 }
