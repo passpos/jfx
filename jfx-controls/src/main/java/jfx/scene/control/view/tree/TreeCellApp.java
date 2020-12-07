@@ -76,9 +76,9 @@ public class TreeCellApp extends ContentBox {
     }
 
     /**
-     * CheckBoxTreeCell,
-     * ChoiceBoxTreeCell,
-     * ComboBoxTreeCell,
+     * CheckBoxTreeCell
+     * ChoiceBoxTreeCell
+     * ComboBoxTreeCell
      * TextFieldTreeCell
      */
     public void treeCell() {
