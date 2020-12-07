@@ -32,6 +32,7 @@ public class TreeCellDemo2 extends ContentBox {
         customTreeCell();
     }
 
+    @SuppressWarnings("unchecked")
     public void fillData() {
         tv = new TreeView<>();
 
@@ -83,14 +84,12 @@ public class TreeCellDemo2 extends ContentBox {
             }
         };
 
-        Callback<TreeView<String>, TreeCell<String>> callBack;
-        callBack = new Callback<>() {
+        Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
-
                 return tc;
             }
         };
-        tv.setCellFactory(callBack);
+        tv.setCellFactory(cb);
     }
 }
