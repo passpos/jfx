@@ -25,9 +25,12 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
+import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
+import utils.entity.demo.sample.Person;
 
 /**
  * B101-B105
@@ -47,7 +50,9 @@ public class TreeViewApp extends ContentBox {
         onScrollToDemo();
         selectionModeDemo();
         focusChangeDemo();
-        //cellFactoryDemo();
+        //cellFactoryDemo1();
+        //cellFactoryDemo2();
+        //cellFactoryDemo3();
     }
 
     /**
@@ -130,7 +135,7 @@ public class TreeViewApp extends ContentBox {
         tv.requestFocus();
     }
 
-    /**
+    /*
      * TreeView通过CellFactory，对其下的所有子项（TreeItem）设置视觉事件；
      * 这些视觉事件包括：
      * - 自定义的节点结构；
@@ -138,7 +143,52 @@ public class TreeViewApp extends ContentBox {
      * -
      * 细节参考TreeCell及其Demo；
      */
-    public void cellFactoryDemo() {
+    /**
+     * 下面，String类型的数据，不必使用 StringConverter 进行转换；
+     *
+     * 转换过程是通过一个回调完成的。
+     * 既可以自己创建一个，也可以使用 TextFieldTreeCell 的forTreeView()方法获取；
+     * forTreeView()还支持传递一个 StringConverter 类型的参数，十分方便；
+     */
+    public void cellFactoryDemo1() {
+        TreeView<String> trv = new TreeView<>();
+
+        Callback<TreeView<String>, TreeCell<String>> cb;
+        cb = TextFieldTreeCell.forTreeView();
+
+        trv.setCellFactory(cb);
+    }
+
+    /**
+     * 其他类型的数据需要通过 StringConverter 进行数据转换；
+     */
+    public void cellFactoryDemo2() {
+        TreeView<Person> trv = new TreeView<>();
+
+        StringConverter<Person> strc;
+        Callback<TreeView<Person>, TreeCell<Person>> cb;
+
+        strc = new StringConverter<Person>() {
+            @Override
+            public String toString(Person t) {
+                return t.getName() + t.getAge();
+            }
+
+            @Override
+            public Person fromString(String string) {
+                Person p = new Person(string, 0);
+                return p;
+            }
+        };
+        cb = TextFieldTreeCell.forTreeView(strc);
+
+        trv.setCellFactory(cb);
+    }
+
+    /**
+     * 创建自定义的Callback
+     */
+    public void cellFactoryDemo3() {
         TreeCell<String> tc = new TreeCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
