@@ -3,16 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package jfx.scene.control.view.tree;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTreeCell;
-import static javafx.scene.layout.AnchorPane.setLeftAnchor;
 import jfx.core.app.ContentBox;
 
 /**
@@ -21,6 +16,7 @@ import jfx.core.app.ContentBox;
  * @author passpos <paiap@outlook.com>
  */
 public class TreeCellDemo1 extends ContentBox {
+
     public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeCell Demo1 可编辑节点";
     private TreeView<String> tv;
@@ -55,19 +51,24 @@ public class TreeCellDemo1 extends ContentBox {
         getChildren().add(tv);
     }
 
+    /**
+     * 可编辑的节点
+     */
     public void editDemo() {
         tv.setEditable(true);
         tv.setCellFactory(TextFieldTreeCell.forTreeView());
 
-        Button b = new Button("editDemo - 点击");
-        b.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                root.setValue("中国");
-                root.setGraphic(new Button(root.getValue()));
-            }
-        });
-        getChildren().add(b);
-        setLeftAnchor(b, 160.0);
+        /*
+         * Button b = new Button("editDemo - 点击");
+         * b.setOnAction(new EventHandler<ActionEvent>() {
+         * @Override
+         * public void handle(ActionEvent t) {
+         * root.setValue("中国");
+         * root.setGraphic(new Button(root.getValue()));
+         * }
+         * });
+         * getChildren().add(b);
+         * setLeftAnchor(b, 160.0);
+         */
     }
 }
