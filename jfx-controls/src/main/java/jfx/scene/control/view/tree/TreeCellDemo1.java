@@ -13,7 +13,6 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.TextFieldTreeCell;
 import static javafx.scene.layout.AnchorPane.setLeftAnchor;
-import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 
 /**
@@ -59,18 +58,6 @@ public class TreeCellDemo1 extends ContentBox {
     public void editDemo() {
         tv.setEditable(true);
         tv.setCellFactory(TextFieldTreeCell.forTreeView());
-        tv.setCellFactory(TextFieldTreeCell.forTreeView(new StringConverter<String>() {
-            @Override
-            public String toString(String t) {
-                return t + " - 这个好";
-            }
-
-            @Override
-            public String fromString(String string) {
-                return string;
-            }
-
-        }));
 
         Button b = new Button("editDemo - 点击");
         b.setOnAction(new EventHandler<ActionEvent>() {
