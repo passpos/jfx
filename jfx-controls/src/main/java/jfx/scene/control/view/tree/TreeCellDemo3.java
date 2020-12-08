@@ -34,7 +34,7 @@ import jfx.core.app.ContentBox;
  */
 public class TreeCellDemo3 extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell Demo3 拖拽操作";
     private TreeView<String> tv;
     private TreeCell<String> temp = null;
@@ -107,11 +107,17 @@ public class TreeCellDemo3 extends ContentBox {
         tc.setOnDragOver(new EventHandler<DragEvent>() {
             /**
              * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
+             * 该节点我们将其设置到 temp 变量中；
              * @param t
              */
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+
+                /* 拖拽经过到此，就会有一个位置指示，拖拽经过多个不同的TreeCell，
+                 * 就会有多个指示，所以总是要把上一个（temp）指示清除掉；
+                 * 并将当前的TreeCell设置到temp；
+                 */
                 if (temp != null) {
                     temp.setBorder(null);
                 }
@@ -121,10 +127,12 @@ public class TreeCellDemo3 extends ContentBox {
                  * 这里判断这个位移是否达到指定位置；
                  *
                  * TreeView总是垂直的，所以拖拽总是检测垂直方向是否发生了偏移；
+                 * 该偏移的符号是从上向下计算的，即：向下拖为正，向上拖则为负；
                  */
-                // 如果偏移大于0，且超过了被拖拽组件高度的一半，就执行
                 double y = t.getY();
                 double h = tc.getHeight();
+
+                // 如果偏移大于0，且超过了被拖拽组件高度的一半，就执行
                 if (y >= 0 && y <= h - 10) {
 
                 }
@@ -150,6 +158,10 @@ public class TreeCellDemo3 extends ContentBox {
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
+                if (temp != null) {
+                    temp.setBorder(null);
+                }
+
                 String value = t.getDragboard().getString();
                 tc.getTreeItem().isLeaf();
 
