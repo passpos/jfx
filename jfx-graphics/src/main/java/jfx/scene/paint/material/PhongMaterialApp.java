@@ -64,7 +64,7 @@ public class PhongMaterialApp extends ContentBox {
             public void accept(Node t) {
                 Shape3D s = (Shape3D) t;
                 PhongMaterial pmtrl = new PhongMaterial();
-                Image img = ImageMaker.getImageFromResource("img/1.jpg");
+                Image img = ImageMaker.getImageFromResource("imgs/1.jpg");
 
                 // 漫反射颜色
                 // pmtrl.setDiffuseColor(Color.CADETBLUE);

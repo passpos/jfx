@@ -58,7 +58,7 @@ public class ImageViewApp extends ContentBox {
      * 这是由Image的第四个参数“preserveRatio”决定的；
      */
     public void baseDemo() {
-        String path = "file:/D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/img/1.jpg";
+        String path = "file:/D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/imgs/1.jpg";
         Image img = new Image(path, 200, 200, true, true);
         // Image img = new Image(path);
         iv = new ImageView(img);

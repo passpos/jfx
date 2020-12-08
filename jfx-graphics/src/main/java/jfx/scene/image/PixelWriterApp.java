@@ -37,7 +37,7 @@ public class PixelWriterApp extends ContentBox {
     }
 
     public void baseDemo() {
-        Image img = new Image("file:D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/img/1.jpg");
+        Image img = new Image("file:D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/imgs/1.jpg");
         WritableImage wi = new WritableImage(img.getPixelReader(), 100, 100, 200, 200);
         pw = wi.getPixelWriter();
     }
