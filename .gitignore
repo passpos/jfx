@@ -2,3 +2,4 @@
 **/nb-configuration.xml
 **/target/
 /jfx-test/
+/jfx-graphics/src/main/resources/imgs/tu/

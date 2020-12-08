@@ -54,7 +54,7 @@ import utils.entity.demo.sample.Person;
  */
 public class TreeViewApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeView";
     private TreeView<String> tv;
     private TreeItem<String> root;
