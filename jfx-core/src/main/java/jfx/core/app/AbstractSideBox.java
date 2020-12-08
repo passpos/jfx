@@ -131,6 +131,7 @@ public abstract class AbstractSideBox extends AnchorPane {
         if (defaultBtn == null) {
             this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(0);
         }
+        ContentBox.getPrimaryStage().setTitle(defaultBtn.getTitle());
     }
 
     public abstract void setButtonStyle(ButtonWrapper btn);
