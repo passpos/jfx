@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package jfx.scene.control.view.tree;
 
 import javafx.event.EventHandler;
@@ -59,6 +58,18 @@ public class TreeCellDemo3 extends ContentBox {
      * 拖拽操作
      */
     public void dragDemo() {
+
+        Callback<TreeView<String>, TreeCell<String>> callback = new Callback<TreeView<String>, TreeCell<String>>() {
+            @Override
+            public TreeCell<String> call(TreeView<String> param) {
+                TreeCell<String> tc = setCellAction();
+                return tc;
+            }
+        };
+        tv.setCellFactory(callback);
+    }
+
+    private TreeCell<String> setCellAction() {
         TreeCell<String> tc = new TreeCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -72,7 +83,6 @@ public class TreeCellDemo3 extends ContentBox {
                 }
             }
         };
-
         tc.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
@@ -123,15 +133,6 @@ public class TreeCellDemo3 extends ContentBox {
                 }
             }
         });
-
-        Callback<TreeView<String>, TreeCell<String>> callback = new Callback<TreeView<String>, TreeCell<String>>() {
-            @Override
-            public TreeCell<String> call(TreeView<String> param) {
-
-                return tc;
-            }
-        };
-        tv.setCellFactory(callback);
+        return tc;
     }
-
 }
