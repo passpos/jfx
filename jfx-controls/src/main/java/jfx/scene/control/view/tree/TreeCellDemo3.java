@@ -38,6 +38,7 @@ public class TreeCellDemo3 extends ContentBox {
     public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell Demo3 拖拽操作";
     private TreeView<String> tv;
+    private TreeCell<String> dtc = null;
     private TreeCell<String> temp = null;
 
     @Override
@@ -67,6 +68,10 @@ public class TreeCellDemo3 extends ContentBox {
         tv.setCellFactory(callback);
     }
 
+    /**
+     * dragOver的TreeCell与dragDropped的TreeCell相同，都是释放处的TreeCell；
+     * @return
+     */
     private TreeCell<String> setDragAction() {
         TreeCell<String> tc = new TreeCell<String>() {
             @Override
@@ -86,6 +91,7 @@ public class TreeCellDemo3 extends ContentBox {
         tc.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
+                dtc = tc;
                 Dragboard db = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
                 ClipboardContent cc = new ClipboardContent();
                 cc.putString(tc.getItem());
@@ -191,7 +197,7 @@ public class TreeCellDemo3 extends ContentBox {
             }
         });
 
-        // 当在这里释放拖拽时
+        // 当在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
@@ -200,10 +206,14 @@ public class TreeCellDemo3 extends ContentBox {
 
                 if (tc.getTreeItem().getParent() != null) {
                     ObservableList<TreeItem<String>> children = tc.getTreeItem().getParent().getChildren();
-
-                    // 在当前节点的下面添加新节点
+                    // 在当前节点的下面添加新节点；
                     int index = children.indexOf(tc.getTreeItem());
                     children.add(index + 1, new TreeItem<>(value));
+
+                    // 从原位置移除被拖拽的节点；
+                    TreeItem<String> dti = dtc.getTreeItem();
+                    dti.getParent().getChildren().remove(dti);
+                    dtc = null;
                 }
             }
         });
