@@ -56,7 +56,7 @@ public class ShapeApp extends ContentBox {
         Shape subtract = Shape.subtract(c, r);
         Shape union = Shape.union(c, r);
 
-        URL fileURL = this.getClass().getClassLoader().getResource("imgs/1.jpg");
+        URL fileURL = this.getClass().getClassLoader().getResource("img/1.jpg");
         ImageView iv1 = new ImageView(fileURL.toExternalForm());
         iv1.setFitWidth(200);
         iv1.setPreserveRatio(true);

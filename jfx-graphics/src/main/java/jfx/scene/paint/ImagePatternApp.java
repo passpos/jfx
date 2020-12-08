@@ -42,7 +42,7 @@ public class ImagePatternApp extends ContentBox {
         }
 
         Image image = ImageMaker.getImageFromResource("icon/fav.jpg");
-        Image image1 = ImageMaker.getImageFromResource("imgs/1.jpg");
+        Image image1 = ImageMaker.getImageFromResource("img/1.jpg");
 
         // Image适应填充形状
         Rectangle r1 = (Rectangle) gp.getChildren().get(0);

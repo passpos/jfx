@@ -109,7 +109,7 @@ public class WritableImageApp extends ContentBox {
      * height - 上面指定的点开始，要读取的高度；
      */
     public void constructorDemo3() {
-        Image img = new Image("file:D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/imgs/1.jpg");
+        Image img = new Image("file:D:/Projects/JavaFX/JFX/jfx-graphics/src/main/resources/img/1.jpg");
 
         WritableImage wi = new WritableImage(img.getPixelReader(), 100, 100, 200, 200);
         PixelWriter pw = wi.getPixelWriter();

@@ -79,7 +79,7 @@ public class ImageApp extends ContentBox {
         // Image i6 = new Image("src/img/1.jpg");
 
         // 加载“resources”资源文件夹的文件（URL方式）
-        URL url = getClass().getClassLoader().getResource("imgs/1.jpg");
+        URL url = getClass().getClassLoader().getResource("img/1.jpg");
         Image i7 = new Image(url.toExternalForm());
 
         // 文件（文件：prj/src/img/1.jpg）
