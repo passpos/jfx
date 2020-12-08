@@ -33,6 +33,15 @@ import jfx.core.app.ContentBox;
 import utils.entity.demo.sample.Person;
 
 /**
+ * TreeView 节点类型，是一个视图容器；
+ * TreeItem 非节点类型，但可以视为一个树节点的容器，包含了以下信息：
+ * - 树节点的组织关系、
+ * - 展开状态、
+ * - 组成外观（图标）的节点对象、
+ * - 用于展示的数据对象；
+ * - 事件状态信息；
+ * TreeCell 节点类型，树节点。包含一个用于表示节点展开状态的节点对象（节点前的三角）；
+ *
  * B101-B105
  * @author realpai <paiap@outlook.com>
  */
@@ -170,7 +179,7 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * 创建自定义的Callback
+     * 创建自定义的Callback，用于处理用户指定的TreeCell
      */
     public void cellFactoryDemo3() {
         TreeCell<String> tc = new TreeCell<String>() {
@@ -186,6 +195,7 @@ public class TreeViewApp extends ContentBox {
                 }
             }
         };
+
         Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
 
             @Override
