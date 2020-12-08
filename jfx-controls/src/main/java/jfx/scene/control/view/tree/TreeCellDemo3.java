@@ -200,6 +200,8 @@ public class TreeCellDemo3 extends ContentBox {
 
                 if (tc.getTreeItem().getParent() != null) {
                     ObservableList<TreeItem<String>> children = tc.getTreeItem().getParent().getChildren();
+
+                    // 在当前节点的下面添加新节点
                     int index = children.indexOf(tc.getTreeItem());
                     children.add(index + 1, new TreeItem<>(value));
                 }
