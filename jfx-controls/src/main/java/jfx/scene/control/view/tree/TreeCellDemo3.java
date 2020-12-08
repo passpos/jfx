@@ -37,7 +37,6 @@ public class TreeCellDemo3 extends ContentBox {
     public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeCell Demo3 拖拽操作";
     private TreeView<String> tv;
-    private TreeItem<String> root;
     private TreeCell<String> temp = null;
 
     @Override
@@ -49,7 +48,6 @@ public class TreeCellDemo3 extends ContentBox {
     public void fillData() {
         TreeUtils tu = new TreeUtils();
         tv = tu.getTreeView();
-        root = tu.getTreeItem();
 
         getChildren().add(tv);
     }
@@ -58,18 +56,17 @@ public class TreeCellDemo3 extends ContentBox {
      * 拖拽操作
      */
     public void dragDemo() {
-
         Callback<TreeView<String>, TreeCell<String>> callback = new Callback<TreeView<String>, TreeCell<String>>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
-                TreeCell<String> tc = setCellAction();
+                TreeCell<String> tc = setDragAction();
                 return tc;
             }
         };
         tv.setCellFactory(callback);
     }
 
-    private TreeCell<String> setCellAction() {
+    private TreeCell<String> setDragAction() {
         TreeCell<String> tc = new TreeCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -83,6 +80,8 @@ public class TreeCellDemo3 extends ContentBox {
                 }
             }
         };
+
+        // 检测到拖拽动作时
         tc.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
@@ -99,6 +98,8 @@ public class TreeCellDemo3 extends ContentBox {
                 sdd.setContent(cc);
             }
         });
+
+        // 当拖拽到这里时
         tc.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
@@ -122,6 +123,8 @@ public class TreeCellDemo3 extends ContentBox {
                 }
             }
         });
+
+        // 当在这里释放拖拽时
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
