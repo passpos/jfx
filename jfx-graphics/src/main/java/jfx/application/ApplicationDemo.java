@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package jfx.application.demo;
+package jfx.application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -31,10 +31,10 @@ import javafx.stage.StageStyle;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class DemoApplication extends Application {
+public class ApplicationDemo extends Application {
 
     public static void main(String[] args) {
-        launch(DemoApplication.class, args);
+        launch(ApplicationDemo.class, args);
     }
 
     @Override

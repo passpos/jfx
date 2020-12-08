@@ -20,7 +20,6 @@ package jfx.app;
 import javafx.geometry.Pos;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ButtonWrapper;
-import jfx.core.app.ContentBox;
 
 /**
  *
@@ -177,14 +176,6 @@ public class SideBox extends AbstractSideBox {
         }
 
         btn.setAlignment(Pos.CENTER_LEFT);
-    }
-
-    @Override
-    public void setDefaultBtn() {
-        if (defaultBtn == null) {
-            this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(0);
-        }
-        ContentBox.getPrimaryStage().setTitle(defaultBtn.getTitle());
     }
 
 }

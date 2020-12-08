@@ -26,7 +26,7 @@ import jfx.core.app.ContentBox;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class DemoTimelineApp extends ContentBox {
+public class TimelineDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Animation - Demo Timeline";

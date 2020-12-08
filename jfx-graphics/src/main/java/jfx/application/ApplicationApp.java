@@ -17,7 +17,6 @@
 package jfx.application;
 
 import javafx.application.Application;
-import jfx.application.demo.DemoApplication;
 import jfx.core.app.ContentBox;
 
 /**
@@ -44,7 +43,7 @@ public class ApplicationApp extends ContentBox {
     public static final String TITLE = "Application - Application";
 
     public static void main(String[] args) {
-        Application.launch(DemoApplication.class, args);
+        Application.launch(ApplicationDemo.class, args);
     }
 
     @Override

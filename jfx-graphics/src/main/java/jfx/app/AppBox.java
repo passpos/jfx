@@ -66,7 +66,7 @@ public class AppBox extends AbstractAppBox {
 
         // Animation - Timeline
         appList.add(TimelineApp.class);
-        appList.add(DemoTimelineApp.class);
+        appList.add(TimelineDemo.class);
         appList.add(AnimationTimerApp.class);
 
         // Animation - Transition
