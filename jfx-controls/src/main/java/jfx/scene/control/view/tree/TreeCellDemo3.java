@@ -89,11 +89,15 @@ public class TreeCellDemo3 extends ContentBox {
                 ClipboardContent cc = new ClipboardContent();
                 cc.putString(tc.getItem());
 
+                // 将节点数据转换为文本；
                 Text text = new Text(tc.getItem());
                 text.setFont(new Font(16));
+
+                // 对文本创建快照，并将快照写入到一张图片内；
                 WritableImage wi = new WritableImage((int) tc.getWidth(), 20);
                 text.snapshot(new SnapshotParameters(), wi);
 
+                // 使其跟随鼠标的指针移动；
                 sdd.setDragView(wi);
                 sdd.setContent(cc);
             }

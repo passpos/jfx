@@ -42,6 +42,13 @@ import utils.entity.demo.sample.Person;
  * - 事件状态信息；
  * TreeCell 节点类型，树节点。包含一个用于表示节点展开状态的节点对象（节点前的三角）；
  *
+ * 注意：
+ * 使用TreeCell时，TreeCell的实例化必须放入Callback的call()方法内，才会生效。因
+ * 为TreeCell是节点类型，用于界面显示，在setCellFactory()中，call()内的代码会被
+ * 反复执行，一旦把TreeCell移到call()外，就只会有一个TreeCell实例存在，界面的显
+ * 示就会出现异常。
+ *
+ *
  * B101-B105
  * @author realpai <paiap@outlook.com>
  */
@@ -179,27 +186,29 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * 创建自定义的Callback，用于处理用户指定的TreeCell
+     * 创建自定义的Callback，用于处理用户指定的TreeCell。
+     *
+     * TreeCell实例化过程必须放入call()内；
      */
     public void cellFactoryDemo3() {
-        TreeCell<String> tc = new TreeCell<String>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-                if (!empty) {
-                    HBox hBox = new HBox();
-                    hBox.getChildren().add(new Label(item));
-                    this.setGraphic(hBox);
-                } else if (empty) {
-                    this.setGraphic(null);
-                }
-            }
-        };
 
         Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
 
             @Override
             public TreeCell<String> call(TreeView<String> param) {
+                TreeCell<String> tc = new TreeCell<>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!empty) {
+                            HBox hBox = new HBox();
+                            hBox.getChildren().add(new Label(item));
+                            this.setGraphic(hBox);
+                        } else if (empty) {
+                            this.setGraphic(null);
+                        }
+                    }
+                };
                 return tc;
             }
         };

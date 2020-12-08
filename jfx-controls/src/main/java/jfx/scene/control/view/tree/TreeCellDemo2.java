@@ -44,30 +44,29 @@ public class TreeCellDemo2 extends ContentBox {
      * 通过自定义可以设置节点的：展开状态指示箭头、图标，以及其他复杂内容；
      */
     public void customTreeCell() {
-        TreeCell<String> tc = new TreeCell<String>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-                if (!empty) {
-                    // 添加一个布局组件；
-                    HBox hBox = new HBox();
-
-                    // 在这个布局组件中放置一个Label和一个Button；
-                    Label l = new Label(item);
-                    Button b = new Button(item);
-                    hBox.getChildren().addAll(l, b);
-
-                    // 将整个布局组件设置为节点图标；
-                    this.setGraphic(hBox);
-                } else if (empty) {
-                    this.setGraphic(null);
-                }
-            }
-        };
-
         Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
+                TreeCell<String> tc = new TreeCell<String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!empty) {
+                            // 添加一个布局组件；
+                            HBox hBox = new HBox();
+
+                            // 在这个布局组件中放置一个Label和一个Button；
+                            Label l = new Label(item);
+                            Button b = new Button(item);
+                            hBox.getChildren().addAll(l, b);
+
+                            // 将整个布局组件设置为节点图标；
+                            this.setGraphic(hBox);
+                        } else if (empty) {
+                            this.setGraphic(null);
+                        }
+                    }
+                };
                 return tc;
             }
         };
