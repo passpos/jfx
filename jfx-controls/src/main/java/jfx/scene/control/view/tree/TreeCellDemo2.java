@@ -8,7 +8,6 @@ package jfx.scene.control.view.tree;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeCell;
-import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
@@ -24,7 +23,6 @@ public class TreeCellDemo2 extends ContentBox {
     public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeCell Demo2 自定义节点";
     private TreeView<String> tv;
-    private TreeItem<String> root;
 
     @Override
     public void index() {
@@ -35,7 +33,6 @@ public class TreeCellDemo2 extends ContentBox {
     public void fillData() {
         TreeUtils tu = new TreeUtils();
         tv = tu.getTreeView();
-        root = tu.getTreeItem();
 
         getChildren().add(tv);
     }
