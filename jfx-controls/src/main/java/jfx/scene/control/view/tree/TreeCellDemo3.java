@@ -5,6 +5,7 @@
  */
 package jfx.scene.control.view.tree;
 
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
@@ -134,23 +135,35 @@ public class TreeCellDemo3 extends ContentBox {
                 // 此时，指针的位置在该TreeCell的顶端到向下5像素范围内；
                 if (y >= 0 && y < 5) {
                     TreeItem<String> ti = tc.getTreeItem();
-                    if (ti != null && ti.previousSibling() != null) {
+                    TreeView<String> tv = tc.getTreeView();
+                    TreeItem<String> root = tv.getRoot();
 
+                    if (ti != root) {
+                        BorderStroke bs = new BorderStroke(
+                                Paint.valueOf("#71C671"), null, null, null,
+                                BorderStrokeStyle.SOLID, null, null, null,
+                                null, new BorderWidths(2, 0, 0, 0), null
+                        );
+                        Border border = new Border(bs);
+                        tc.setBorder(border);
                     }
-                    BorderStroke bs = new BorderStroke(
-                            Paint.valueOf("#71C671"), null, null, null,
-                            BorderStrokeStyle.SOLID, null, null, null,
-                            null, new BorderWidths(2, 0, 0, 0), null
-                    );
-                    Border border = new Border(bs);
-                    tc.setBorder(border);
                 }
 
                 // 此时，指针的位置在该TreeCell的向下5像素到向下（h - 5）范围内；
                 if (y >= 5 && y <= h - 5) {
-                    if (!tc.getTreeItem().isLeaf()) {
-                        tc.getTreeItem().setExpanded(true);
+                    TreeItem<String> ti = tc.getTreeItem();
+                    if (!ti.isLeaf()) {
+                        ti.setExpanded(true);
                     }
+                    Paint p = Paint.valueOf("#71C671");
+                    BorderStrokeStyle s = BorderStrokeStyle.SOLID;
+                    BorderStroke bs = new BorderStroke(
+                            p, p, p, p,
+                            s, s, s, s,
+                            null, new BorderWidths(2, 2, 2, 2), null
+                    );
+                    Border border = new Border(bs);
+                    tc.setBorder(border);
                 }
 
                 /* 当拖拽指针位于这个TreeCell的下边缘附近时，设置该TreeCell的下
@@ -186,8 +199,9 @@ public class TreeCellDemo3 extends ContentBox {
                 tc.getTreeItem().isLeaf();
 
                 if (tc.getTreeItem().getParent() != null) {
-                    int index = tc.getTreeItem().getParent().getChildren().indexOf(tc.getTreeItem());
-                    tc.getTreeItem().getParent().getChildren().add(index + 1, new TreeItem<>(value));
+                    ObservableList<TreeItem<String>> children = tc.getTreeItem().getParent().getChildren();
+                    int index = children.indexOf(tc.getTreeItem());
+                    children.add(index + 1, new TreeItem<>(value));
                 }
             }
         });
