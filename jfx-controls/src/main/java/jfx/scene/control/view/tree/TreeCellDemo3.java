@@ -123,24 +123,33 @@ public class TreeCellDemo3 extends ContentBox {
                 }
                 temp = tc;
 
-                /* 所有的拖拽动作都会有一个水平或垂直方向的位移；
-                 * 这里判断这个位移是否达到指定位置；
-                 *
-                 * TreeView总是垂直的，所以拖拽总是检测垂直方向是否发生了偏移；
-                 * 该偏移的符号是从上向下计算的，即：向下拖为正，向上拖则为负；
+                /* 所有的拖拽动作都会有一个水平或垂直方向的位移，这里判断这个位
+                 * 移是否达到指定位置；
+                 * 由于onDragOver事件，下面的y总是大于等于0，小于TreeCell的高度；
+                 * 而这里的偏移 y 是从当前TreeCell的顶端开始计算直到它的底端；
                  */
                 double y = t.getY();
                 double h = tc.getHeight();
 
-                // 如果偏移大于0，且超过了被拖拽组件高度的一半，就执行
-                if (y >= 0 && y <= h - 10) {
+                // 此时，指针的位置在该TreeCell的顶端到向下5像素范围内；
+                if (y >= 0 && y < 5) {
+                    TreeItem<String> ti = tc.getTreeItem();
+                    if (ti != null && ti.previousSibling() != null) {
 
+                    }
+                }
+
+                // 此时，指针的位置在该TreeCell的向下5像素到向下（h - 5）范围内；
+                if (y >= 5 && y <= h - 5) {
+                    if (!tc.getTreeItem().isLeaf()) {
+                        tc.getTreeItem().setExpanded(true);
+                    }
                 }
 
                 /* 当拖拽指针位于这个TreeCell的下边缘附近时，设置该TreeCell的下
                  * 边框为突出的样式；
                  */
-                if (y > h - 10 && y <= h) {
+                if (y > h - 5 && y <= h) {
                     BorderStroke bs = new BorderStroke(
                             null, null, Paint.valueOf("#71C671"), null,
                             BorderStrokeStyle.SOLID, null, null, null,
@@ -153,15 +162,25 @@ public class TreeCellDemo3 extends ContentBox {
                 }
             }
         });
-
-        // 当在这里释放拖拽时
-        tc.setOnDragDropped(new EventHandler<DragEvent>() {
+        // 当拖拽指针从这里离开时
+        tc.setOnDragExited(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
                 if (temp != null) {
                     temp.setBorder(null);
                 }
-
+                if (tc != null) {
+                    tc.setBorder(null);
+                    if (tc.getTreeItem() != null) {
+                        tc.getTreeItem().setExpanded(false);
+                    }
+                }
+            }
+        });
+        // 当在这里释放拖拽时
+        tc.setOnDragDropped(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent t) {
                 String value = t.getDragboard().getString();
                 tc.getTreeItem().isLeaf();
 
