@@ -21,12 +21,10 @@ public class TreeItemDemo extends ContentBox {
     public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeItem Demo 文件系统浏览器";
     public TreeView<String> tv;
-    private TreeItem<String> root;
 
     @Override
     public void index() {
         baseDemo();
-
     }
 
     public void baseDemo() {
@@ -84,7 +82,7 @@ public class TreeItemDemo extends ContentBox {
             public boolean isLeaf() {
                 if (isFirstTimeLeaf) {
                     isFirstTimeLeaf = false;
-                    File f = (File) getValue();
+                    File f = getValue();
                     isLeaf = f.isFile();
                 }
                 return isLeaf;
