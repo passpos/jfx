@@ -85,9 +85,10 @@ public class TreeCellDemo3 extends ContentBox {
         tc.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
-                Dragboard sdd = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
+                Dragboard db = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
                 ClipboardContent cc = new ClipboardContent();
                 cc.putString(tc.getItem());
+                db.setContent(cc);
 
                 // 将节点数据转换为文本；
                 Text text = new Text(tc.getItem());
@@ -98,8 +99,7 @@ public class TreeCellDemo3 extends ContentBox {
                 text.snapshot(new SnapshotParameters(), wi);
 
                 // 使其跟随鼠标的指针移动；
-                sdd.setDragView(wi);
-                sdd.setContent(cc);
+                db.setDragView(wi);
             }
         });
 
