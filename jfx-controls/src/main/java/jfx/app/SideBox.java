@@ -35,121 +35,58 @@ public class SideBox extends AbstractSideBox {
         btn.setPrefWidth(this.getBtnBox().getPrefWidth());
 
         if (title.startsWith("Chart - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa77aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Control - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Progress - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Bar - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa77aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Button - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Dialog - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Input - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa77aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("MenuBox - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Pane - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("List - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99aa");
-            } else if (title.contains("ListCell")) {
-                btn.setStyle("-fx-background-color: #aa77aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aaaaaa");
-            }
+            btn.setStyle("-fx-background-color: #aa99aa");
         }
 
         if (title.startsWith("Table - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Tree - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("TreeTable - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99aa");
-            } else if (title.contains("TreeTableCell")) {
-                btn.setStyle("-fx-background-color: #aa77aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aaaaaa");
-            }
+            btn.setStyle("-fx-background-color: #aa99aa");
         }
 
         btn.setAlignment(Pos.CENTER_LEFT);
-    }
-
-    @Override
-    public void setDefaultBtn() {
-        if (defaultBtn == null) {
-            this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(0);
-        }
     }
 
 }
