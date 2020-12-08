@@ -137,6 +137,13 @@ public class TreeCellDemo3 extends ContentBox {
                     if (ti != null && ti.previousSibling() != null) {
 
                     }
+                    BorderStroke bs = new BorderStroke(
+                            Paint.valueOf("#71C671"), null, null, null,
+                            BorderStrokeStyle.SOLID, null, null, null,
+                            null, new BorderWidths(2, 0, 0, 0), null
+                    );
+                    Border border = new Border(bs);
+                    tc.setBorder(border);
                 }
 
                 // 此时，指针的位置在该TreeCell的向下5像素到向下（h - 5）范围内；
@@ -153,30 +160,24 @@ public class TreeCellDemo3 extends ContentBox {
                     BorderStroke bs = new BorderStroke(
                             null, null, Paint.valueOf("#71C671"), null,
                             BorderStrokeStyle.SOLID, null, null, null,
-                            null,
-                            new BorderWidths(0, 0, 2, 0),
-                            null
+                            null, new BorderWidths(0, 0, 2, 0), null
                     );
                     Border border = new Border(bs);
                     tc.setBorder(border);
                 }
             }
         });
+
         // 当拖拽指针从这里离开时
         tc.setOnDragExited(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
-                if (temp != null) {
-                    temp.setBorder(null);
-                }
                 if (tc != null) {
                     tc.setBorder(null);
-                    if (tc.getTreeItem() != null) {
-                        tc.getTreeItem().setExpanded(false);
-                    }
                 }
             }
         });
+
         // 当在这里释放拖拽时
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
