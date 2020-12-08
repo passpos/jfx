@@ -105,6 +105,10 @@ public class TreeCellDemo3 extends ContentBox {
 
         // 当拖拽到这里时
         tc.setOnDragOver(new EventHandler<DragEvent>() {
+            /**
+             * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
+             * @param t
+             */
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
@@ -112,9 +116,23 @@ public class TreeCellDemo3 extends ContentBox {
                     temp.setBorder(null);
                 }
                 temp = tc;
-                if (t.getY() >= 0 && t.getY() <= tc.getHeight() - 10) {
 
-                } else if (t.getY() > tc.getHeight() - 10 && t.getY() <= tc.getHeight()) {
+                /* 所有的拖拽动作都会有一个水平或垂直方向的位移；
+                 * 这里判断这个位移是否达到指定位置；
+                 *
+                 * TreeView总是垂直的，所以拖拽总是检测垂直方向是否发生了偏移；
+                 */
+                // 如果偏移大于0，且超过了被拖拽组件高度的一半，就执行
+                double y = t.getY();
+                double h = tc.getHeight();
+                if (y >= 0 && y <= h - 10) {
+
+                }
+
+                /* 当拖拽指针位于这个TreeCell的下边缘附近时，设置该TreeCell的下
+                 * 边框为突出的样式；
+                 */
+                if (y > h - 10 && y <= h) {
                     BorderStroke bs = new BorderStroke(
                             null, null, Paint.valueOf("#71C671"), null,
                             BorderStrokeStyle.SOLID, null, null, null,
@@ -134,6 +152,7 @@ public class TreeCellDemo3 extends ContentBox {
             public void handle(DragEvent t) {
                 String value = t.getDragboard().getString();
                 tc.getTreeItem().isLeaf();
+
                 if (tc.getTreeItem().getParent() != null) {
                     int index = tc.getTreeItem().getParent().getChildren().indexOf(tc.getTreeItem());
                     tc.getTreeItem().getParent().getChildren().add(index + 1, new TreeItem<>(value));
