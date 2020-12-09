@@ -28,6 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
+import jfx.core.utils.TreeUtils;
 
 /**
  *

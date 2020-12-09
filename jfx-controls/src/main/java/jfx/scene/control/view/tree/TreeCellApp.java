@@ -11,6 +11,7 @@ import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
+import jfx.core.utils.TreeUtils;
 
 /**
  *

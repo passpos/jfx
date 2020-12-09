@@ -30,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
+import jfx.core.utils.TreeUtils;
 import utils.entity.demo.sample.Person;
 
 /**
