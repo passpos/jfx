@@ -29,6 +29,7 @@ public class StackedAreaChartApp extends ContentBox {
         baseDemo();
     }
 
+    @SuppressWarnings("unchecked")
     public void data() {
         XYChart.Data<String, Number> d1 = new XYChart.Data<>("2011", 30);
         XYChart.Data<String, Number> d2 = new XYChart.Data<>("2012", 20);
@@ -49,6 +50,7 @@ public class StackedAreaChartApp extends ContentBox {
         xy2.getData().addAll(d5, d6, d7, d8);
     }
 
+    @SuppressWarnings("unchecked")
     public void baseDemo() {
         // X轴
         CategoryAxis x = new CategoryAxis();
