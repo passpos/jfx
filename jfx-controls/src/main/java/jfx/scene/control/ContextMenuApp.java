@@ -24,6 +24,31 @@ import javafx.scene.input.ContextMenuEvent;
 import jfx.core.app.ContentBox;
 
 /**
+ * contextMenu是 javafx.scene.control.Control 的一个属性；
+ *
+ * 继承关系：
+ * java.lang.Object
+ * |- javafx.stage.Window
+ * |---- javafx.stage.PopupWindow
+ * |------- javafx.scene.control.PopupControl
+ * |---------- javafx.scene.control.ContextMenu
+ *
+ * 属性：
+ * - onAction
+ *
+ * 方法：
+ * - getItems()
+ * 获取右键菜单中的所有菜单项；
+ *
+ * - hide()
+ * 隐藏此ContextMenu和任何可见子菜单，假设调用此函数时ContextMenu正在显示；
+ *
+ * - show​(Node anchor, double screenX, double screenY)
+ * 在指定的屏幕坐标处显示；
+ *
+ * - show​(Node anchor, Side side, double dx, double dy)，
+ * 在hpos和vpos参数指定的一侧显示相对于给定锚点的ContextMenu，并分别在x轴和y轴上
+ * 显示给定的dx和dy值偏移；
  *
  * @author realpai <paiap@outlook.com>
  */
