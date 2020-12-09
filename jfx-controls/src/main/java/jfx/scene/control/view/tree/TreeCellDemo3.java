@@ -31,7 +31,7 @@ import jfx.core.app.ContentBox;
 import jfx.core.utils.TreeUtils;
 
 /**
- *
+ * 拖拽操作
  * @author passpos <paiap@outlook.com>
  */
 public class TreeCellDemo3 extends ContentBox {
