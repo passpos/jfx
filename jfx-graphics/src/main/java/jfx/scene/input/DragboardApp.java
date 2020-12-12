@@ -196,7 +196,7 @@ public class DragboardApp extends ContentBox {
 
     public void dragCustomeDataDemo() {
         // 数据源
-        Person p = new Person("独鹤归何晚", "14", "file:D:/Image Picka/c22a98014a90f603f49156232e12b31bb151edde.jpg");
+        Person p = new Person("独鹤归何晚", "14", "file:src/main/resources/imgs/demo.jpg");
         Button src = new Button(p.getName());
         setTopAnchor(src, 40.0);
         setLeftAnchor(src, 250.0);
