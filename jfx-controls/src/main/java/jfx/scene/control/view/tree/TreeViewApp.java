@@ -44,10 +44,11 @@ import utils.entity.demo.sample.Person;
  * TreeCell 节点类型，树节点。包含一个用于表示节点展开状态的节点对象（节点前的三角）；
  *
  * 注意：
- * 使用TreeCell时，TreeCell的实例化必须放入Callback的call()方法内，才会生效。因
- * 为TreeCell是节点类型，用于界面显示，在setCellFactory()中，call()内的代码会被
- * 反复执行，一旦把TreeCell移到call()外，就只会有一个TreeCell实例存在，界面的显
- * 示就会出现异常。
+ * - TreeView 本身不会包含标题等文本信息，只是作为一个视图容器存在；
+ * - 使用TreeCell时，TreeCell的实例化必须放入Callback的call()方法内，才会生效。
+ * 因为TreeCell是节点类型，用于界面显示，在setCellFactory()中，call()内的代码会
+ * 被反复执行，一旦把TreeCell移到call()外，就只会有一个TreeCell实例存在，界面的
+ * 显示就会出现异常。
  *
  *
  * B101-B105
@@ -73,7 +74,7 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * B101 TreeView 本身不会包含标题等文本信息，只是作为一个视图容器存在。
+     * B101
      */
     public void fillData() {
         TreeUtils tu = new TreeUtils();
