@@ -49,7 +49,7 @@ import jfx.core.app.ContentBox;
 
 /**
  * final Dragboard extends Clipboard
- *
+ * B80 - B81
  * @author realpai <paiap@outlook.com>
  */
 public class DragboardApp extends ContentBox {
