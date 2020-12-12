@@ -48,7 +48,7 @@ import javafx.scene.text.Text;
 import jfx.core.app.ContentBox;
 
 /**
- * public final class Dragboard extends Clipboard
+ * final Dragboard extends Clipboard
  *
  * @author realpai <paiap@outlook.com>
  */

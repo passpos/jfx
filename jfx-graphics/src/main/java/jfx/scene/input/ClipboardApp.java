@@ -108,6 +108,9 @@ public class ClipboardApp extends ContentBox {
         }
     }
 
+    /**
+     * 从剪切板获取内容
+     */
     public void getContentFromClipboardDemo() {
         ClipboardContent cc = new ClipboardContent();
         cc.put(DataFormat.PLAIN_TEXT, "Hello World!");
