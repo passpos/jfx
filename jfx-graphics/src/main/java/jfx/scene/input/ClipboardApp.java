@@ -44,7 +44,6 @@ public class ClipboardApp extends ContentBox {
     public void index() {
         clipboard = Clipboard.getSystemClipboard();
         baseDemo();
-        putContentToClipboardDemo();
     }
 
     /**
@@ -71,6 +70,7 @@ public class ClipboardApp extends ContentBox {
             @Override
             public void run() {
                 getContentFromClipboardDemo(btn, iv);
+                putContentToClipboardDemo();
             }
         });
 
@@ -103,6 +103,7 @@ public class ClipboardApp extends ContentBox {
             }
             if (img1 != null) {
                 iv.setImage(img1);
+                ol("img1");
             }
 
             // 方式2（对图片文件不可行）
@@ -110,14 +111,16 @@ public class ClipboardApp extends ContentBox {
             if (img2 != null) {
                 iv.setImage(img2);
                 ol(clipboard.getString());
-                ol(img2.getUrl());
+                ol("img2");
             }
 
             // 方式3（对图片文件不可行）
             Object imgContent = clipboard.getContent(DataFormat.IMAGE);
             Image img3 = (Image) imgContent;
-
-            //iv.setImage(img2);
+            if (img3 != null) {
+                iv.setImage(img3);
+                ol("img3");
+            }
         }
     }
 
@@ -126,9 +129,9 @@ public class ClipboardApp extends ContentBox {
      *
      * 先将数据封装到 ClipboardContent ，在将ClipboardContent放入剪切板；
      */
-    public void putContentToClipboardDemo() {
+    private void putContentToClipboardDemo() {
         ClipboardContent cc = new ClipboardContent();
-        cc.put(DataFormat.PLAIN_TEXT, "Hello World!");
+        cc.put(DataFormat.PLAIN_TEXT, "放置内容成功");
 
         clipboard.setContent(cc);
     }
