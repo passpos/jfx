@@ -45,11 +45,13 @@ public class BorderApp extends ContentBox {
         hBox.setPrefHeight(250.0);
         hBox.setStyle("-fx-background-color:#556699");
 
-        hBox.setBorder(new Border(new BorderStroke(
+        BorderStroke bs = new BorderStroke(
                 Paint.valueOf("#ff0000"),
                 BorderStrokeStyle.SOLID,
                 new CornerRadii(0),
                 new BorderWidths(3.0)
-        )));
+        );
+
+        hBox.setBorder(new Border(bs));
     }
 }
