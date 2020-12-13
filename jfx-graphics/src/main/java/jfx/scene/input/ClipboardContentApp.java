@@ -21,58 +21,60 @@ import jfx.core.app.ContentBox;
 
 /**
  * ClipboardContent extends HashMap
- * 用于放置剪贴板数据；
+ * 用于放置剪贴板数据的容器类；
  *
  * 除了数种常见格式之外，还支持用户自定义的数据（通过 DataFormat类）
  * @author passpos <paiap@outlook.com>
  */
 public class ClipboardContentApp extends ContentBox {
-    
+
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Input - ClipboardContent 剪贴板内容";
+    public static final String TITLE = "Input - ClipboardContent 剪贴板内容对象";
+    private Button src;
+    private VBox vb;
     private TextField tf;
-    
+
     @Override
     public void index() {
-        baseDemo();
-    }
-    
-    public void baseDemo() {
-        // 被拖拽的节点
-        Button src = new Button("独鹤归何晚");
-        setTopAnchor(src, 40.0);
-        setLeftAnchor(src, 50.0);
-
-        // 拖拽放置的位置
-        VBox vb = new VBox(10);
-        vb.setPrefWidth(250);
-        vb.setPrefHeight(300);
-        vb.setStyle("-fx-border-color:#ff0055");
-        
-        Button btn = new Button("拖拽到此");
-        btn.setMaxWidth(vb.getPrefWidth());
-        
-        tf = new TextField();
-        tf.setAlignment(Pos.CENTER);
-        
-        vb.getChildren().addAll(btn, tf);
-        setTopAnchor(vb, 70.0);
-        setLeftAnchor(vb, 50.0);
-        getChildren().addAll(src, vb);
+        base();
 
         // 拖拽时，将数据放入剪切板
         dragAction(src, vb);
     }
-    
+
+    public void base() {
+        // 被拖拽的节点
+        src = new Button("独鹤归何晚");
+        setTopAnchor(src, 40.0);
+        setLeftAnchor(src, 50.0);
+
+        // 拖拽放置的位置
+        vb = new VBox(10);
+        vb.setPrefWidth(250);
+        vb.setPrefHeight(70);
+        vb.setStyle("-fx-border-color:#ff0055; -fx-padding: 5px;");
+
+        Button btn = new Button("拖拽到此");
+        btn.setMaxWidth(vb.getPrefWidth());
+
+        tf = new TextField();
+        tf.setAlignment(Pos.CENTER);
+
+        vb.getChildren().addAll(btn, tf);
+        setTopAnchor(vb, 100.0);
+        setLeftAnchor(vb, 50.0);
+        getChildren().addAll(src, vb);
+    }
+
     public void dragAction(Button src, VBox vb) {
         src.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
                 Dragboard sdb = src.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-                
+
                 ClipboardContent cc = new ClipboardContent();
                 cc.putString(src.getText());
-                
+
                 sdb.setContent(cc);
             }
         });
@@ -80,7 +82,7 @@ public class ClipboardContentApp extends ContentBox {
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-                
+
             }
         });
         vb.setOnDragDropped(new EventHandler<DragEvent>() {
@@ -88,8 +90,9 @@ public class ClipboardContentApp extends ContentBox {
             public void handle(DragEvent t) {
                 String str = t.getDragboard().getString();
                 tf.setText(str);
+                t.setDropCompleted(true);
             }
         });
     }
-    
+
 }
