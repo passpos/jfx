@@ -78,6 +78,17 @@ public class DragboardApp extends ContentBox {
             }
         });
 
+        // 执行剪切动作；
+        label.setOnDragDone(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent t) {
+                if (t.getTransferMode() == TransferMode.MOVE) {
+                    label.setText("");
+                }
+                t.setDropCompleted(true);
+            }
+        });
+
         // 拖动经过
         tf.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
@@ -93,17 +104,6 @@ public class DragboardApp extends ContentBox {
                 tf.setText(t.getDragboard().getString());
 
                 // 不执行下面的操作，拖拽完成后，被拖拽节点的数据传输模式将会为空；
-                t.setDropCompleted(true);
-            }
-        });
-
-        // 执行剪切动作；
-        label.setOnDragDone(new EventHandler<DragEvent>() {
-            @Override
-            public void handle(DragEvent t) {
-                if (t.getTransferMode() == TransferMode.MOVE) {
-                    label.setText("");
-                }
                 t.setDropCompleted(true);
             }
         });
