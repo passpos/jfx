@@ -14,9 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package jfx.scene.layout.border;
 
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 import jfx.core.app.ContentBox;
 
 /**
@@ -27,8 +33,23 @@ public class BorderApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Border - Border";
+    private HBox hBox;
 
     @Override
     public void index() {
+    }
+
+    public void baseDemo() {
+        hBox = new HBox();
+        hBox.setPrefWidth(200.0);
+        hBox.setPrefHeight(250.0);
+        hBox.setStyle("-fx-background-color:#556699");
+
+        hBox.setBorder(new Border(new BorderStroke(
+                Paint.valueOf("#ff0000"),
+                BorderStrokeStyle.SOLID,
+                new CornerRadii(0),
+                new BorderWidths(3.0)
+        )));
     }
 }
