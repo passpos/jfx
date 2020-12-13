@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
@@ -44,6 +44,7 @@ public class ClipboardApp extends ContentBox {
     public void index() {
         clipboard = Clipboard.getSystemClipboard();
         baseDemo();
+        putContentToClipboardDemo();
     }
 
     /**
@@ -54,64 +55,78 @@ public class ClipboardApp extends ContentBox {
      * clipboard.getFiles() 使用此种方式获取；
      */
     public void baseDemo() {
-        Label label = new Label("粘贴内容");
+        Button btn = new Button("粘贴内容");
+
         ImageView iv = new ImageView();
         iv.setPreserveRatio(true);
         iv.setFitWidth(300.0);
+
+        getChildren().addAll(btn, iv);
         setTopAnchor(iv, 50.0);
+
+        // 设置剪切复制的快捷键
         KeyCodeCombination kcc = new KeyCodeCombination(KeyCode.V, KeyCodeCombination.SHORTCUT_DOWN);
 
         getBaseScene().getAccelerators().put(kcc, new Runnable() {
             @Override
             public void run() {
-                putContentToClipboardDemo(label, iv);
-                getContentFromClipboardDemo();
+                getContentFromClipboardDemo(btn, iv);
             }
         });
-        this.getChildren().addAll(label, iv);
+
     }
 
     /**
+     * 按下快捷键后，将（从系统其他地方复制到的）内容放置到剪切板；
+     *
      * 放置的内容会存在于系统剪切板中；
      *
-     * @param label Label
-     * @param iv    ImageView
+     * @param btn Button
+     * @param iv  ImageView
      */
-    public void putContentToClipboardDemo(Label label, ImageView iv) {
+    private void getContentFromClipboardDemo(Button btn, ImageView iv) {
         if (clipboard.hasString()) {
-            label.setText(clipboard.getString());
+            btn.setText(clipboard.getString());
             ol("getString()");
         } else if (clipboard.hasImage()) {
             iv.setImage(clipboard.getImage());
             ol("by - getImage()");
         } else if (clipboard.hasFiles()) {
             List<File> files = clipboard.getFiles();
+            // 方式1
             Image img1 = null;
             try {
-                // 方式1
+                ol("by - getFiles()");
                 img1 = new Image(new FileInputStream(files.get(0)));
             } catch (FileNotFoundException ex) {
                 ol(ex.getMessage());
             }
+            if (img1 != null) {
+                iv.setImage(img1);
+            }
 
             // 方式2（对图片文件不可行）
             Image img2 = clipboard.getImage();
-            ol(clipboard.getString());
-            ol(img2.getUrl());
+            if (img2 != null) {
+                iv.setImage(img2);
+                ol(clipboard.getString());
+                ol(img2.getUrl());
+            }
 
             // 方式3（对图片文件不可行）
             Object imgContent = clipboard.getContent(DataFormat.IMAGE);
             Image img3 = (Image) imgContent;
 
-            iv.setImage(img2);
-            ol("by - getFiles()");
+            //iv.setImage(img2);
         }
     }
 
     /**
      * 从剪切板获取内容
+     *
+     * 先将数据封装到 ClipboardContent ，在将ClipboardContent放入剪切板；
      */
-    public void getContentFromClipboardDemo() {
+    public void putContentToClipboardDemo() {
         ClipboardContent cc = new ClipboardContent();
         cc.put(DataFormat.PLAIN_TEXT, "Hello World!");
 
