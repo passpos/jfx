@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package jfx.scene.input;
 
-import java.io.Serializable;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
@@ -32,138 +27,69 @@ import jfx.core.app.ContentBox;
  * @author passpos <paiap@outlook.com>
  */
 public class ClipboardContentApp extends ContentBox {
-
+    
     public static final boolean SHOWING = false;
     public static final String TITLE = "Input - ClipboardContent 剪贴板内容";
-    public DataFormat df;
-
+    private TextField tf;
+    
     @Override
     public void index() {
         baseDemo();
-        dragCustomeDataDemo();
     }
+    
     public void baseDemo() {
-        DataFormat mt = DataFormat.lookupMimeType("data/person");
-        if (mt == null) {
-            df = new DataFormat("data/person");
-        }
-    }
-    public void dragCustomeDataDemo() {
-        // 数据源
-        Person p = new Person("独鹤归何晚", "14", "file:src/main/resources/imgs/demo.jpg");
-        Button src = new Button(p.getName());
+        // 被拖拽的节点
+        Button src = new Button("独鹤归何晚");
         setTopAnchor(src, 40.0);
-        setLeftAnchor(src, 250.0);
+        setLeftAnchor(src, 50.0);
+
+        // 拖拽放置的位置
+        VBox vb = new VBox(10);
+        vb.setPrefWidth(250);
+        vb.setPrefHeight(300);
+        vb.setStyle("-fx-border-color:#ff0055");
+        
+        Button btn = new Button("拖拽到此");
+        btn.setMaxWidth(vb.getPrefWidth());
+        
+        tf = new TextField();
+        tf.setAlignment(Pos.CENTER);
+        
+        vb.getChildren().addAll(btn, tf);
+        setTopAnchor(vb, 70.0);
+        setLeftAnchor(vb, 50.0);
+        getChildren().addAll(src, vb);
 
         // 拖拽时，将数据放入剪切板
+        dragAction(src, vb);
+    }
+    
+    public void dragAction(Button src, VBox vb) {
         src.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
-                Dragboard sdd = src.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-
+                Dragboard sdb = src.startDragAndDrop(TransferMode.COPY_OR_MOVE);
+                
                 ClipboardContent cc = new ClipboardContent();
-                cc.put(df, p);
-
-                sdd.setContent(cc);
+                cc.putString(src.getText());
+                
+                sdb.setContent(cc);
             }
         });
-
-        VBox vb = new VBox(10);
-        draggedTarget(vb);
         vb.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-
+                
             }
         });
         vb.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
-                Dragboard db = t.getDragboard();
-                // db.getContent(DataFormat.lookupMimeType("data/person"));
-                Object c = db.getContent(df);
-                Person p = (Person) c;
-
-                TextField name = (TextField) vb.getChildren().get(1);
-                TextField age = (TextField) vb.getChildren().get(2);
-                ImageView avater = (ImageView) vb.getChildren().get(3);
-
-                name.setText(p.getName());
-                age.setText(p.getAge());
-                avater.setImage(new Image(p.getAvater()));
+                String str = t.getDragboard().getString();
+                tf.setText(str);
             }
         });
-        this.getChildren().addAll(src, vb);
     }
-
-    /**
-     * 设置被拖拽的可视对象
-     * @param vb
-     */
-    private void draggedTarget(VBox vb) {
-        vb.setPrefWidth(250);
-        vb.setPrefHeight(300);
-        vb.setStyle("-fx-border-color:#ff0055");
-
-        Button btn = new Button("个人详情");
-        btn.setMaxWidth(vb.getPrefWidth());
-
-        TextField tf1 = new TextField();
-        TextField tf2 = new TextField();
-        tf1.setAlignment(Pos.CENTER);
-        tf2.setAlignment(Pos.CENTER);
-
-        ImageView iv = new ImageView();
-        iv.setPreserveRatio(true);
-        iv.setFitWidth(vb.getPrefWidth());
-
-        vb.getChildren().addAll(btn, tf1, tf2, iv);
-        setTopAnchor(vb, 70.0);
-        setLeftAnchor(vb, 250.0);
-    }
-}
-
-/**
- * 必须实现序列化接口
- * @author realpai <paiap@outlook.com>
- */
-class Person implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    private String name;
-    private String age;
-    private String avater;
-
-    Person(String name, String age, String avater) {
-        this.name = name;
-        this.age = age;
-        this.avater = avater;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getAvater() {
-        return avater;
-    }
-
-    public void setAvater(String avater) {
-        this.avater = avater;
-    }
-
+    
 }
