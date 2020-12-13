@@ -32,6 +32,8 @@ import jfx.core.app.ContentBox;
 /**
  * final Dragboard extends Clipboard
  * B80 - B81
+ *
+ * 被拖拽的对象总是持有数据的节点；
  * @author realpai <paiap@outlook.com>
  */
 public class DragboardApp extends ContentBox {
@@ -45,9 +47,14 @@ public class DragboardApp extends ContentBox {
     }
 
     public void baseDemo() {
+        // 被拖对象
         Label label = new Label("Hello World!");
+
+        // 拖拽放置处
         TextField tf = new TextField();
-        setLeftAnchor(tf, 250.0);
+        getChildren().addAll(label, tf);
+        setLeftAnchor(label, 50.0);
+        setLeftAnchor(tf, 50.0);
 
         // 拖动检测
         label.setOnDragDetected(new EventHandler<MouseEvent>() {
@@ -55,6 +62,7 @@ public class DragboardApp extends ContentBox {
             public void handle(MouseEvent t) {
                 // 1. 启动拖动
                 Dragboard sdb = label.startDragAndDrop(TransferMode.COPY);
+
                 // 1.1 设置拖拽动态效果
                 Text text = new Text(label.getText());
                 WritableImage wi = new WritableImage((int) label.getWidth(), (int) label.getHeight());
@@ -96,9 +104,10 @@ public class DragboardApp extends ContentBox {
                 if (t.getTransferMode() == TransferMode.MOVE) {
                     label.setText("");
                 }
+                t.setDropCompleted(true);
             }
         });
-        this.getChildren().addAll(label, tf);
+
     }
 
 }
