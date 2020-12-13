@@ -58,7 +58,6 @@ public class DragboardDemo extends ContentBox {
         iv.setPreserveRatio(true);
         iv.setFitWidth(230.0);
         hBox.getChildren().add(iv);
-
     }
 
     /**
