@@ -35,13 +35,19 @@ public class ClipboardContentApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Input - ClipboardContent 剪贴板内容";
-    public DataFormat df = new DataFormat("data/person");
+    public DataFormat df;
 
     @Override
     public void index() {
+        baseDemo();
         dragCustomeDataDemo();
     }
-
+    public void baseDemo() {
+        DataFormat mt = DataFormat.lookupMimeType("data/person");
+        if (mt == null) {
+            df = new DataFormat("data/person");
+        }
+    }
     public void dragCustomeDataDemo() {
         // 数据源
         Person p = new Person("独鹤归何晚", "14", "file:src/main/resources/imgs/demo.jpg");
@@ -63,7 +69,7 @@ public class ClipboardContentApp extends ContentBox {
         });
 
         VBox vb = new VBox(10);
-        dragTarget(vb);
+        draggedTarget(vb);
         vb.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
@@ -92,10 +98,10 @@ public class ClipboardContentApp extends ContentBox {
     }
 
     /**
-     * 社会资被拖拽的可视对象
+     * 设置被拖拽的可视对象
      * @param vb
      */
-    private void dragTarget(VBox vb) {
+    private void draggedTarget(VBox vb) {
         vb.setPrefWidth(250);
         vb.setPrefHeight(300);
         vb.setStyle("-fx-border-color:#ff0055");
@@ -124,11 +130,13 @@ public class ClipboardContentApp extends ContentBox {
  */
 class Person implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String age;
     private String avater;
 
-    public Person(String name, String age, String avater) {
+    Person(String name, String age, String avater) {
         this.name = name;
         this.age = age;
         this.avater = avater;
