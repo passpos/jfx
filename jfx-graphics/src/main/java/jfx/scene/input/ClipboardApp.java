@@ -31,7 +31,7 @@ import javafx.scene.input.KeyCodeCombination;
 import jfx.core.app.ContentBox;
 
 /**
- *
+ * B79
  * @author realpai <paiap@outlook.com>
  */
 public class ClipboardApp extends ContentBox {
