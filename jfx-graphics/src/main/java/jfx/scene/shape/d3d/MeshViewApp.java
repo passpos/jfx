@@ -38,7 +38,7 @@ import jfx.core.app.ContentBox;
  */
 public class MeshViewApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Shape - 3D MeshView";
     private Stage secondaryStage;
     private Scene secondaryScene;
