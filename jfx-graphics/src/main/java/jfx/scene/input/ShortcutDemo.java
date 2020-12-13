@@ -30,7 +30,7 @@ import jfx.core.app.ContentBox;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class DemoShortcutApp extends ContentBox {
+public class ShortcutDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Input - Demo 快捷键";

@@ -34,8 +34,8 @@ import jfx.core.app.ContentBox;
 public class ClipboardContentApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Input - ClipboardContent";
-    public DataFormat pf = new DataFormat("data/person");
+    public static final String TITLE = "Input - ClipboardContent 剪贴板内容";
+    public DataFormat df = new DataFormat("data/person");
 
     @Override
     public void index() {
@@ -56,7 +56,7 @@ public class ClipboardContentApp extends ContentBox {
                 Dragboard sdd = src.startDragAndDrop(TransferMode.COPY_OR_MOVE);
 
                 ClipboardContent cc = new ClipboardContent();
-                cc.put(pf, p);
+                cc.put(df, p);
 
                 sdd.setContent(cc);
             }
@@ -76,7 +76,7 @@ public class ClipboardContentApp extends ContentBox {
             public void handle(DragEvent t) {
                 Dragboard db = t.getDragboard();
                 // db.getContent(DataFormat.lookupMimeType("data/person"));
-                Object c = db.getContent(pf);
+                Object c = db.getContent(df);
                 Person p = (Person) c;
 
                 TextField name = (TextField) vb.getChildren().get(1);
