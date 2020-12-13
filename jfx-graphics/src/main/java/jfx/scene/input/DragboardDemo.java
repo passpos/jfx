@@ -29,7 +29,7 @@ import jfx.core.app.ContentBox;
  */
 public class DragboardDemo extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Input - DragboardDemo 拖拽文件类型";
     private HBox hBox;
     private ImageView iv;
@@ -37,10 +37,12 @@ public class DragboardDemo extends ContentBox {
     @Override
     public void index() {
         baseDemo();
+        dragAction();
     }
 
     public void baseDemo() {
         Label l = new Label("拖拽文件到下面框内");
+        l.setStyle("-fx-background-color:#995555");
         getChildren().add(l);
 
         // 从别处拖拽文件到下面节点区域上
@@ -49,6 +51,7 @@ public class DragboardDemo extends ContentBox {
         hBox.setPrefHeight(250.0);
         hBox.setStyle("-fx-background-color:#556699");
         setTopAnchor(hBox, 70.0);
+        getChildren().add(hBox);
 
         // 如果是图片文件，就显示到这里
         iv = new ImageView();
@@ -56,14 +59,15 @@ public class DragboardDemo extends ContentBox {
         iv.setFitWidth(230.0);
         hBox.getChildren().add(iv);
 
-        getChildren().add(hBox);
     }
 
     /**
      * 拖拽动作
+     *
+     * 拖拽的数据传输模式是 MOVE；
      */
-    public void setAction() {
-        Paint p1 = Paint.valueOf("#333333");
+    public void dragAction() {
+        Paint p1 = Paint.valueOf("#773333");
         Paint p2 = Paint.valueOf("#337733");
         BorderWidths bw1 = new BorderWidths(1);
         BorderWidths bw2 = new BorderWidths(5);
@@ -81,7 +85,7 @@ public class DragboardDemo extends ContentBox {
         hBox.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
-                ol(t.getTransferMode());
+                ol("t.getTransferMode() - " + t.getTransferMode());
                 t.acceptTransferModes(t.getTransferMode());
             }
         });
@@ -135,6 +139,8 @@ public class DragboardDemo extends ContentBox {
                 } else {
                     ob("未能捕获图片");
                 }
+
+                t.setDropCompleted(true);
             }
         });
 
