@@ -45,28 +45,20 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Application - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Concurrent - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         // jfx.scene
         if (title.startsWith("Canvas - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
+        }
+
+        if (title.startsWith("Scene - ")) {
+            btn.setStyle("-fx-background-color: #aae4c4");
         }
 
         if (title.startsWith("Effect - ")) {
@@ -80,29 +72,15 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Geometry - ")) {
-            if (title.contains("Enum")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99ac");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe499");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Image - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae499");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Input - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa99b5");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Layout - ")) {
@@ -122,19 +100,11 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Paint - ")) {
-            if (title.contains("Material")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Robot - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa99aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Shape - ")) {
@@ -152,27 +122,15 @@ public class SideBox extends AbstractSideBox {
         }
 
         if (title.startsWith("Text - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Transform - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa99aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Stage - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         btn.setAlignment(Pos.CENTER_LEFT);
