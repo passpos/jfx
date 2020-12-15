@@ -73,8 +73,8 @@ public class BorderWidthsApp extends ContentBox {
     }
 
     private void setVBox(HBox h, BorderWidths bw) {
-        h.setPrefWidth(90.0);
-        h.setPrefHeight(90.0);
+        h.setPrefWidth(40.0);
+        h.setPrefHeight(40.0);
         h.setStyle("-fx-background-color:#55aa55");
 
         BorderStroke bs = new BorderStroke(

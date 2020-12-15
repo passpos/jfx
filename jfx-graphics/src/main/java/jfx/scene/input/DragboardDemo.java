@@ -29,7 +29,7 @@ import jfx.core.app.ContentBox;
  */
 public class DragboardDemo extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Input - DragboardDemo 拖拽文件类型";
     private HBox hBox;
     private ImageView iv;
@@ -47,8 +47,8 @@ public class DragboardDemo extends ContentBox {
 
         // 从别处拖拽文件到下面节点区域上
         hBox = new HBox();
-        hBox.setPrefWidth(200.0);
-        hBox.setPrefHeight(250.0);
+        hBox.setPrefWidth(550.0);
+        hBox.setPrefHeight(450.0);
         hBox.setStyle("-fx-background-color:#556699");
         setTopAnchor(hBox, 70.0);
         getChildren().add(hBox);
@@ -56,7 +56,8 @@ public class DragboardDemo extends ContentBox {
         // 如果是图片文件，就显示到这里
         iv = new ImageView();
         iv.setPreserveRatio(true);
-        iv.setFitWidth(230.0);
+        iv.setFitWidth(550.0);
+        iv.setFitHeight(450.0);
         hBox.getChildren().add(iv);
     }
 

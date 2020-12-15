@@ -101,7 +101,6 @@ public class ClipboardContentDemo extends ContentBox {
                 avater.setImage(new Image(p.getAvater()));
             }
         });
-
     }
 
     /**

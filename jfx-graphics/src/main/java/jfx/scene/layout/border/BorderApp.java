@@ -71,7 +71,7 @@ public class BorderApp extends ContentBox {
     public void baseDemo() {
         hBox = new HBox();
         hBox.setPrefWidth(200.0);
-        hBox.setPrefHeight(250.0);
+        hBox.setPrefHeight(200.0);
         hBox.setStyle("-fx-background-color:#556699");
         getChildren().add(hBox);
 

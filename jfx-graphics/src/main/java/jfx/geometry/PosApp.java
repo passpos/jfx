@@ -14,7 +14,7 @@ import jfx.core.app.ContentBox;
  * 用于描述垂直和水平定位和对齐的一组值。
  *
  * 用例：
- * - 设置布局组件的子组件的对齐方式
+ * - 设置布局组件中子组件的对齐方式
  * @author passpos <paiap@outlook.com>
  */
 public class PosApp extends ContentBox {

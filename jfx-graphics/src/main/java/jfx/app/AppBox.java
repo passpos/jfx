@@ -33,6 +33,7 @@ import jfx.scene.effect.blur.*;
 import jfx.scene.effect.shadow.*;
 import jfx.scene.image.*;
 import jfx.scene.input.*;
+import jfx.scene.layout.border.*;
 import jfx.scene.layout.box.*;
 import jfx.scene.layout.pane.*;
 import jfx.scene.paint.*;
@@ -150,6 +151,13 @@ public class AppBox extends AbstractAppBox {
         appList.add(DragboardApp.class);
         appList.add(DragboardDemo.class);
         appList.add(ShortcutDemo.class);
+
+        // Layout - Border
+        appList.add(BorderApp.class);
+        appList.add(BorderStrokeApp.class);
+        appList.add(BorderStrokeStyleApp.class);
+        appList.add(CornerRadiiApp.class);
+        appList.add(BorderWidthsApp.class);
 
         // Layout - Box
         appList.add(HBoxApp.class);

@@ -64,7 +64,7 @@ public class BorderStrokeApp extends ContentBox {
     /**
      * BorderStroke​的构建至少需要4个参数，至多需要5个参数，分别是：
      * - 颜色，Paint；
-     * - 样式，BorderStrokeStyle；
+     * - 样式，BorderStrokeStyle。可以为BorderStroke的上下左右分别设置不同样式；
      * - 圆角，CornerRadii；
      * - 宽度，BorderWidths；
      * - Insets（可选），矩形区域的4条边的一组内部偏移；
