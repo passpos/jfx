@@ -23,6 +23,13 @@ import jfx.core.app.ContentBox;
  *
  * 当将其应用于具有定义形状的区域时，将使用顶部的边框宽度和描边信息，而忽略其他
  * 属性。
+ *
+ * Fields
+ * BorderWidths BorderStroke.DEFAULT_WIDTHS
+ * BorderWidths BorderStroke.MEDIUM
+ * BorderWidths BorderStroke.THICK
+ * BorderWidths BorderStroke.THIN
+ *
  * @author realpai <paiap@outlook.com>
  */
 public class BorderStrokeApp extends ContentBox {
@@ -52,5 +59,31 @@ public class BorderStrokeApp extends ContentBox {
         Border b = new Border(bs);
 
         hBox.setBorder(b);
+    }
+
+    /**
+     * BorderStroke​的构建至少需要4个参数，至多需要5个参数，分别是：
+     * - 颜色；
+     * - 样式；
+     * - 圆角；
+     * - 宽度；
+     * - insets（可选）；
+     *
+     * BorderStroke​(
+     * Paint stroke, BorderStrokeStyle style,
+     * CornerRadii radii, BorderWidths widths);
+     *
+     * BorderStroke​(
+     * Paint stroke, BorderStrokeStyle style,
+     * CornerRadii radii, BorderWidths widths,
+     * Insets insets) ;
+     *
+     * BorderStroke​(
+     * Paint topStroke, Paint rightStroke, Paint bottomStroke, Paint leftStroke,
+     * BorderStrokeStyle topStyle, BorderStrokeStyle rightStyle,
+     * BorderStrokeStyle bottomStyle, BorderStrokeStyle leftStyle,
+     * CornerRadii radii, BorderWidths widths, Insets insets);
+     */
+    public void constructDemo() {
     }
 }
