@@ -53,6 +53,8 @@ import jfx.core.app.ContentBox;
  *
  * 如果要使用图像为Region蒙皮，通常将Border与9-patch缩放技术结合使用。 在这种情况
  * 下，您还可以指定一个描边边框，该边框仅在图像由于某种原因无法加载时使用。
+ *
+ * Border 的构造函数要求一系列 BorderStroke与BorderImage 参数；
  * @author realpai <paiap@outlook.com>
  */
 public class BorderApp extends ContentBox {
@@ -63,6 +65,7 @@ public class BorderApp extends ContentBox {
 
     @Override
     public void index() {
+        baseDemo();
     }
 
     public void baseDemo() {
@@ -70,6 +73,7 @@ public class BorderApp extends ContentBox {
         hBox.setPrefWidth(200.0);
         hBox.setPrefHeight(250.0);
         hBox.setStyle("-fx-background-color:#556699");
+        getChildren().add(hBox);
 
         BorderStroke bs = new BorderStroke(
                 Paint.valueOf("#ff0000"),
@@ -77,7 +81,8 @@ public class BorderApp extends ContentBox {
                 new CornerRadii(0),
                 new BorderWidths(3.0)
         );
+        Border b = new Border(bs);
 
-        hBox.setBorder(new Border(bs));
+        hBox.setBorder(b);
     }
 }
