@@ -46,12 +46,12 @@ import jfx.core.app.ContentBox;
  * 定义。outsets是严格非负的。
  *
  * - insets
- * insets用于定义所有边框的最内边缘。 它也始终严格是非负的。 Region使用背景和边框
+ * insets用于定义所有边框的最内边缘。它也始终严格是非负的。Region使用背景和边框
  * 的插图以及Region的填充来确定Region插图，这些插图定义了Region的任何子级的内容
  * 区域。 Border的起点与Background的起点以及Region的宽度和高度一起定义了Region的
  * 几何边界（而几何边界又对layoutBounds，boundsInLocal和boundsInParent有所贡献）。
  *
- * 如果要使用图像为Region蒙皮，通常将Border与9补丁缩放技术结合使用。 在这种情况
+ * 如果要使用图像为Region蒙皮，通常将Border与9-patch缩放技术结合使用。 在这种情况
  * 下，您还可以指定一个描边边框，该边框仅在图像由于某种原因无法加载时使用。
  * @author realpai <paiap@outlook.com>
  */
