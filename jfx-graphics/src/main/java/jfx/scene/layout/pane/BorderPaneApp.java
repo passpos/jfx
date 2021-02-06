@@ -5,6 +5,8 @@
  */
 package jfx.scene.layout.pane;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -20,52 +22,66 @@ public class BorderPaneApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Layout - BorderPane";
+    public BorderPane bp;
+    public HBox top;
+    public HBox bottom;
+    public VBox left;
+    public Button right;
+    public AnchorPane center;
 
     @Override
     public void index() {
+        bp = new BorderPane();
         baseDemo();
+        setBaseStyle();
     }
 
     public void baseDemo() {
         Button btn1 = new Button("btn1");
         Button btn2 = new Button("btn2");
 
-        AnchorPane ap = new AnchorPane();
-        ap.setStyle("-fx-background-color: #333333");
-        ap.setPrefHeight(200);
-        ap.setPrefWidth(400);
-        ap.getChildren().add(btn1);
+        top = new HBox();
+        top.setPrefHeight(100);
+        top.setPrefWidth(400);
+        top.setStyle("-fx-background-color: #999999");
 
-        HBox hb1 = new HBox();
-        hb1.setPrefHeight(100);
-        hb1.setPrefWidth(400);
-        hb1.setStyle("-fx-background-color: #999999");
+        bottom = new HBox();
+        bottom.setPrefHeight(100);
+        bottom.setPrefWidth(400);
+        bottom.setStyle("-fx-background-color: #999999");
 
-        HBox hb2 = new HBox();
-        hb2.setPrefHeight(100);
-        hb2.setPrefWidth(400);
-        hb2.setStyle("-fx-background-color: #999999");
+        left = new VBox();
+        left.getChildren().addAll(btn2);
+        left.setPrefHeight(200);
+        left.setPrefWidth(100);
+        left.setStyle("-fx-background-color: #225500");
 
-        VBox vb1 = new VBox();
-        vb1.getChildren().addAll(btn2);
-        vb1.setPrefHeight(200);
-        vb1.setPrefWidth(100);
-        vb1.setStyle("-fx-background-color: #225500");
+        right = new Button("右居中对齐");
+        right.setStyle("-fx-background-color: #007755");
 
-        VBox vb2 = new VBox();
-        vb2.setPrefHeight(200);
-        vb2.setPrefWidth(100);
-        vb2.setStyle("-fx-background-color: #007755");
+        center = new AnchorPane();
+        center.setStyle("-fx-background-color: #333333");
+        center.setPrefHeight(200);
+        center.setPrefWidth(400);
+        center.getChildren().add(btn1);
 
-        // 最终显示的是 上-中-下 结构的视图布局；
-        // 如果要显示类似 左-中-右 的布局,需要
-        BorderPane bp = new BorderPane();
-        bp.setTop(hb1);
-        bp.setLeft(vb1);
-        bp.setRight(vb2);
-        bp.setBottom(hb2);
-        bp.setCenter(ap);
+        /*
+         * 最终显示的是 上-中-下 结构的视图布局；
+         * 如果要显示类似 左-中-右 的布局,需要将上、下两部分留空。此时，只剩下三
+         * 个部分；
+         *
+         */
+        bp.setTop(top);
+        bp.setLeft(left);
+        bp.setRight(right);
+        bp.setBottom(bottom);
+        bp.setCenter(center);
 
-        this.getChildren().add(bp);
+        getChildren().add(bp);
+    }
+
+    public void setBaseStyle() {
+        BorderPane.setAlignment(right, Pos.CENTER_RIGHT);
+        BorderPane.setMargin(center, new Insets(5.0));
     }
 }
