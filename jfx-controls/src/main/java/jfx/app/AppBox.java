@@ -109,6 +109,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ComboBoxDemo.class);
 
         // Pane
+        appList.add(DialogPaneApp.class);
         appList.add(ScrollPaneApp.class);
         appList.add(SplitPaneApp.class);
         appList.add(TabPaneApp.class);

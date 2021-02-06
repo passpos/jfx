@@ -5,7 +5,11 @@
  */
 package jfx.scene.control.pane;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import jfx.core.app.ContentBox;
 
 /**
@@ -17,6 +21,8 @@ public class DialogPaneApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Layout - DialogPane";
+    private Dialog<Button> d;
+    private DialogPane dp;
 
     @Override
     public void index() {
@@ -24,12 +30,22 @@ public class DialogPaneApp extends ContentBox {
     }
 
     public void baseDemo() {
-        Button btn1 = new Button("btn1");
-        Button btn2 = new Button("btn2");
-        Button btn3 = new Button("btn3");
-        Button btn4 = new Button("btn4");
+        d = new Dialog<>();
+        dp = new DialogPane();
+        d.setDialogPane(dp);
 
-//        this.getChildren().add(gp);
+        // 激发dialog
+        Button btn = new Button("点击");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                d.show();
+            }
+        });
+        getChildren().add(btn);
+
+        dp.setHeaderText("headerText");
+        dp.setContentText("contentText");
     }
 
 }

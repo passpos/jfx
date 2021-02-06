@@ -37,6 +37,7 @@ public class DialogApp extends ContentBox {
     public static final boolean SHOWING = true;
     public static final String TITLE = "Dialog - Dialog";
     private Dialog<Button> d;
+    private DialogPane dp;
 
     @Override
     public void index() {
@@ -54,7 +55,8 @@ public class DialogApp extends ContentBox {
         d.setHeaderText("Header");
         d.setGraphic(new Button("Graphic"));
 
-        DialogPane dp = new DialogPane();
+        dp = new DialogPane();
+        dp.getButtonTypes().add(ButtonType.OK);
         d.setDialogPane(dp);
 
         // 这两条不起作用
@@ -62,15 +64,7 @@ public class DialogApp extends ContentBox {
         d.setHeight(300);
         // 这条起作用
         d.getDialogPane().setPrefSize(300, 300);
-
-        // 从dialog对象中获取相应的按钮，并设置单击事件。如果dialog不具有该按钮，运行错误；
-        Button b1 = (Button) d.getDialogPane().lookupButton(ButtonType.CLOSE);
-        b1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                ol(t.toString());
-            }
-        });
+        // dp.
 
         // 激发dialog
         Button btn = new Button("点击");
@@ -80,7 +74,6 @@ public class DialogApp extends ContentBox {
                 d.show();
             }
         });
-
         getChildren().add(btn);
     }
 

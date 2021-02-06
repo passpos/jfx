@@ -16,7 +16,6 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogEvent;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
-import static jfx.core.app.ContentBox.ol;
 
 /**
  *
