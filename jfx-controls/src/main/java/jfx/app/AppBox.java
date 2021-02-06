@@ -59,7 +59,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ScatterChartApp.class);
         appList.add(AreaChartApp.class);
         appList.add(StackedAreaChartApp.class);
-        appList.add(DemoChartApp.class);
+        appList.add(ChartDemo.class);
 
         // Control
         appList.add(ContextMenuApp.class);
@@ -87,6 +87,7 @@ public class AppBox extends AbstractAppBox {
 
         // Dialog
         appList.add(DialogApp.class);
+        appList.add(DialogDemo.class);
         appList.add(AlertApp.class);
         appList.add(ChoiceDialogApp.class);
         appList.add(TextInputDialogApp.class);

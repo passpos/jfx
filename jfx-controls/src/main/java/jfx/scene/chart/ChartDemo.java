@@ -25,7 +25,7 @@ import jfx.core.app.ContentBox;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class DemoChartApp extends ContentBox {
+public class ChartDemo extends ContentBox {
 
     public final static boolean SHOWING = false;
     public final static String TITLE = "Chart - Demo 动态显示数据";
@@ -89,6 +89,7 @@ public class DemoChartApp extends ContentBox {
 
     }
 
+    @SuppressWarnings("unchecked")
     public void baseDemo() {
         // X轴
         x = new NumberAxis(0, 20, 1);
@@ -153,7 +154,7 @@ class ChartDataTask extends ScheduledService<ArrayList<Integer>> {
                 Random r = new Random();
                 int ni1 = r.nextInt(100);
                 int ni2 = r.nextInt(100);
-                ArrayList<Integer> list = new ArrayList<Integer>();
+                ArrayList<Integer> list = new ArrayList<>();
                 list.add(ni1);
                 list.add(ni2);
                 return list;

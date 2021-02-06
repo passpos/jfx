@@ -1,19 +1,9 @@
 /*
- * Copyright (C) 2020 realpai <paiap@outlook.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 package jfx.scene.control.dialog;
 
 import java.util.Optional;
@@ -24,24 +14,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogEvent;
-import javafx.scene.control.DialogPane;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
+import static jfx.core.app.ContentBox.ol;
 
 /**
  *
- * @author realpai <paiap@outlook.com>
+ * @author passpos <paiap@outlook.com>
  */
-public class DialogApp extends ContentBox {
+public class DialogDemo extends ContentBox {
 
-    public static final boolean SHOWING = true;
-    public static final String TITLE = "Dialog - Dialog";
+    public static final boolean SHOWING = false;
+    public static final String TITLE = "Dialog - Demo 自定义对话框";
     private Dialog<Button> d;
 
     @Override
     public void index() {
         baseDemo();
-        // eventDemo();
+        eventDemo();
     }
 
     /**
@@ -54,14 +44,12 @@ public class DialogApp extends ContentBox {
         d.setHeaderText("Header");
         d.setGraphic(new Button("Graphic"));
 
-        DialogPane dp = new DialogPane();
-        d.setDialogPane(dp);
-
-        // 这两条不起作用
-        d.setWidth(300);
-        d.setHeight(300);
-        // 这条起作用
         d.getDialogPane().setPrefSize(300, 300);
+
+        // 向dialog添加按钮
+        d.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        d.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        d.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
 
         // 从dialog对象中获取相应的按钮，并设置单击事件。如果dialog不具有该按钮，运行错误；
         Button b1 = (Button) d.getDialogPane().lookupButton(ButtonType.CLOSE);
