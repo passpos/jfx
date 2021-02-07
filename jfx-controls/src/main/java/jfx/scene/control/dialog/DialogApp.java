@@ -34,7 +34,7 @@ import jfx.core.app.ContentBox;
  */
 public class DialogApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Dialog - Dialog";
     private Dialog<Button> d;
     private DialogPane dp;

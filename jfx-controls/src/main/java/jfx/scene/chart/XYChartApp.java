@@ -32,6 +32,7 @@ public class XYChartApp extends ContentBox {
         baseDemo();
     }
 
+    @SuppressWarnings("unchecked")
     private void data() {
         XYChart.Data<Number, Number> d1 = new XYChart.Data<>(10, 30);
         XYChart.Data<Number, Number> d2 = new XYChart.Data<>(20, 20);
@@ -52,6 +53,7 @@ public class XYChartApp extends ContentBox {
         xy2.getData().addAll(d5, d6, d7, d8);
     }
 
+    @SuppressWarnings("unchecked")
     private void initChart() {
         // X轴
         x = new NumberAxis();

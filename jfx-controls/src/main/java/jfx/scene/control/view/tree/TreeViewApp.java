@@ -46,6 +46,8 @@ import utils.entity.demo.sample.Person;
  *
  * 注意：
  * - TreeView 本身不会包含标题等文本信息，只是作为一个视图容器存在；
+ * - TreeView.setCellFactory()，该方法接收的参数是回调类型的。它会被多次执行，从
+ * 而影响到TreeView下所有 TreeItem 中包装的 TreeCell；
  * - 使用TreeCell时，TreeCell的实例化必须放入Callback的call()方法内，才会生效。
  * 因为TreeCell是节点类型，用于界面显示，在setCellFactory()中，call()内的代码会
  * 被反复执行，一旦把TreeCell移到call()外，就只会有一个TreeCell实例存在，界面的
@@ -189,12 +191,12 @@ public class TreeViewApp extends ContentBox {
     }
 
     /**
-     * 创建自定义的Callback，用于处理用户指定的TreeCell。
+     * 创建自定义的Callback，处理所有的TreeCell。
+     * 此时，需要用户自己创建所需的TreeCell对象，并完全由用户定制其样式。
      *
      * TreeCell实例化过程必须放入call()内；
      */
     public void cellFactoryDemo3() {
-
         Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
 
             @Override
