@@ -199,12 +199,13 @@ public class MenuBarApp extends ContentBox {
      */
     public void subMenuDemo() {
         Menu mn1 = new Menu("菜单");
-        Menu mn2 = new Menu("子菜单");
 
         MenuItem itm1 = new MenuItem("it6");
+        SeparatorMenuItem smi2 = new SeparatorMenuItem();
+
+        Menu mn2 = new Menu("子菜单");
         MenuItem itm2 = new MenuItem("子菜单项");
 
-        SeparatorMenuItem smi2 = new SeparatorMenuItem();
         mn2.getItems().addAll(itm2);
         mn1.getItems().addAll(itm1, smi2, mn2);
 
