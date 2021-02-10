@@ -14,6 +14,16 @@ import jfx.core.app.ContentBox;
 import jfx.core.utils.TreeUtils;
 
 /**
+ * TreeCell - 节点类型，用于填充并传染一个树单元格视图；
+ *
+ * TreeCell 本身虽然包含了用于展示的数据对象和一个TreeItem对象，但平常情况下，直
+ * 接访问它们，将会是null。仅当TreeView渲染完毕后，用户直接操作TreeCell，在触发
+ * 的事件动作中，可以访问到它们。
+ *
+ * 例如，在 tv.setCellFactory(callback) 中，callback.call() 方法要求返回一个
+ * TreeCell，这个TreeCell一般由用户进行实例化，之后，通过该 TreeCell 是访问不到
+ * TreeItem 和 数据 的，但在类似 TreeCell.setOnDragDetected()方法内，就可以了；
+ *
  *
  * @author passpos <paiap@outlook.com>
  */
