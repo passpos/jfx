@@ -95,6 +95,8 @@ public class TreeCellDemo3 extends ContentBox {
                 tcd = tc;
                 Dragboard db = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
                 ClipboardContent cc = new ClipboardContent();
+
+                // 下面两行“千万不要”调换位置；
                 cc.putString(tc.getItem());
                 db.setContent(cc);
 
