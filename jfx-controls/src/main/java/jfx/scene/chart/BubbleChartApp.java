@@ -27,6 +27,7 @@ public class BubbleChartApp extends ContentBox {
         baseDemo();
     }
 
+    @SuppressWarnings("unchecked")
     public void data() {
         XYChart.Data<Number, Number> d1 = new XYChart.Data<>(10, 30);
         XYChart.Data<Number, Number> d2 = new XYChart.Data<>(20, 20);
@@ -47,6 +48,7 @@ public class BubbleChartApp extends ContentBox {
         xy2.getData().addAll(d5, d6, d7, d8);
     }
 
+    @SuppressWarnings("unchecked")
     public void baseDemo() {
         // X轴
         NumberAxis x = new NumberAxis();
