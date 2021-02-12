@@ -83,6 +83,7 @@ public class BarChartApp extends ContentBox {
     /**
      * 将不同分组方式的数据添加到序列，可以得到不同效果的表格；
      */
+    @SuppressWarnings("unchecked")
     public void dataDemo3() {
         XYChart.Data<String, Number> d1 = new XYChart.Data<>("去年", 40);
         XYChart.Data<String, Number> d2 = new XYChart.Data<>("去年", 10);
