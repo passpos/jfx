@@ -21,7 +21,7 @@ import jfx.core.app.ContentBox;
  */
 public class TreeViewDemo extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeView 动态TreeItem";
     public TreeView<String> tv;
     private TreeItem<String> root;
