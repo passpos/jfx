@@ -55,6 +55,7 @@ import jfx.core.app.ContentBox;
  * 下，您还可以指定一个描边边框，该边框仅在图像由于某种原因无法加载时使用。
  *
  * Border 的构造函数要求一系列 BorderStroke与BorderImage 参数；
+ *
  * @author realpai <paiap@outlook.com>
  */
 public class BorderApp extends ContentBox {
