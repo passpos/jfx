@@ -150,6 +150,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ClipboardContentDemo.class);
         appList.add(DragboardApp.class);
         appList.add(DragboardDemo.class);
+        appList.add(DragEventApp.class);
         appList.add(ShortcutDemo.class);
 
         // Layout - Border
