@@ -13,6 +13,7 @@
         <module>jfx-scene-effect</module>
         <module>jfx-scene-layout</module>
         <module>jfx-scene-shape</module>
+        <module>jfx-graphics-other</module>
     </modules>
     <dependencies>
         <dependency>
