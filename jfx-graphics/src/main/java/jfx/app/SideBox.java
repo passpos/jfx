@@ -34,16 +34,6 @@ public class SideBox extends AbstractSideBox {
         // 为按钮设置宽度；
         btn.setPrefWidth(this.getBtnBox().getPrefWidth());
 
-        if (title.startsWith("Animation - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else if (title.contains("Transition")) {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
-        }
-
         if (title.startsWith("Application - ")) {
             btn.setStyle("-fx-background-color: #aae4aa");
         }
@@ -61,16 +51,6 @@ public class SideBox extends AbstractSideBox {
             btn.setStyle("-fx-background-color: #aae4c4");
         }
 
-        if (title.startsWith("Effect - ")) {
-            if (title.contains("Blur")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else if (title.contains("Shadow")) {
-                btn.setStyle("-fx-background-color: #aa99ac");
-            } else {
-                btn.setStyle("-fx-background-color: #aa99b5");
-            }
-        }
-
         if (title.startsWith("Geometry - ")) {
             btn.setStyle("-fx-background-color: #ffe4aa");
         }
@@ -83,42 +63,12 @@ public class SideBox extends AbstractSideBox {
             btn.setStyle("-fx-background-color: #aa99c4");
         }
 
-        if (title.startsWith("Layout - ")) {
-            if (title.contains("Background")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else if (title.contains("Border")) {
-                btn.setStyle("-fx-background-color: #ffe499");
-            } else if (title.contains("Box")) {
-                btn.setStyle("-fx-background-color: #ffe4cc");
-            } else if (title.contains("Constraints")) {
-                btn.setStyle("-fx-background-color: #ffe499");
-            } else if (title.contains("Pane")) {
-                btn.setStyle("-fx-background-color: #ffe4cc");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe499");
-            }
-        }
-
         if (title.startsWith("Paint - ")) {
             btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Robot - ")) {
             btn.setStyle("-fx-background-color: #aa99c4");
-        }
-
-        if (title.startsWith("Shape - ")) {
-            if (title.contains("Line") || title.contains("line")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else if (title.contains("Curve")) {
-                btn.setStyle("-fx-background-color: #ffe499");
-            } else if (title.contains("Path")) {
-                btn.setStyle("-fx-background-color: #ffe4cc");
-            } else if (title.contains("3D")) {
-                btn.setStyle("-fx-background-color: #ffe499");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4cc");
-            }
         }
 
         if (title.startsWith("Text - ")) {
