@@ -70,7 +70,7 @@ public class ListCellDemo1 extends ContentBox {
     }
 
     /**
-     * setCellFactory | Callback - ListCell - 鼠标拖拽排序
+     * setCellFactory | Callback - 鼠标拖拽排序
      */
     public void sortListByDragDemo() {
         Callback<ListView<String>, ListCell<String>> callback = new Callback<ListView<String>, ListCell<String>>() {
