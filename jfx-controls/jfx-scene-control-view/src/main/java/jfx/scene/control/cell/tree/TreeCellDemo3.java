@@ -37,7 +37,7 @@ import jfx.core.utils.TreeUtils;
  */
 public class TreeCellDemo3 extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell 拖拽操作";
     private TreeView<String> tv;
     private TreeCell<String> tcd = null;
@@ -116,34 +116,30 @@ public class TreeCellDemo3 extends ContentBox {
         });
 
         /**
-         * 当拖拽到这里时
+         * 拖拽到这里
          *
          * 拖拽经过到此，就会有一个位置指示，拖拽经过多个不同的TreeCell，
-         * 就会有多个指示，所以总是要把上一个（temp）指示清除掉；
+         * 就会有多个指示，所以总是要把上一个（temp/TreeCell）指示清除掉；
          * 并将当前的TreeCell设置到temp；
          *
          * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
          * 该节点我们将其设置到 temp 变量中；
+         *
+         * 所有的拖拽动作都会有一个水平或垂直方向的位移，这里判断这个位
+         * 移是否达到指定位置；
+         * 由于onDragOver事件，下面的y总是大于等于0，小于TreeCell的高度；
+         * 而这里的偏移 y 是从当前TreeCell的顶端开始计算直到它的底端；
          */
         tc.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
 
-                /* 拖拽经过到此，就会有一个位置指示，拖拽经过多个不同的TreeCell，
-                 * 就会有多个指示，所以总是要把上一个（temp）指示清除掉；
-                 * 并将当前的TreeCell设置到temp；
-                 */
                 if (tmp != null) {
                     tmp.setBorder(null);
                 }
                 tmp = tc;
 
-                /* 所有的拖拽动作都会有一个水平或垂直方向的位移，这里判断这个位
-                 * 移是否达到指定位置；
-                 * 由于onDragOver事件，下面的y总是大于等于0，小于TreeCell的高度；
-                 * 而这里的偏移 y 是从当前TreeCell的顶端开始计算直到它的底端；
-                 */
                 double y = t.getY();
                 double h = tc.getHeight();
 
@@ -196,7 +192,7 @@ public class TreeCellDemo3 extends ContentBox {
             }
         });
 
-        // 当拖拽指针从这里离开时
+        // 拖拽指针从这里离开时
         tc.setOnDragExited(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
@@ -206,7 +202,7 @@ public class TreeCellDemo3 extends ContentBox {
             }
         });
 
-        // 当在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
+        // 在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
