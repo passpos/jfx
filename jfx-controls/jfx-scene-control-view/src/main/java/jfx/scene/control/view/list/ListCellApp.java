@@ -17,7 +17,7 @@ import javafx.util.Callback;
 import jfx.core.app.ContentBox;
 
 /**
- * B88
+ * B88 鼠标悬停效果
  *
  * @author realpai <paiap@outlook.com>
  */
@@ -57,14 +57,15 @@ public class ListCellApp extends ContentBox {
         lv.setFixedCellSize(50);
 
         ol(lv.getSelectionModel().getSelectedIndex());
+        lv.setCellFactory(getCallback());
 
         getChildren().add(lv);
     }
 
     /**
-     * setCellFactory | Callback - ListCell - 鼠标悬停效果
+     * setCellFactory | Callback - ListCell
      */
-    public void mouseHoverEffectDemo() {
+    public Callback<ListView<String>, ListCell<String>> getCallback() {
         Callback<ListView<String>, ListCell<String>> callback = new Callback<ListView<String>, ListCell<String>>() {
             public int position = 0;
 
@@ -76,16 +77,7 @@ public class ListCellApp extends ContentBox {
                 l.setFont(new Font(15));
 
                 // 将用于显示的文本置入Label中；
-                ListCell<String> lc = new ListCell<String>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty == false && item != null) {
-                            l.setText(item);
-                            setGraphic(l);
-                        }
-                    }
-                };
+                ListCell<String> lc = getListCell(l);
 
                 // 获取hover状态，设置hover样式
                 lc.hoverProperty().addListener(new ChangeListener<Boolean>() {
@@ -104,8 +96,24 @@ public class ListCellApp extends ContentBox {
                 return lc;
             }
         };
-        lv.setCellFactory(callback);
 
+        return callback;
+    }
+
+    private ListCell<String> getListCell(Label l) {
+        // 将用于显示的文本置入Label中；
+        ListCell<String> lc = new ListCell<String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty == false && item != null) {
+                    l.setText(item);
+                    setGraphic(l);
+                }
+            }
+        };
+
+        return lc;
     }
 
     public void selection() {
