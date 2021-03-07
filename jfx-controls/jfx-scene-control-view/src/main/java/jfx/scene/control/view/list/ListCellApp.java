@@ -23,7 +23,7 @@ import jfx.core.app.ContentBox;
  */
 public class ListCellApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "List - ListCell";
     private ListView<String> lv;
     private ObservableList<String> oal;
@@ -31,8 +31,6 @@ public class ListCellApp extends ContentBox {
     @Override
     public void index() {
         baseHover();
-        mouseHoverEffectDemo();
-
     }
 
     public void baseHover() {
@@ -64,8 +62,9 @@ public class ListCellApp extends ContentBox {
 
     /**
      * setCellFactory | Callback - ListCell
+     * @return
      */
-    public Callback<ListView<String>, ListCell<String>> getCallback() {
+    private Callback<ListView<String>, ListCell<String>> getCallback() {
         Callback<ListView<String>, ListCell<String>> callback = new Callback<ListView<String>, ListCell<String>>() {
             public int position = 0;
 
@@ -75,6 +74,7 @@ public class ListCellApp extends ContentBox {
                 Label l = new Label();
                 l.setPrefHeight(20);
                 l.setFont(new Font(15));
+                l.setStyle("-fx-background-color:#33cc77");
 
                 // 将用于显示的文本置入Label中；
                 ListCell<String> lc = getListCell(l);
@@ -84,6 +84,7 @@ public class ListCellApp extends ContentBox {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
                         if (t1 && l.getText().equals("") != true) {
+                            // 获取 ListView 中某个“数据”在整个列表中的索引位置；
                             position = param.getItems().indexOf(l.getText());
                             l.setPrefHeight(24);
                             l.setFont(new Font(18));
