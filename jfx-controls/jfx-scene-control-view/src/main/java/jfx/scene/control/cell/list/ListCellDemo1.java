@@ -78,7 +78,7 @@ public class ListCellDemo1 extends ContentBox {
             public int index = 0;
             public int position = 0;
 
-            // 从鼠标悬停位置获得的内容；
+            // 剪贴板中被拖项的数据；
             public String data1 = "";
 
             // 目标位置的内容；
@@ -103,14 +103,16 @@ public class ListCellDemo1 extends ContentBox {
                     }
                 };
 
-                // 将被拖拽的内容文本放入剪切板
                 lc.setOnDragDetected(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent t) {
                         Dragboard db = lc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-
+                        // 被拖拽项在ListView中的索引；
                         index = lc.getIndex();
+                        // 被拖拽项的数据；
                         data1 = l.getText();
+
+                        // 将被拖拽的内容文本放入剪切板
                         Text text = new Text("data");
                         WritableImage wi = new WritableImage(100, 20);
                         text.snapshot(new SnapshotParameters(), wi);
@@ -127,10 +129,12 @@ public class ListCellDemo1 extends ContentBox {
                         t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
                     }
                 });
-                // 拖拽进入某项时，获取该项的位置索引，同时将焦点置于此处；
+
+                // 拖拽进入某项（悬浮在其上）时，获取该项的位置索引，同时将焦点置于此处；
                 lc.setOnDragEntered(new EventHandler<DragEvent>() {
                     @Override
                     public void handle(DragEvent t) {
+                        // 如果悬浮处超出ListView范围，则取最后一项的索引；
                         if (lc.getIndex() >= param.getItems().size()) {
                             position = param.getItems().size() - 1;
                         } else {
@@ -139,21 +143,26 @@ public class ListCellDemo1 extends ContentBox {
                         param.getFocusModel().focus(position);
                     }
                 });
+
                 // 释放拖拽，获取被拖拽的内容和目标位置的内容；
                 lc.setOnDragDropped(new EventHandler<DragEvent>() {
                     @Override
                     public void handle(DragEvent t) {
+                        // 若放置在了原处，则不进行操作；
                         if (position == index) {
                             return;
                         }
+
                         data1 = t.getDragboard().getString();
                         data2 = param.getItems().get(position);
+
                         param.getItems().set(index, data2);
                         param.getItems().set(position, data1);
 
                         param.getSelectionModel().select(position);
                     }
                 });
+
                 // 获取hover状态，设置hover样式
                 lc.hoverProperty().addListener(new ChangeListener<Boolean>() {
                     @Override
