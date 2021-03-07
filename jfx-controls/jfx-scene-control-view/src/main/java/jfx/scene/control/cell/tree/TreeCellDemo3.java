@@ -40,7 +40,7 @@ public class TreeCellDemo3 extends ContentBox {
     public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell 拖拽操作";
     private TreeView<String> tv;
-    private TreeCell<String> tcd = null;
+    private TreeCell<String> dTreeCell = null;
     private TreeCell<String> tmp = null;
 
     @Override
@@ -94,7 +94,7 @@ public class TreeCellDemo3 extends ContentBox {
         tc.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
-                tcd = tc;
+                dTreeCell = tc;
                 Dragboard db = tc.startDragAndDrop(TransferMode.COPY_OR_MOVE);
                 ClipboardContent cc = new ClipboardContent();
 
@@ -204,7 +204,11 @@ public class TreeCellDemo3 extends ContentBox {
             }
         });
 
-        // 在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
+        /**
+         * 在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
+         *
+         * 这里的拖拽排序不是操作数据，而是直接操作节点；
+         */
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent t) {
@@ -220,9 +224,9 @@ public class TreeCellDemo3 extends ContentBox {
                     children.add(index + 1, new TreeItem<>(value));
 
                     // 从被拖项的原位置移除被拖拽的节点；
-                    TreeItem<String> dti = tcd.getTreeItem();
+                    TreeItem<String> dti = dTreeCell.getTreeItem();
                     dti.getParent().getChildren().remove(dti);
-                    tcd = null;
+                    dTreeCell = null;
                 }
             }
         });
