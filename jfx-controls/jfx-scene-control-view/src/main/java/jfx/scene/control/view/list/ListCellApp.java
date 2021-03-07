@@ -28,7 +28,6 @@ public class ListCellApp extends ContentBox {
     private ListView<String> lv;
     private ObservableList<String> oal;
 
-
     @Override
     public void index() {
         baseHover();
@@ -106,6 +105,14 @@ public class ListCellApp extends ContentBox {
             }
         };
         lv.setCellFactory(callback);
-    }
+        /*
+         * lv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+         * @Override
+         * public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+         *
+         * }
+         * });
+         */
 
+    }
 }
