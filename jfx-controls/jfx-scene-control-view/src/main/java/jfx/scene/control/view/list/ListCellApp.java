@@ -79,7 +79,10 @@ public class ListCellApp extends ContentBox {
                 // 将用于显示的文本置入Label中；
                 ListCell<String> lc = getListCell(l);
 
-                // 获取hover状态，设置hover样式
+                /**
+                 * 获取hover状态，设置hover样式
+                 *
+                 */
                 lc.hoverProperty().addListener(new ChangeListener<Boolean>() {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
