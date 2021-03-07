@@ -47,7 +47,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ListViewDemo2.class);
         appList.add(TextFieldListCellApp.class);
 
-        // List - Cell
+        // ListCell
         appList.add(ListCellApp.class);
         appList.add(ListCellDemo1.class);
         appList.add(CheckBoxListCellApp.class);
@@ -63,7 +63,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(TreeItemApp.class);
         appList.add(TreeItemDemo.class);
 
-        // Tree - Cell
+        // TreeCell
         appList.add(TreeCellApp.class);
         appList.add(TreeCellDemo1.class);
         appList.add(TreeCellDemo2.class);
