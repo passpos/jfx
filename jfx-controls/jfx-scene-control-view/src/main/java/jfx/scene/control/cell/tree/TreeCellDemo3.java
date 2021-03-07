@@ -125,10 +125,12 @@ public class TreeCellDemo3 extends ContentBox {
          * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
          * 该节点我们将其设置到 temp 变量中；
          *
-         * 所有的拖拽动作都会有一个水平或垂直方向的位移，这里判断这个位
-         * 移是否达到指定位置；
-         * 由于onDragOver事件，下面的y总是大于等于0，小于TreeCell的高度；
-         * 而这里的偏移 y 是从当前TreeCell的顶端开始计算直到它的底端；
+         * onDragOver事件中，所有的拖拽动作都会有一个水平或垂直方向的位移（y），这里判断这个位
+         * 移是否达到指定位置，且总是：
+         * 
+         * 0 ≤ y ＜ h
+         * 
+         * 这里的偏移 y 是从当前TreeCell的顶端开始计算直到它的底端；
          */
         tc.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
@@ -211,6 +213,7 @@ public class TreeCellDemo3 extends ContentBox {
 
                 if (tc.getTreeItem().getParent() != null) {
                     ObservableList<TreeItem<String>> children = tc.getTreeItem().getParent().getChildren();
+
                     // 在当前节点的下面添加新节点；
                     int index = children.indexOf(tc.getTreeItem());
                     children.add(index + 1, new TreeItem<>(value));
