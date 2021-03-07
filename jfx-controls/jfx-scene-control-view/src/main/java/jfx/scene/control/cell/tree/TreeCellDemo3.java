@@ -40,7 +40,9 @@ public class TreeCellDemo3 extends ContentBox {
     public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell 拖拽操作";
     private TreeView<String> tv;
+    // 被拖节点
     private TreeCell<String> dTreeCell = null;
+    // 最后悬浮的节点
     private TreeCell<String> tmp = null;
 
     @Override
