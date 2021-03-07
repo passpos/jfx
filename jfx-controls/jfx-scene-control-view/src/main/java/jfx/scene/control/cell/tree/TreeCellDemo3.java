@@ -215,11 +215,11 @@ public class TreeCellDemo3 extends ContentBox {
                 if (parent != null) {
                     ObservableList<TreeItem<String>> children = parent.getChildren();
 
-                    // 在当前节点的下面添加新节点；
+                    // 在释放处的下面添加新节点；
                     int index = children.indexOf(tc.getTreeItem());
                     children.add(index + 1, new TreeItem<>(value));
 
-                    // 从原位置移除被拖拽的节点；
+                    // 从被拖项的原位置移除被拖拽的节点；
                     TreeItem<String> dti = tcd.getTreeItem();
                     dti.getParent().getChildren().remove(dti);
                     tcd = null;
