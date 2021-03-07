@@ -75,7 +75,9 @@ public class ListCellDemo1 extends ContentBox {
     public void sortListByDragDemo() {
         Callback<ListView<String>, ListCell<String>> callback = new Callback<ListView<String>, ListCell<String>>() {
 
+            // 被拖项索引
             public int index = 0;
+            // 放置（最后悬浮）处位置；
             public int position = 0;
 
             // 剪贴板中被拖项的数据；
@@ -156,6 +158,7 @@ public class ListCellDemo1 extends ContentBox {
                         data1 = t.getDragboard().getString();
                         data2 = param.getItems().get(position);
 
+                        // 这里没有操作ListCell，只操作了其中的数据；
                         param.getItems().set(index, data2);
                         param.getItems().set(position, data1);
 
