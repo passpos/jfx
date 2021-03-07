@@ -32,6 +32,7 @@ import jfx.core.utils.TreeUtils;
 
 /**
  * 拖拽操作
+ *
  * @author passpos <paiap@outlook.com>
  */
 public class TreeCellDemo3 extends ContentBox {
@@ -68,8 +69,10 @@ public class TreeCellDemo3 extends ContentBox {
         };
         tv.setCellFactory(callback);
     }
+
     /**
-     * dragOver的TreeCell与dragDropped的TreeCell相同，都是释放处的TreeCell；
+     * 释放时，dragEnter、dragOver、dragDropped的TreeCell相同；
+     *
      * @return
      */
     private TreeCell<String> setDragAction() {
@@ -112,13 +115,17 @@ public class TreeCellDemo3 extends ContentBox {
             }
         });
 
-        // 当拖拽到这里时
+        /**
+         * 当拖拽到这里时
+         *
+         * 拖拽经过到此，就会有一个位置指示，拖拽经过多个不同的TreeCell，
+         * 就会有多个指示，所以总是要把上一个（temp）指示清除掉；
+         * 并将当前的TreeCell设置到temp；
+         *
+         * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
+         * 该节点我们将其设置到 temp 变量中；
+         */
         tc.setOnDragOver(new EventHandler<DragEvent>() {
-            /**
-             * 这里的DragEvent的事件源不是被拖节点，而是拖拽指针经过的节点；
-             * 该节点我们将其设置到 temp 变量中；
-             * @param t
-             */
             @Override
             public void handle(DragEvent t) {
                 t.acceptTransferModes(TransferMode.COPY_OR_MOVE);
