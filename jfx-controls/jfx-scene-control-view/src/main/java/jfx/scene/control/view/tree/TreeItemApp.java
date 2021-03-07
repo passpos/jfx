@@ -116,9 +116,11 @@ public class TreeItemApp extends ContentBox {
 
         trv.setCellFactory(callback);
         Person p = new Person("福瑞", 18);
+
         TreeItem<Person> ti = new TreeItem<>(p);
         trv.setRoot(ti);
         trv.setPrefHeight(50);
+
         getChildren().add(trv);
         setTopAnchor(trv, 100.0);
     }

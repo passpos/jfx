@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.list;
+package jfx.scene.control.cell.list;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -73,7 +73,7 @@ public class ListCellApp extends ContentBox {
                 // 创建Label
                 Label l = new Label();
                 l.setPrefHeight(20);
-                l.setFont(new Font(15));
+                l.setFont(new Font(16));
                 l.setStyle("-fx-background-color:#33cc77");
 
                 // 将用于显示的文本置入Label中；
@@ -92,7 +92,7 @@ public class ListCellApp extends ContentBox {
                             l.setFont(new Font(18));
                         } else {
                             l.setPrefHeight(20);
-                            l.setFont(new Font(15));
+                            l.setFont(new Font(16));
                         }
                     }
                 });

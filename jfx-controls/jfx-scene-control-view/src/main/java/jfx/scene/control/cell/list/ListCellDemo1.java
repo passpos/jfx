@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.list;
+package jfx.scene.control.cell.list;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,11 +39,11 @@ public class ListCellDemo1 extends ContentBox {
 
     @Override
     public void index() {
-        baseDrag();
+        base();
         sortListByDragDemo();
     }
 
-    public void baseDrag() {
+    public void base() {
         oal = FXCollections.observableArrayList();
         oal.add("data - a");
         oal.add("data - b");

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.tree;
+package jfx.scene.control.cell.tree;
 
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeView;

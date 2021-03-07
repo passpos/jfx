@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.tree;
+package jfx.scene.control.cell.tree;
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -37,7 +37,7 @@ import jfx.core.utils.TreeUtils;
 public class TreeCellDemo3 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Tree - TreeCell Demo3 拖拽操作";
+    public static final String TITLE = "Tree - TreeCell 拖拽操作";
     private TreeView<String> tv;
     private TreeCell<String> tcd = null;
     private TreeCell<String> tmp = null;
@@ -68,7 +68,6 @@ public class TreeCellDemo3 extends ContentBox {
         };
         tv.setCellFactory(callback);
     }
-
     /**
      * dragOver的TreeCell与dragDropped的TreeCell相同，都是释放处的TreeCell；
      * @return

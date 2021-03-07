@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.tree;
+package jfx.scene.control.cell.tree;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,7 +22,7 @@ import jfx.core.utils.TreeUtils;
 public class TreeCellDemo2 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Tree - TreeCell Demo2 自定义节点";
+    public static final String TITLE = "Tree - TreeCell 自定义节点";
     private TreeView<String> tv;
 
     @Override
