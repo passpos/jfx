@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ContentBox;
+import jfx.scene.control.cell.list.*;
+import jfx.scene.control.cell.tree.*;
 import jfx.scene.control.view.list.*;
 import jfx.scene.control.view.table.*;
 import jfx.scene.control.view.tree.*;
@@ -43,11 +45,14 @@ public class AppBox extends AbstractAppBox {
         appList.add(ListViewApp.class);
         appList.add(ListViewDemo1.class);
         appList.add(ListViewDemo2.class);
+        appList.add(TextFieldListCellApp.class);
+
+        // List - Cell
         appList.add(ListCellApp.class);
+        appList.add(ListCellDemo1.class);
         appList.add(CheckBoxListCellApp.class);
         appList.add(ChoiceBoxListCellApp.class);
         appList.add(ComboBoxListCellApp.class);
-        appList.add(TextFieldListCellApp.class);
 
         // Table
         appList.add(TableViewApp.class);
@@ -57,6 +62,8 @@ public class AppBox extends AbstractAppBox {
         appList.add(TreeViewDemo.class);
         appList.add(TreeItemApp.class);
         appList.add(TreeItemDemo.class);
+
+        // Tree - Cell
         appList.add(TreeCellApp.class);
         appList.add(TreeCellDemo1.class);
         appList.add(TreeCellDemo2.class);
