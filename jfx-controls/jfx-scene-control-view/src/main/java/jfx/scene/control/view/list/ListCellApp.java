@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package jfx.scene.control.view.list;
 
 import javafx.beans.value.ChangeListener;
@@ -27,25 +26,30 @@ import javafx.util.Callback;
 import jfx.core.app.ContentBox;
 
 /**
+ * B88
  *
  * @author realpai <paiap@outlook.com>
  */
 public class ListCellApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "List - ListCell";
     private ListView<String> lv1;
     private ObservableList<String> oal1;
+    private ListView<String> lv2;
+    private ObservableList<String> oal2;
 
     @Override
     public void index() {
-        base();
+        baseHover();
         mouseHoverEffectDemo();
+
+        baseDrag();
         sortListByDragDemo();
 
     }
 
-    public void base() {
+    public void baseHover() {
         oal1 = FXCollections.observableArrayList();
         oal1.add("data - a");
         oal1.add("data - b");
@@ -115,6 +119,33 @@ public class ListCellApp extends ContentBox {
             }
         };
         lv1.setCellFactory(callback);
+    }
+
+    public void baseDrag() {
+        oal2 = FXCollections.observableArrayList();
+        oal2.add("data - a");
+        oal2.add("data - b");
+        oal2.add("data - c");
+        oal2.add("data - d");
+        oal2.add("data - e");
+
+        lv2 = new ListView<>();
+        // lv2 = new ListView<>(oal2);
+        lv2.setItems(oal2);
+        // lv.setPlaceholder(new Label("没有数据"));
+        // lv.setOrientation(Orientation.HORIZONTAL);
+
+        // 小尺寸下，会自动出现滚动条；
+        lv2.setPrefWidth(300.0);
+        lv2.setPrefHeight(200.0);
+
+        // 设置列表单元的尺寸
+        lv2.setFixedCellSize(50);
+
+        ol(lv2.getSelectionModel().getSelectedIndex());
+
+        getChildren().add(lv2);
+        setLeftAnchor(lv2, 320.0);
     }
 
     /**
@@ -219,8 +250,8 @@ public class ListCellApp extends ContentBox {
                 return lc;
             }
         };
-        lv1.setCellFactory(callback);
-//        lv1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        lv2.setCellFactory(callback);
+//        lv2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 //            @Override
 //            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
 //
