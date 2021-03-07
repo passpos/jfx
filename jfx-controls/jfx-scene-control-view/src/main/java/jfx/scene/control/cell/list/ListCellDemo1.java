@@ -32,7 +32,7 @@ import jfx.core.app.ContentBox;
  */
 public class ListCellDemo1 extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "List - ListCell 拖拽排序";
     private ListView<String> lv;
     private ObservableList<String> oal;
@@ -71,6 +71,13 @@ public class ListCellDemo1 extends ContentBox {
 
     /**
      * setCellFactory | Callback - 鼠标拖拽排序
+     *
+     * 这里的拖拽时直接交换数据与位置，实际操作的项总是两个。
+     * 这种方式虽然简单，但实际体验并不完美，因为当数据量比较大，只需要对个别项
+     * 调整位置（如：只要求将最后一项提到靠前的某个位置）时，就需要进行大量的操
+     * 作，才能实现此目的；
+     *
+     * 并不检测被拖项是放置在“放置处”的上面还是下面；
      */
     public void sortListByDragDemo() {
         Callback<ListView<String>, ListCell<String>> callback = new Callback<ListView<String>, ListCell<String>>() {

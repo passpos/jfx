@@ -42,7 +42,7 @@ public class TreeCellDemo3 extends ContentBox {
     private TreeView<String> tv;
     // 被拖节点
     private TreeCell<String> dTreeCell = null;
-    // 最后悬浮的节点
+    // 最后经过（over）的节点
     private TreeCell<String> tmp = null;
 
     @Override
