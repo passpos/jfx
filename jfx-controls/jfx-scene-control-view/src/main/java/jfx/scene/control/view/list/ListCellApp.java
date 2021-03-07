@@ -105,14 +105,15 @@ public class ListCellApp extends ContentBox {
             }
         };
         lv.setCellFactory(callback);
-        /*
-         * lv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-         * @Override
-         * public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-         *
-         * }
-         * });
-         */
+
+    }
+
+    public void selection() {
+        lv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+            }
+        });
 
     }
 }
