@@ -42,7 +42,7 @@ public class ListCellApp extends ContentBox {
         oal.add("data - e");
 
         lv = new ListView<>();
-        // lv1 = new ListView<>(oal1);
+        // lv = new ListView<>(oal);
         lv.setItems(oal);
         // lv.setPlaceholder(new Label("没有数据"));
         // lv.setOrientation(Orientation.HORIZONTAL);
@@ -81,13 +81,12 @@ public class ListCellApp extends ContentBox {
 
                 /**
                  * 获取hover状态，设置hover样式
-                 *
+                 * position 获取 ListView 中某个“数据”在整个列表中的索引位置；
                  */
                 lc.hoverProperty().addListener(new ChangeListener<Boolean>() {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
                         if (t1 && l.getText().equals("") != true) {
-                            // 获取 ListView 中某个“数据”在整个列表中的索引位置；
                             position = param.getItems().indexOf(l.getText());
                             l.setPrefHeight(24);
                             l.setFont(new Font(18));
