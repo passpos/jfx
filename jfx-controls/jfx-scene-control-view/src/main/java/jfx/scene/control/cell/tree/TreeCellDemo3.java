@@ -209,7 +209,7 @@ public class TreeCellDemo3 extends ContentBox {
         /**
          * 在这里释放拖拽时（这里的tc是释放拖拽处的TreeCell）
          *
-         * 这里的拖拽排序不是操作数据，而是直接操作节点；
+         * 这里的拖拽排序不是操作数据，而是直接操作节点所在的TreeItem；
          */
         tc.setOnDragDropped(new EventHandler<DragEvent>() {
             @Override
@@ -226,8 +226,8 @@ public class TreeCellDemo3 extends ContentBox {
                     children.add(index + 1, new TreeItem<>(value));
 
                     // 从被拖项的原位置移除被拖拽的节点；
-                    TreeItem<String> dti = dTreeCell.getTreeItem();
-                    dti.getParent().getChildren().remove(dti);
+                    TreeItem<String> dTreeItem = dTreeCell.getTreeItem();
+                    dTreeItem.getParent().getChildren().remove(dTreeItem);
                     dTreeCell = null;
                 }
             }
