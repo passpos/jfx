@@ -33,6 +33,21 @@ import jfx.core.app.ContentBox;
  * Border。
  *
  * 请参阅《JavaFX CSS参考指南》，以获取有关样式区域边框的CSS规则的完整说明。
+ * 可用的style[Region]
+ *
+ * -fx-region-border
+ *
+ * -fx-border-width
+ * -fx-border-insets
+ * -fx-border-color
+ * -fx-border-style
+ * -fx-border-radius
+ *
+ * -fx-border-image-width
+ * -fx-border-image-insets
+ * -fx-border-image-source
+ * -fx-border-image-repeat
+ * -fx-border-image-slice
  *
  * - strokes images
  * 每个边框都由笔触（strokes）和/或图像（images）组成。两个列表都不会为null，但
