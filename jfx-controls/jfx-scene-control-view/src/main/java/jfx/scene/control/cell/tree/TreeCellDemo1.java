@@ -39,27 +39,18 @@ public class TreeCellDemo1 extends ContentBox {
 
     /**
      * TextFieldTreeCell.forTreeView()
+     *
+     * 静态方法forTreeView()，既支持无参数，也支持用户定义的转换器参数；
      */
     public void textFieldTreeCellDemo1() {
         tv.setEditable(true);
         tv.setCellFactory(TextFieldTreeCell.forTreeView());
-
-        /*
-         * Button b = new Button("textFieldTreeCellDemo1 - 点击");
-         * b.setOnAction(new EventHandler<ActionEvent>() {
-         * @Override
-         * public void handle(ActionEvent t) {
-         * root.setValue("中国");
-         * root.setGraphic(new Button(root.getValue()));
-         * }
-         * });
-         * getChildren().add(b);
-         * setLeftAnchor(b, 160.0);
-         */
     }
 
     /**
      * TextFieldTreeCell.forTreeView(StringConverter)
+     *
+     * StringConverter定义数据对象与节点文本之间的转换策略；
      */
     public void textFieldTreeCellDemo2() {
         StringConverter<String> sc = new StringConverter<>() {
@@ -78,6 +69,21 @@ public class TreeCellDemo1 extends ContentBox {
         Callback<TreeView<String>, TreeCell<String>> callback;
         callback = TextFieldTreeCell.forTreeView(sc);
 
+        tv.setEditable(true);
+        tv.setCellFactory(callback);
+    }
+
+    public void treeCellEditDemo() {
+        Callback<TreeView<String>, TreeCell<String>> callback;
+        callback = new Callback<TreeView<String>, TreeCell<String>>() {
+            @Override
+            public TreeCell<String> call(TreeView<String> param) {
+                return null;
+            }
+
+        };
+
+        tv.setEditable(true);
         tv.setCellFactory(callback);
     }
 }
