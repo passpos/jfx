@@ -45,11 +45,12 @@ public class AppBox extends AbstractAppBox {
         appList.add(ListViewApp.class);
         appList.add(ListViewDemo1.class);
         appList.add(ListViewDemo2.class);
-        appList.add(TextFieldListCellApp.class);
 
         // ListCell
         appList.add(ListCellApp.class);
         appList.add(ListCellDemo1.class);
+        appList.add(TextFieldListCellApp.class);
+        appList.add(TextFieldListCellDemo.class);
         appList.add(CheckBoxListCellApp.class);
         appList.add(ChoiceBoxListCellApp.class);
         appList.add(ComboBoxListCellApp.class);
