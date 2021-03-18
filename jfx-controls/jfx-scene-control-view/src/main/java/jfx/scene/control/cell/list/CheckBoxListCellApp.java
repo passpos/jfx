@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.control.view.list;
 
+package jfx.scene.control.cell.list;
+
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.ChoiceBoxListCell;
+import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
@@ -18,17 +21,17 @@ import jfx.core.entity.FxPerson;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class ChoiceBoxListCellApp extends ContentBox {
+public class CheckBoxListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - ChoiceBoxListCell";
+    public static final String TITLE = "List - CheckBoxListCell";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 
     @Override
     public void index() {
         base();
-        choiceBoxListCellDemo();
+        checkBoxListCellDemo();
     }
 
     public void base() {
@@ -48,27 +51,35 @@ public class ChoiceBoxListCellApp extends ContentBox {
     }
 
     /**
-     * setCellFactory | Callback - ChoiceBoxListCell
+     * setCellFactory | Callback - CheckBoxListCell
      *
      */
-    public void choiceBoxListCellDemo() {
-        lv.setEditable(true);
-        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = ChoiceBoxListCell.forListView(
+    public void checkBoxListCellDemo() {
+        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = CheckBoxListCell.forListView(new Callback<FxPerson, ObservableValue<Boolean>>() {
+            /**
+             * 返回true，表示默认选中。允许多选；
+             *
+             */
+            @Override
+            public ObservableValue<Boolean> call(FxPerson param) {
+                if (param.getName().equals("教化")) {
+                    return new SimpleBooleanProperty(true);
+                } else {
+                    return new SimpleBooleanProperty(false);
+                }
+            }
+        },
                 new StringConverter<FxPerson>() {
             @Override
             public String toString(FxPerson t) {
-                return t.getName() + " - 双击查看效果";
+                return t.getName();
             }
 
             @Override
             public FxPerson fromString(String string) {
-                return new FxPerson();
+                return null;
             }
-        },
-                // choiceBox选项列表
-                new FxPerson("回复", "12"),
-                new FxPerson("持久化", "12")
-        );
+        });
 
         lv.setCellFactory(callback);
     }
