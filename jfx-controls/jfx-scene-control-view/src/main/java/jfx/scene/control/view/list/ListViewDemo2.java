@@ -78,7 +78,6 @@ public class ListViewDemo2 extends ContentBox {
         lv.setPrefHeight(200.0);
 
         getChildren().addAll(lv);
-        setTopAnchor(lv, 300.0);
     }
 
     /**
