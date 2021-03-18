@@ -70,8 +70,6 @@ public class TextFieldListCellDemo extends ContentBox {
      * 象会被转换为字符串，更新到界面中；
      */
     public void editAction() {
-        lv.setEditable(true);
-        
         StringConverter<FxPerson> sc = new StringConverter<FxPerson>() {
 
             @Override
@@ -86,9 +84,11 @@ public class TextFieldListCellDemo extends ContentBox {
             }
 
         };
-        
+
         Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
         callback = TextFieldListCell.forListView(sc);
+
+        lv.setEditable(true);
         lv.setCellFactory(callback);
     }
 
