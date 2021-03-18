@@ -5,11 +5,11 @@
  */
 package jfx.scene.control.cell.tree;
 
-import javafx.scene.control.TreeCell;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.control.cell.TextFieldTreeCell;
-import javafx.util.Callback;
-import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 import jfx.core.utils.TreeUtils;
 
@@ -49,39 +49,32 @@ public class TreeCellApp extends ContentBox {
     public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeCell";
     private TreeView<String> tv;
+    private TreeItem<String> root;
 
     @Override
     public void index() {
         fillData();
-        textFieldTreeCellDemo();
     }
 
     public void fillData() {
         TreeUtils tu = new TreeUtils();
         tv = tu.getTreeView();
+        root = tu.getTreeItem();
 
         getChildren().add(tv);
     }
 
-    /**
-     * TextFieldTreeCell
-     */
-    public void textFieldTreeCellDemo() {
-        StringConverter<String> sc = new StringConverter<String>() {
+    public void textFieldTreeCellDemo1() {
+        Button b = new Button("textFieldTreeCellDemo1 - 点击");
+        b.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public String toString(String t) {
-                return t + " - 这个好";
+            public void handle(ActionEvent t) {
+                root.setValue("中国");
+                root.setGraphic(new Button(root.getValue()));
             }
+        });
+        getChildren().add(b);
+        setLeftAnchor(b, 160.0);
 
-            @Override
-            public String fromString(String string) {
-                return string;
-            }
-
-        };
-        Callback<TreeView<String>, TreeCell<String>> cb = TextFieldTreeCell.forTreeView(sc);
-
-        tv.setCellFactory(cb);
     }
-
 }
