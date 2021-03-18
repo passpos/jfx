@@ -16,7 +16,6 @@
  */
 package jfx.scene.control.input;
 
-import jfx.core.app.ContentBox;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.function.Consumer;
@@ -29,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import jfx.core.app.ContentBox;
 
 /**
  *
@@ -102,7 +102,7 @@ public class DemoManageTextApp extends ContentBox {
             @Override
             public void handle(ActionEvent t) {
                 char[] charry = ta.getText().toCharArray();
-                ArrayList<String> list = new ArrayList<String>();
+                ArrayList<String> list = new ArrayList<>();
 
                 for (char c : charry) {
                     list.add(String.valueOf(c));
