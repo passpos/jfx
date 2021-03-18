@@ -71,8 +71,8 @@ public class TextFieldListCellDemo extends ContentBox {
      */
     public void editAction() {
         lv.setEditable(true);
-        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = TextFieldListCell.forListView(
-                new StringConverter<FxPerson>() {
+        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
+        callback = TextFieldListCell.forListView(new StringConverter<FxPerson>() {
 
             @Override
             public String toString(FxPerson t) {
