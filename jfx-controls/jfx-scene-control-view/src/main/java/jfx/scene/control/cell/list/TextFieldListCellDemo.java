@@ -70,7 +70,7 @@ public class TextFieldListCellDemo extends ContentBox {
      * 象会被转换为字符串，更新到界面中；
      */
     public void editAction() {
-        StringConverter<FxPerson> sc = new StringConverter<FxPerson>() {
+        StringConverter<FxPerson> sc = new StringConverter<>() {
 
             @Override
             public String toString(FxPerson t) {
