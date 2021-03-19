@@ -150,13 +150,7 @@ public class TreeCellDemo1 extends ContentBox {
     }
 
     /* -------------------------------------------------------------------------
-     * TreeCell 不同于 TextFieldTreeCell ，它本身不支持转换器，也不直接支持对节
-     * 点的文本进行编辑。
-     *
-     * 所以，在重写 updateItem(String item, boolean empty) 方法时，必须显式调用
-     * setText(str)，否则节点无法正常显示；
-     *
-     * 要使其支持编辑功能，就需要重写 TreeCell 的三个接口方法；
+     * TreeCell 支持编辑功能，但需要重写 TreeCell 的三个接口方法；
      * - startEdit()
      * - commitEdit(String newValue)
      * - cancelEdit()
