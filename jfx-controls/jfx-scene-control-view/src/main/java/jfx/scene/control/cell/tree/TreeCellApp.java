@@ -46,7 +46,7 @@ import jfx.core.utils.TreeUtils;
  */
 public class TreeCellApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell";
     private TreeView<String> tv;
     private TreeItem<String> root;
@@ -54,6 +54,7 @@ public class TreeCellApp extends ContentBox {
     @Override
     public void index() {
         fillData();
+        setItemValue()
     }
 
     public void fillData() {
@@ -64,17 +65,22 @@ public class TreeCellApp extends ContentBox {
         getChildren().add(tv);
     }
 
-    public void textFieldTreeCellDemo1() {
-        Button b = new Button("textFieldTreeCellDemo1 - 点击");
+    public void setItemValue() {
+        Button b = new Button("setItemValue() - 点击");
         b.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                root.setValue("中国");
+                String value = root.getValue();
+                if (value.equals("China")) {
+                    root.setValue("中国");
+                } else {
+                    root.setValue("China");
+                }
                 root.setGraphic(new Button(root.getValue()));
             }
         });
         getChildren().add(b);
-        setLeftAnchor(b, 160.0);
+        setLeftAnchor(b, 300.0);
 
     }
 }
