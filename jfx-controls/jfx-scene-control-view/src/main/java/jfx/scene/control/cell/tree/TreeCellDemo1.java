@@ -156,7 +156,10 @@ public class TreeCellDemo1 extends ContentBox {
      * 所以，在重写 updateItem(String item, boolean empty) 方法时，必须显式调用
      * setText(str)，否则节点无法正常显示；
      *
-     * 要使其支持编辑功能，就需要重写 TreeCell 的三个 edit 方法；
+     * 要使其支持编辑功能，就需要重写 TreeCell 的三个接口方法；
+     * - startEdit()
+     * - commitEdit(String newValue)
+     * - cancelEdit()
      * TextFieldTreeCell 的文本编辑功能就是使用的这三个接口方法；
      * ---------------------------------------------------------------------- */
     public void treeCellEditDemo() {
