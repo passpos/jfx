@@ -6,8 +6,10 @@
 package jfx.scene.control.cell.tree;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeView;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
 import jfx.core.utils.TreeUtils;
@@ -45,7 +47,7 @@ public class TreeCellDemo2 extends ContentBox {
      * 通过自定义可以设置节点的：展开状态指示箭头、图标，以及其他复杂内容；
      *
      * TreeCell 不同于 TextFieldTreeCell ，它本身不支持转换器，也不直接支持对节
-     * 点的文本进行编辑。
+     * 点的文本进行编辑；
      *
      * 所以，在重写 updateItem(String item, boolean empty) 方法时，必须显式调用
      * setText(str)，否则节点无法正常显示；
@@ -77,6 +79,11 @@ public class TreeCellDemo2 extends ContentBox {
             @Override
             public void startEdit() {
                 super.startEdit();
+                Button button = new Button();
+                TextField textField = new TextField();
+
+                HBox hBox = new HBox();
+                hBox.getChildren().addAll(button, textField);
             }
 
             @Override
