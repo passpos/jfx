@@ -109,6 +109,8 @@ public class TreeCellDemo2 extends ContentBox {
                     public void handle(KeyEvent t) {
                         if (t.getCode() == KeyCode.ENTER) {
                             cell.commitEdit(textField.getText());
+                        } else if (t.getCode() == KeyCode.ESCAPE) {
+                            cell.commitEdit(cell.getItem());
                         }
                     }
                 });
