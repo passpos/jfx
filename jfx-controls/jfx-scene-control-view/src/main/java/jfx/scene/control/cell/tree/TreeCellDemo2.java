@@ -5,10 +5,13 @@
  */
 package jfx.scene.control.cell.tree;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
@@ -79,16 +82,34 @@ public class TreeCellDemo2 extends ContentBox {
             @Override
             public void startEdit() {
                 super.startEdit();
-                Button button = new Button();
+
+                TreeCell<String> cell = this;
+
+                Button button = new Button(this.getText());
+
                 TextField textField = new TextField();
+                textField.setText(this.getText());
+
+                this.setText(null);
 
                 HBox hBox = new HBox();
                 hBox.getChildren().addAll(button, textField);
+                this.setGraphic(hBox);
+
+                textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent t) {
+                        if (t.getCode() == KeyCode.ENTER) {
+                            cell.commitEdit(textField.getText());
+                        }
+                    }
+
+                });
             }
 
             @Override
             public void commitEdit(String newValue) {
-                super.commitEdit(newValue); //To change body of generated methods, choose Tools | Templates.
+                super.commitEdit(newValue);
             }
 
             @Override
