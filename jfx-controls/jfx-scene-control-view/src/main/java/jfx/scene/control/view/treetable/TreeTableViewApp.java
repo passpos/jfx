@@ -141,7 +141,7 @@ public class TreeTableViewApp extends ContentBox {
 
                     @Override
                     public void commitEdit(String newValue) {
-                        super.commitEdit(newValue); //To change body of generated methods, choose Tools | Templates.
+                        super.commitEdit(newValue);
                     }
 
                     @Override

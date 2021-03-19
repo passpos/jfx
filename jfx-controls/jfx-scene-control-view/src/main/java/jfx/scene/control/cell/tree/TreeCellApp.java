@@ -46,7 +46,7 @@ import jfx.core.utils.TreeUtils;
  */
 public class TreeCellApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Tree - TreeCell";
     private TreeView<String> tv;
     private TreeItem<String> root;
