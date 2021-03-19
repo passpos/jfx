@@ -38,9 +38,10 @@ public class TreeCellDemo1 extends ContentBox {
      * TextFieldTreeCell.forTreeView()
      * TextFieldTreeCell.forTreeView(StringConverter)
      *
-     * 静态方法forTreeView()，既支持无参数，也支持用户定义的转换器参数；
-     * 其底层实现类似 textFieldTreeCellDemo()；
-     * ----------------------------------------------------------------------- */
+     * 无参forTreeView()，使用的是一个内部默认的StringConverter；
+     * 当然，它也支持用户自定义的字符串转换器。
+     * 这一点，从TextFieldTreeCell的两个构造函数及其参数，就能看出它们的特性；
+     * ---------------------------------------------------------------------- */
     public void forTreeViewDemo1() {
         tv.setEditable(true);
         tv.setCellFactory(TextFieldTreeCell.forTreeView());
@@ -70,7 +71,15 @@ public class TreeCellDemo1 extends ContentBox {
     /* -------------------------------------------------------------------------
      * forTreeView()的底层实现；
      *
-     * ----------------------------------------------------------------------- */
+     * 当用户选择通过自定义回调“new”一个 TextFieldTreeCell 实例时，就没必要使
+     * 用 textFieldTreeCellDemo1() 中的演示代码了，因为这可以直接通过
+     * forTreeView() 取得同样功能的TextFieldTreeCell实例；
+     *
+     * 而一般这么做时，是要自定义节点的样式以及其他特性；
+     *
+     * 由于无论是显式还是隐式， TextFieldTreeCell 必然会使用一个 StringConverter，
+     * 所以在 updateItem(String item, boolean empty) 中，不必调用setText(item)；
+     * ---------------------------------------------------------------------- */
     public void textFieldTreeCellDemo1() {
         StringConverter<String> sc = new StringConverter<>() {
             @Override
@@ -128,10 +137,6 @@ public class TreeCellDemo1 extends ContentBox {
                         } else {
                             setGraphic(new Button(item));
                             setText(item);
-
-                            // 焦点可遍历
-                            setFocusTraversable(true);
-                            this.getStyleClass().add("athl-view-cell");
                         }
                     }
 
@@ -144,15 +149,51 @@ public class TreeCellDemo1 extends ContentBox {
         tv.setCellFactory(callback);
     }
 
-    /**
+    /* -------------------------------------------------------------------------
+     * TreeCell 不同于 TextFieldTreeCell ，它本身不支持转换器，也不直接支持对节
+     * 点的文本进行编辑。
      *
-     */
+     * 所以，在重写 updateItem(String item, boolean empty) 方法时，必须显式调用
+     * setText(str)，否则节点无法正常显示；
+     *
+     * 要使其支持编辑功能，就需要重写 TreeCell 的三个 edit 方法；
+     * TextFieldTreeCell 的文本编辑功能就是使用的这三个接口方法；
+     * ---------------------------------------------------------------------- */
     public void treeCellEditDemo() {
         Callback<TreeView<String>, TreeCell<String>> callback;
         callback = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
-                return null;
+                TreeCell<String> treeCell = new TreeCell<>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty || item == null) {
+                            setText(null);
+                            setGraphic(null);
+                        } else {
+                            setGraphic(new Button(item));
+                            // 必须执行下列代码；
+                            setText(item);
+                        }
+                    }
+
+                    @Override
+                    public void startEdit() {
+                        super.startEdit();
+                    }
+                    @Override
+                    public void commitEdit(String newValue) {
+                        super.commitEdit(newValue); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void cancelEdit() {
+                        super.cancelEdit();
+                    }
+
+                };
+                return treeCell;
             }
 
         };
