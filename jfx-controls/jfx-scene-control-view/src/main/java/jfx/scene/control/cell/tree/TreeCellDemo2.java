@@ -76,11 +76,16 @@ public class TreeCellDemo2 extends ContentBox {
 
                     // 必须执行下列代码；
                     this.setText(item);
+
+                    this.setEditable(true);
                 }
             }
 
             @Override
             public void startEdit() {
+                if (!isEditable() || !getTreeView().isEditable()) {
+                    return;
+                }
                 super.startEdit();
 
                 TreeCell<String> cell = this;
