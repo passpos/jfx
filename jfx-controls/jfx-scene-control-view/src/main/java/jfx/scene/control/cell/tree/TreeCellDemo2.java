@@ -27,7 +27,7 @@ import jfx.core.utils.TreeUtils;
 public class TreeCellDemo2 extends ContentBox {
 
     public static final boolean SHOWING = true;
-    public static final String TITLE = "Tree - TreeCell 自定义节点";
+    public static final String TITLE = "Tree - TreeCell 自定义可编辑节点";
     private TreeView<String> tv;
 
     @Override
