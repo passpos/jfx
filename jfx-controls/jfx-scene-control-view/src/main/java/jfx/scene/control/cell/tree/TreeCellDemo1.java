@@ -165,6 +165,7 @@ public class TreeCellDemo1 extends ContentBox {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
                 TreeCell<String> treeCell = new TreeCell<>() {
+
                     @Override
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
@@ -182,6 +183,7 @@ public class TreeCellDemo1 extends ContentBox {
                     public void startEdit() {
                         super.startEdit();
                     }
+
                     @Override
                     public void commitEdit(String newValue) {
                         super.commitEdit(newValue); //To change body of generated methods, choose Tools | Templates.
