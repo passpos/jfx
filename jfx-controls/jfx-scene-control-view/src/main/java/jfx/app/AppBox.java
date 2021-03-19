@@ -69,6 +69,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(TreeCellDemo1.class);
         appList.add(TreeCellDemo2.class);
         appList.add(TreeCellDemo3.class);
+        appList.add(TreeCellDemo4.class);
 
         // TreeTable
         appList.add(TreeTableViewApp.class);
