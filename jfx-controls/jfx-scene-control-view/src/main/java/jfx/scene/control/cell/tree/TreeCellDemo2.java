@@ -6,10 +6,8 @@
 package jfx.scene.control.cell.tree;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeView;
-import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
 import jfx.core.utils.TreeUtils;
@@ -21,7 +19,7 @@ import jfx.core.utils.TreeUtils;
  */
 public class TreeCellDemo2 extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Tree - TreeCell 自定义节点";
     private TreeView<String> tv;
 
@@ -68,15 +66,11 @@ public class TreeCellDemo2 extends ContentBox {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    Label label = new Label(item);
                     Button btn = new Button(item);
-                    HBox hBox = new HBox();
-                    hBox.getChildren().addAll(btn, label);
+                    this.setGraphic(btn);
 
-                    // 将整个布局组件设置为节点图标；
-                    this.setGraphic(hBox);
                     // 必须执行下列代码；
-                    setText(item);
+                    this.setText(item);
                 }
             }
 
