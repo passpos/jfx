@@ -103,10 +103,10 @@ public class TreeCellDemo2 extends ContentBox {
                 hBox.getChildren().addAll(button, textField);
                 this.setGraphic(hBox);
 
-                // 按下 ENTER 键时；
                 textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent t) {
+                        // 按下 ENTER 键时提交；
                         if (t.getCode() == KeyCode.ENTER) {
                             cell.commitEdit(textField.getText());
                         } else if (t.getCode() == KeyCode.ESCAPE) {
