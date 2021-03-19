@@ -39,7 +39,7 @@ public class TreeCellDemo1 extends ContentBox {
      * TextFieldTreeCell.forTreeView(StringConverter)
      *
      * 静态方法forTreeView()，既支持无参数，也支持用户定义的转换器参数；
-     * 其底层实现类似 textFieldTreeCellDemo1()；
+     * 其底层实现类似 textFieldTreeCellDemo()；
      * ----------------------------------------------------------------------- */
     public void forTreeViewDemo1() {
         tv.setEditable(true);
@@ -67,6 +67,10 @@ public class TreeCellDemo1 extends ContentBox {
         tv.setCellFactory(callback);
     }
 
+    /* -------------------------------------------------------------------------
+     * forTreeView()的底层实现；
+     *
+     * ----------------------------------------------------------------------- */
     public void textFieldTreeCellDemo1() {
         StringConverter<String> sc = new StringConverter<>() {
             @Override
@@ -82,7 +86,7 @@ public class TreeCellDemo1 extends ContentBox {
         };
 
         Callback<TreeView<String>, TreeCell<String>> callback;
-        callback = new Callback<TreeView<String>, TreeCell<String>>() {
+        callback = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
                 // TextFieldTreeCell<String> tfCell1 = new TextFieldTreeCell<>();
@@ -90,12 +94,11 @@ public class TreeCellDemo1 extends ContentBox {
                 return tfCell2;
             }
         };
+
+        tv.setEditable(true);
+        tv.setCellFactory(callback);
     }
 
-    /**
-     *
-     *
-     */
     public void textFieldTreeCellDemo2() {
         StringConverter<String> sc = new StringConverter<>() {
             @Override
@@ -111,7 +114,7 @@ public class TreeCellDemo1 extends ContentBox {
         };
 
         Callback<TreeView<String>, TreeCell<String>> callback;
-        callback = new Callback<TreeView<String>, TreeCell<String>>() {
+        callback = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
                 TextFieldTreeCell<String> tfCell;
@@ -146,7 +149,7 @@ public class TreeCellDemo1 extends ContentBox {
      */
     public void treeCellEditDemo() {
         Callback<TreeView<String>, TreeCell<String>> callback;
-        callback = new Callback<TreeView<String>, TreeCell<String>>() {
+        callback = new Callback<>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
                 return null;
