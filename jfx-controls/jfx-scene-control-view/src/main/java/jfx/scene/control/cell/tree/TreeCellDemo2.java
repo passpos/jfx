@@ -122,10 +122,10 @@ public class TreeCellDemo2 extends ContentBox {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
                         if (t1) {
-                            System.out.println("lost");
-                            cell.cancelEdit();
+
                         } else {
-                            cell.commitEdit(textField.getText());
+                            String text = textField.getText();
+                            cell.commitEdit(text);
                         }
                     }
                 });
