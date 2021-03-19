@@ -54,7 +54,7 @@ public class TreeCellApp extends ContentBox {
     @Override
     public void index() {
         fillData();
-        setItemValue()
+        setItemValue();
     }
 
     public void fillData() {

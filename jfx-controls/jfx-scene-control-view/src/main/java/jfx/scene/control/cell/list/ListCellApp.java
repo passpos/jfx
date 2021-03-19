@@ -23,7 +23,7 @@ import jfx.core.app.ContentBox;
  */
 public class ListCellApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "List - ListCell";
     private ListView<String> lv;
     private ObservableList<String> oal;
