@@ -110,7 +110,7 @@ public class TreeCellDemo2 extends ContentBox {
                         if (t.getCode() == KeyCode.ENTER) {
                             cell.commitEdit(textField.getText());
                         } else if (t.getCode() == KeyCode.ESCAPE) {
-                            cell.commitEdit(cell.getItem());
+                            cell.cancelEdit();
                         }
                     }
                 });
@@ -122,7 +122,8 @@ public class TreeCellDemo2 extends ContentBox {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
                         if (t1) {
-
+                            System.out.println("lost");
+                            cell.cancelEdit();
                         } else {
                             cell.commitEdit(textField.getText());
                         }
