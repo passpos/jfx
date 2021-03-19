@@ -34,7 +34,7 @@ import jfx.core.entity.FxPerson;
 public class ListViewDemo2 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - ListView Demo2";
+    public static final String TITLE = "List - ListView 列表过滤/排序";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 
@@ -118,6 +118,7 @@ public class ListViewDemo2 extends ContentBox {
         Button btn = new Button("排序");
         getChildren().add(btn);
         setTopAnchor(btn, 270.0);
+        setLeftAnchor(btn, 200.0);
 
         // 从小到大的排序；
         btn.setOnAction(new EventHandler<ActionEvent>() {
