@@ -27,50 +27,63 @@ public class TreeCellDemo3 extends ContentBox {
 
     @Override
     public void index() {
-        fillData();
-        customTreeCell();
-    }
-
-    public void fillData() {
         TreeUtils tu = new TreeUtils();
         tv = tu.getTreeView();
+
+        Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
+            @Override
+            public TreeCell<String> call(TreeView<String> param) {
+                return getTreeCell();
+            }
+        };
+        tv.setCellFactory(cb);
 
         getChildren().add(tv);
     }
 
-    /**
-     * 自定义的节点样式
-     *
-     * 默认的样式只有文本内容；
-     * 通过自定义可以设置节点的：展开状态指示箭头、图标，以及其他复杂内容；
-     */
-    public void customTreeCell() {
-        Callback<TreeView<String>, TreeCell<String>> cb = new Callback<>() {
+    public TreeCell<String> getTreeCell() {
+        TreeCell<String> tc = new TreeCell<String>() {
+            /**
+             * 自定义的节点样式
+             *
+             * 默认的样式只有文本内容；
+             * 通过自定义可以设置节点的：展开状态指示箭头、图标，以及其他复杂内容；
+             */
             @Override
-            public TreeCell<String> call(TreeView<String> param) {
-                TreeCell<String> tc = new TreeCell<String>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!empty) {
-                            // 添加一个布局组件；
-                            HBox hBox = new HBox();
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (!empty) {
+                    // 添加一个布局组件；
+                    HBox hBox = new HBox();
 
-                            // 在这个布局组件中放置一个Label和一个Button；
-                            Label l = new Label(item);
-                            Button b = new Button(item);
-                            hBox.getChildren().addAll(l, b);
+                    // 在这个布局组件中放置一个Label和一个Button；
+                    Label l = new Label(item);
+                    Button b = new Button(item);
+                    hBox.getChildren().addAll(l, b);
 
-                            // 将整个布局组件设置为节点图标；
-                            this.setGraphic(hBox);
-                        } else if (empty) {
-                            this.setGraphic(null);
-                        }
-                    }
-                };
-                return tc;
+                    // 将整个布局组件设置为节点图标；
+                    this.setGraphic(hBox);
+                } else if (empty) {
+                    this.setGraphic(null);
+                }
             }
+
+            @Override
+            public void startEdit() {
+                super.startEdit();
+            }
+
+            @Override
+            public void commitEdit(String newValue) {
+                super.commitEdit(newValue); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void cancelEdit() {
+                super.cancelEdit();
+            }
+
         };
-        tv.setCellFactory(cb);
+        return tc;
     }
 }
