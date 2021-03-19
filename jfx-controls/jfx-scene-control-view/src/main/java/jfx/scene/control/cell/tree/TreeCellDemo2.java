@@ -5,6 +5,8 @@
  */
 package jfx.scene.control.cell.tree;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -101,6 +103,7 @@ public class TreeCellDemo2 extends ContentBox {
                 hBox.getChildren().addAll(button, textField);
                 this.setGraphic(hBox);
 
+                // 按下 ENTER 键时；
                 textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent t) {
@@ -108,12 +111,27 @@ public class TreeCellDemo2 extends ContentBox {
                             cell.commitEdit(textField.getText());
                         }
                     }
+                });
 
+                // 取得焦点；
+                textField.requestFocus();
+                // 失去焦点时提交；
+                textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                        if (t1) {
+
+                        } else {
+                            cell.commitEdit(textField.getText());
+                        }
+                    }
                 });
             }
 
             @Override
             public void commitEdit(String newValue) {
+                // 在这里进行数据校验、过滤、持久化操作；
+                // 如果用户提交的数据不符合要求，就不执行下列操作，数据将保持原样；
                 super.commitEdit(newValue);
             }
 
