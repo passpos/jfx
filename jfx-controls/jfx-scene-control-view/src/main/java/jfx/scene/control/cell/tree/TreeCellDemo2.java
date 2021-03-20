@@ -141,6 +141,14 @@ public class TreeCellDemo2 extends ContentBox {
             @Override
             public void cancelEdit() {
                 super.cancelEdit();
+
+                String item = this.getItem();
+
+                Button btn = new Button(item);
+                this.setGraphic(btn);
+
+                // 必须执行下列代码；
+                this.setText(item);
             }
 
         };
