@@ -17,13 +17,13 @@
 package jfx.beans.property;
 
 import java.util.Comparator;
-import jfx.core.app.ContentBox;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import jfx.core.app.ContentBox;
 
 /**
  *
@@ -33,8 +33,8 @@ public class ListPropertyApp extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "Property - ListProperty";
-    private SimpleListProperty<String> slp;
     private ObservableList<String> list;
+    private SimpleListProperty<String> slp;
 
     @Override
     public void index() {
