@@ -7,6 +7,7 @@ package jfx.scene.control.pane;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -19,20 +20,22 @@ import jfx.core.app.ContentBox;
  * @author realpai <paiap@outlook.com>
  */
 public class DialogPaneApp extends ContentBox {
-
+    
     public static final boolean SHOWING = true;
     public static final String TITLE = "Layout - DialogPane";
     private Dialog<Button> d;
     private DialogPane dp;
-
+    
     @Override
     public void index() {
         baseDemo();
+        addButton();
+        lookupButton();
     }
-
+    
     public void baseDemo() {
         dp = new DialogPane();
-
+        
         d = new Dialog<>();
         d.setDialogPane(dp);
 
@@ -54,12 +57,32 @@ public class DialogPaneApp extends ContentBox {
         dp.setContentText("contentText");
         dp.setContent(new Button("Content"));
 
-        // Button具有预定义顺序，用户不可控；
+        dp.setPrefSize(300, 200);
+        
+    }
+
+    /**
+     * Button具有预定义顺序，用户不可控；
+     */
+    public void addButton() {
         dp.getButtonTypes().add(ButtonType.CLOSE);
         dp.getButtonTypes().add(ButtonType.CANCEL);
         dp.getButtonTypes().add(ButtonType.OK);
-
-        dp.setPrefSize(300, 200);
     }
 
+    /**
+     * 获取被添加的Button
+     */
+    public void lookupButton() {
+        Node buttonOK = dp.lookupButton(ButtonType.OK);
+        System.out.println(buttonOK);
+        
+        Node buttonCancel = dp.lookupButton(ButtonType.CANCEL);
+        System.out.println(buttonCancel);
+
+        // 输出 null
+        Node buttonFinish = dp.lookupButton(ButtonType.FINISH);
+        System.out.println(buttonFinish);
+    }
+    
 }
