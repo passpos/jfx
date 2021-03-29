@@ -20,22 +20,23 @@ import jfx.core.app.ContentBox;
  * @author realpai <paiap@outlook.com>
  */
 public class DialogPaneApp extends ContentBox {
-    
+
     public static final boolean SHOWING = true;
     public static final String TITLE = "Layout - DialogPane";
     private Dialog<Button> d;
     private DialogPane dp;
-    
+
     @Override
     public void index() {
         baseDemo();
+        headerAndContent();
         addButton();
         lookupButton();
     }
-    
+
     public void baseDemo() {
         dp = new DialogPane();
-        
+
         d = new Dialog<>();
         d.setDialogPane(dp);
 
@@ -49,6 +50,15 @@ public class DialogPaneApp extends ContentBox {
         });
         getChildren().add(btn);
 
+        dp.setPrefSize(300, 200);
+
+    }
+
+    /**
+     * 当Header不为空时，就会优先显示Header，而不显示HeaderText；
+     * Content、ContentText与Header具有相同的呈现机制；
+     */
+    public void headerAndContent() {
         // Header 优先级高于 HeaderText
         dp.setHeaderText("headerText");
         dp.setHeader(new Button("Header"));
@@ -56,9 +66,6 @@ public class DialogPaneApp extends ContentBox {
         // Content 优先级高于 ContentText
         dp.setContentText("contentText");
         dp.setContent(new Button("Content"));
-
-        dp.setPrefSize(300, 200);
-        
     }
 
     /**
@@ -76,7 +83,7 @@ public class DialogPaneApp extends ContentBox {
     public void lookupButton() {
         Node buttonOK = dp.lookupButton(ButtonType.OK);
         System.out.println(buttonOK);
-        
+
         Node buttonCancel = dp.lookupButton(ButtonType.CANCEL);
         System.out.println(buttonCancel);
 
@@ -84,5 +91,5 @@ public class DialogPaneApp extends ContentBox {
         Node buttonFinish = dp.lookupButton(ButtonType.FINISH);
         System.out.println(buttonFinish);
     }
-    
+
 }
