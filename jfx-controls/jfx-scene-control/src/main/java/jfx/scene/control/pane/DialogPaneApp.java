@@ -39,7 +39,7 @@ public class DialogPaneApp extends ContentBox {
         d = new Dialog<>();
         d.setDialogPane(dp);
 
-        // 激发dialog
+        // 触发dialog
         Button btn = new Button("点击");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
