@@ -14,6 +14,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.input.MouseEvent;
 import jfx.core.app.ContentBox;
+import static jfx.core.app.ContentBox.ol;
 
 /**
  * DialogPane 位于 javafx.controls 模块，而不是java.graphics模块
@@ -33,6 +34,7 @@ public class DialogPaneApp extends ContentBox {
         headerAndContent();
         addButton();
         lookupButton();
+        buttonEvent();
     }
 
     public void baseDemo() {
@@ -94,13 +96,24 @@ public class DialogPaneApp extends ContentBox {
     }
 
     public void buttonEvent() {
-        Node buttonClose = dp.lookupButton(ButtonType.CLOSE);
-        buttonClose.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        // 事件无效
+        Node buttonCancel = dp.lookupButton(ButtonType.CANCEL);
+        buttonCancel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
                 ol("点击了取消按钮");
             }
         });
+
+        // 事件有效
+        Button buttonClose = (Button) dp.lookupButton(ButtonType.CLOSE);
+        buttonClose.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                ol("点击了关闭按钮");
+            }
+        });
+
     }
 
 }
