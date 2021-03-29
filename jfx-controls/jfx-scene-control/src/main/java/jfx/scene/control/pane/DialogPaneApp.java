@@ -8,6 +8,7 @@ package jfx.scene.control.pane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import jfx.core.app.ContentBox;
@@ -19,7 +20,7 @@ import jfx.core.app.ContentBox;
  */
 public class DialogPaneApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Layout - DialogPane";
     private Dialog<Button> d;
     private DialogPane dp;
@@ -30,8 +31,9 @@ public class DialogPaneApp extends ContentBox {
     }
 
     public void baseDemo() {
-        d = new Dialog<>();
         dp = new DialogPane();
+
+        d = new Dialog<>();
         d.setDialogPane(dp);
 
         // 激发dialog
@@ -44,8 +46,20 @@ public class DialogPaneApp extends ContentBox {
         });
         getChildren().add(btn);
 
+        // Header 优先级高于 HeaderText
         dp.setHeaderText("headerText");
+        dp.setHeader(new Button("Header"));
+
+        // Content 优先级高于 ContentText
         dp.setContentText("contentText");
+        dp.setContent(new Button("Content"));
+
+        // Button具有预定义顺序，用户不可控；
+        dp.getButtonTypes().add(ButtonType.CLOSE);
+        dp.getButtonTypes().add(ButtonType.CANCEL);
+        dp.getButtonTypes().add(ButtonType.OK);
+
+        dp.setPrefSize(300, 200);
     }
 
 }
