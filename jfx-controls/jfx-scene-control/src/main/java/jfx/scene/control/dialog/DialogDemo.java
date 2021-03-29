@@ -33,9 +33,6 @@ public class DialogDemo extends ContentBox {
         eventDemo();
     }
 
-    /**
-     * Dialog不必添加到父节点，就可以展示；
-     */
     public void baseDemo() {
         d = new Dialog<>();
         d.setTitle("Title - 错误！");
