@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
+import javafx.scene.input.MouseEvent;
 import jfx.core.app.ContentBox;
 
 /**
@@ -82,14 +83,24 @@ public class DialogPaneApp extends ContentBox {
      */
     public void lookupButton() {
         Node buttonOK = dp.lookupButton(ButtonType.OK);
-        System.out.println(buttonOK);
+        ol(buttonOK);
 
         Node buttonCancel = dp.lookupButton(ButtonType.CANCEL);
-        System.out.println(buttonCancel);
+        ol(buttonCancel);
 
         // 输出 null
         Node buttonFinish = dp.lookupButton(ButtonType.FINISH);
-        System.out.println(buttonFinish);
+        ol(buttonFinish);
+    }
+
+    public void buttonEvent() {
+        Node buttonClose = dp.lookupButton(ButtonType.CLOSE);
+        buttonClose.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                ol("点击了取消按钮");
+            }
+        });
     }
 
 }
