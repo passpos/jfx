@@ -29,6 +29,7 @@ import javafx.util.Callback;
 import jfx.core.app.ContentBox;
 
 /**
+ * Dialog中封装了Stage与DialogPane，所以不必添加到父节点，就可以展示；
  *
  * @author realpai <paiap@outlook.com>
  */
@@ -46,7 +47,7 @@ public class DialogApp extends ContentBox {
     }
 
     /**
-     * Dialog不必添加到父节点，就可以展示；
+     *
      */
     public void baseDemo() {
         d = new Dialog<>();
