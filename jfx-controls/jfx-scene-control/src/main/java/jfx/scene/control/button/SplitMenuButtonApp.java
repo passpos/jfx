@@ -16,11 +16,11 @@
  */
 package jfx.scene.control.button;
 
-import jfx.core.app.ContentBox;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+import jfx.core.app.ContentBox;
 
 /**
  *
@@ -38,21 +38,28 @@ public class SplitMenuButtonApp extends ContentBox {
     }
 
     public void baseDemo() {
-        smb = new SplitMenuButton();
+
+        // 子菜单
         MenuItem mi1 = new MenuItem("itm1");
         MenuItem mi2 = new MenuItem("itm2");
+
+        smb = new SplitMenuButton();
         smb.getItems().addAll(mi1, mi2);
         smb.setText("分离式下拉菜单");
 
-        // 点击事件有效：
+        getChildren().addAll(smb);
+    }
+
+    /**
+     * 点击事件
+     */
+    public void eventDemo() {
         smb.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 smb.setText("变化的名称");
             }
         });
-
-        this.getChildren().addAll(smb);
     }
 
 }
