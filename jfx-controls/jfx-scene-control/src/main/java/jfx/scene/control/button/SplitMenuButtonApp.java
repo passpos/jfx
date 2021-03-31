@@ -29,16 +29,16 @@ import jfx.core.app.ContentBox;
 public class SplitMenuButtonApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Button - SplitMenuButton 分离式下拉";
+    public static final String TITLE = "Button - SplitMenuButton 分离式下拉菜单";
     public SplitMenuButton smb;
 
     @Override
     public void index() {
         baseDemo();
+        eventDemo();
     }
 
     public void baseDemo() {
-
         // 子菜单
         MenuItem mi1 = new MenuItem("itm1");
         MenuItem mi2 = new MenuItem("itm2");

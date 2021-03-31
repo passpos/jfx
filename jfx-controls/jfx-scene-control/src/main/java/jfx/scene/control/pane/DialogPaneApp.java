@@ -24,7 +24,7 @@ import static jfx.core.app.ContentBox.ol;
 public class DialogPaneApp extends ContentBox {
 
     public static final boolean SHOWING = true;
-    public static final String TITLE = "Layout - DialogPane";
+    public static final String TITLE = "Pane - DialogPane";
     private Dialog<Button> d;
     private DialogPane dp;
 

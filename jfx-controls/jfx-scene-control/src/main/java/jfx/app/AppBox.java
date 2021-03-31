@@ -64,8 +64,8 @@ public class AppBox extends AbstractAppBox {
         appList.add(CheckBoxApp.class);
         appList.add(HyperlinkApp.class);
         appList.add(MenuButtonApp.class);
-        appList.add(SplitMenuButtonApp.class);
         appList.add(RadioButtonApp.class);
+        appList.add(SplitMenuButtonApp.class);
         appList.add(ToggleButtonApp.class);
 
         // Dialog
@@ -90,6 +90,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ComboBoxApp.class);
         appList.add(ChoiceBoxDemo.class);
         appList.add(ComboBoxDemo.class);
+        appList.add(RadioMenuItemApp.class);
 
         // Pane
         appList.add(DialogPaneApp.class);
