@@ -16,7 +16,6 @@
  */
 package jfx.scene.control.menubox;
 
-import jfx.core.app.ContentBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
@@ -27,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import jfx.core.app.ContentBox;
 import utils.entity.demo.sample.Student;
 
 /**
@@ -87,8 +87,8 @@ public class ComboBoxDemo extends ContentBox {
         lcb.setCellFactory(new Callback<ListView<Student>, ListCell<Student>>() {
             @Override
             public ListCell<Student> call(ListView<Student> param) {
-                MyStuListCell<Student> mlc = new MyStuListCell<>();
-                return mlc;
+                MyStuListCell<Student> mlCell = new MyStuListCell<>();
+                return mlCell;
             }
         });
 
