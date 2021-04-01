@@ -72,10 +72,23 @@ public class DialogApp extends ContentBox {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                d.show();
+                showDemo();
             }
         });
         getChildren().add(btn);
+    }
+
+    /**
+     * 当运行show()后，后面的代码仍会继续执行，不会等待用户操作；
+     * 当运行showAndWait()后，必须等待用户操作，后面的代码才会继续执行；
+     *
+     * 对于showAndWait()，用户要获取用户输入的值，就必须在showAndWait()之前，完
+     * 成输入组件的动作事件设定，否则，当用户输入时，输入组件是不包含动作监听的。
+     * 而当showAndWait()执行提交后，窗口关闭，在那时设定的动作监听就不会起作用；
+     */
+    private void showDemo() {
+        d.show();
+        // d.showAndWait();
     }
 
     /**
