@@ -33,10 +33,6 @@ import javafx.stage.StageStyle;
  */
 public class ApplicationDemo extends Application {
 
-    public static void main(String[] args) {
-        launch(ApplicationDemo.class, args);
-    }
-
     @Override
     public void init() throws Exception {
         super.init();
