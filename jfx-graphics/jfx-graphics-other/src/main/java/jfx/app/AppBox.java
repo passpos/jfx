@@ -122,6 +122,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(FileChooserApp.class);
         appList.add(ScreenApp.class);
         appList.add(StageApp.class);
+        appList.add(StageDemo.class);
         appList.add(WindowApp.class);
     }
 }

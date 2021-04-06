@@ -17,11 +17,12 @@ import jfx.core.app.ContentBox;
 
 /**
  * setOnDragDetected
+ *
  * @author passpos <paiap@outlook.com>
  */
 public class DragEventApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Input - DragEvent 拖拽事件";
 
     @Override
