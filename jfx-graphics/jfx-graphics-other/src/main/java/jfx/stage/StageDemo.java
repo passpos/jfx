@@ -137,11 +137,11 @@ public class StageDemo extends ContentBox {
             public void handle(MouseEvent t) {
                 double x = stage.getX();
                 double y = stage.getY();
-                if (x < 0) {
-                    stage.setX(0);
-                } else {
-                    stage.setX(x);
-                }
+//                if (x < 0) {
+//                    stage.setX(0);
+//                } else {
+//                    stage.setX(x);
+//                }
                 if (y < 0) {
                     stage.setY(0);
                 } else {
