@@ -43,8 +43,8 @@ public class ListPropertyApp extends ContentBox {
         list = FXCollections.observableArrayList();
         slp = new SimpleListProperty<>(list);
 
-        baseDemo();
-        listenerDemo();
+        changeListenerDemo();
+        listChangeListenerDemo();
     }
 
     /**
@@ -52,7 +52,7 @@ public class ListPropertyApp extends ContentBox {
      * 新旧列表相同，且打印时，列表的所有属性元素（forEach()）都会被打印.
      * t1.forEach(ListPropertyApp::ol);
      */
-    public void baseDemo() {
+    public void changeListenerDemo() {
         slp.addListener(new ChangeListener<ObservableList<String>>() {
             @Override
             public void changed(
@@ -76,7 +76,7 @@ public class ListPropertyApp extends ContentBox {
     /**
      * 因为list集合有索引，所以需要next()方法
      */
-    public void listenerDemo() {
+    public void listChangeListenerDemo() {
         slp.addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> c) {
