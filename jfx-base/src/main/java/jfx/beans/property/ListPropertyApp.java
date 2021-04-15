@@ -49,8 +49,7 @@ public class ListPropertyApp extends ContentBox {
 
     /**
      * 注意：
-     * 新旧列表相同，且打印时，列表的所有属性元素（forEach()）都会被
-     * 打印.
+     * 新旧列表相同，且打印时，列表的所有属性元素（forEach()）都会被打印.
      * t1.forEach(ListPropertyApp::ol);
      */
     public void baseDemo() {
