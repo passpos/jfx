@@ -21,6 +21,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import jfx.core.app.ContentBox;
 
 /**
+ * 关于绑定
+ *
+ * 当在应用中的某处，绑定了一个属性值时，就不应当再去手动设定值；
  *
  * @author realpai <paiap@outlook.com>
  */
@@ -54,7 +57,7 @@ class MyIntegerBinding extends IntegerBinding {
 
     private SimpleIntegerProperty sip = new SimpleIntegerProperty();
 
-    public MyIntegerBinding(int value) {
+    MyIntegerBinding(int value) {
         this.bind(sip);
         sip.set(value);
     }

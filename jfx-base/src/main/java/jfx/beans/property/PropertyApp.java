@@ -17,7 +17,6 @@
 package jfx.beans.property;
 
 import javafx.beans.binding.IntegerExpression;
-import jfx.core.app.ContentBox;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -27,6 +26,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import jfx.core.app.ContentBox;
 
 /**
  * Properties 参考：
@@ -146,7 +146,7 @@ class Student {
     private SimpleStringProperty name = new SimpleStringProperty();
     private SimpleIntegerProperty age = new SimpleIntegerProperty();
 
-    public Student(String name, int age) {
+    Student(String name, int age) {
         this.name.set(name);
         this.age.set(age);
     }
@@ -182,7 +182,7 @@ class Data {
     private String name;
     private SimpleStringProperty nameProperty;
 
-    public Data(String name) {
+    Data(String name) {
         if (nameProperty == null) {
             this.name = name;
         } else {
