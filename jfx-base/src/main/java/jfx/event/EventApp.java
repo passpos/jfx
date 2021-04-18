@@ -59,11 +59,11 @@ public class EventApp extends ContentBox {
     /**
      * 事件传递
      *
-     * Filter先于Handler执行，然后才是setOn…()设置的事件（传递方式默认是Handler机制）；
-     * Button会阻止事件传递；
-     *
      * Filter执行多次，事件（要求必须是同一类型）会从父组件传递到子组件；
      * Handler执行多次，事件会从子组件传递到父组件；
+     *
+     * Filter先于Handler执行，然后才是setOn…()设置的事件（传递方式默认是Handler机制）；
+     * Button会阻止事件传递；
      *
      */
     public void eventHandlerDemo() {
