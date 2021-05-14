@@ -28,6 +28,8 @@ import jfx.core.app.ContentBox;
 import jfx.core.entity.FxPerson;
 
 /**
+ * B85 - 关于五种类型数据的加载和更新删除等操作；
+ * B86 setCellFactory() | Callback - 自定义选项样式（实现自定义的Callback对象）
  *
  * @author realpai <paiap@outlook.com>
  */
