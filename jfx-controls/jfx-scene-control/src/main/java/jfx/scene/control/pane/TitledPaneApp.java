@@ -31,14 +31,13 @@ import jfx.core.app.ContentBox;
 public class TitledPaneApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Pane - TitledPane 下拉菜单";
+    public static final String TITLE = "Pane - TitledPane 折叠菜单";
 
     @Override
     public void index() {
         baseDemo();
 
         expandDemo();
-
         accDemo();
     }
 
