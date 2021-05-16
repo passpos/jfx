@@ -53,7 +53,8 @@ public class ListViewDemo1 extends ContentBox {
      * 我们进行了转换（StringConverter）。这种转换通常是通过设置 “Cell”的工厂
      * 方法实现的；
      *
-     * 如果只设置对象的（用于显示的）属性，是不会更新到界面上的，必须执行refrsh()方法；
+     * 如果只设置对象的（用于显示的）属性，而界面组件绑定的数据仅仅只是对象，而
+     * 不是对象的属性，所以是不会更新到界面上的，必须执行refresh()方法；
      */
     public void dataOperatorAndUIUpdateDemo() {
         lv = new ListView<>();
