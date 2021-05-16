@@ -88,7 +88,7 @@ public class ListViewApp extends ContentBox {
     /**
      * 焦点与选中是两种不同的效果，允许出现焦点所在未被选中的情况。
      *
-     * 焦点用于光标导航；
+     * 焦点用于光标导航或内容输入；
      */
     public void focusModelDemo() {
         // 是否转移焦点
