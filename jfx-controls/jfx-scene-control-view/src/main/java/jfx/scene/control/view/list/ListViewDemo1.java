@@ -89,7 +89,7 @@ public class ListViewDemo1 extends ContentBox {
          *
          * 将ListCell中数据的属性类型，转换为普通的字符串类型；
          */
-        StringConverter<SimpleStringProperty> sc = new StringConverter<SimpleStringProperty>() {
+        StringConverter<SimpleStringProperty> sc = new StringConverter<>() {
             @Override
             public String toString(SimpleStringProperty t) {
                 return t.get();
@@ -131,7 +131,7 @@ public class ListViewDemo1 extends ContentBox {
      * 类型的属性放在最后进行操作，界面上就会更新所有的属性；
      */
     public void autoUpdateDemo1() {
-        Callback<SimpleStringProperty, Observable[]> callback = new Callback<SimpleStringProperty, Observable[]>() {
+        Callback<SimpleStringProperty, Observable[]> callback = new Callback<>() {
             @Override
             public Observable[] call(SimpleStringProperty param) {
                 SimpleStringProperty[] ssps = new SimpleStringProperty[]{param};
@@ -142,7 +142,7 @@ public class ListViewDemo1 extends ContentBox {
     }
 
     public void autoUpdateDemo2() {
-        Callback<FxPerson, Observable[]> callback = new Callback<FxPerson, Observable[]>() {
+        Callback<FxPerson, Observable[]> callback = new Callback<>() {
             @Override
             public Observable[] call(FxPerson param) {
                 // 之所以返回的是数组，是因为要监听的对象的属性可能有多个，如下面这样
@@ -176,7 +176,7 @@ public class ListViewDemo1 extends ContentBox {
         oval.add(m4);
 
         llv.setEditable(true);
-        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = new Callback<ListView<FxPerson>, ListCell<FxPerson>>() {
+        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = new Callback<>() {
             public int index;
             public FxPerson tmp;
 
