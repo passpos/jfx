@@ -16,45 +16,35 @@
  */
 package jfx.scene.control.cell.list;
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
+import jfx.core.data.Data;
 import jfx.core.entity.FxPerson;
 
 /**
+ * 显示 对象类型 与 StringConverter
  *
  * @author realpai <paiap@outlook.com>
  */
 public class TextFieldListCellDemo extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - TextFieldListCell - FxPerson";
+    public static final String TITLE = "ListCell - TextFieldListCell - FxPerson";
     private ListView<FxPerson> lv;
-    private ObservableList<FxPerson> oal;
 
     @Override
     public void index() {
-        base2();
+        base();
         editAction();
     }
 
-    public void base2() {
-        lv = new ListView<>();
+    public void base() {
+        lv = new ListView<>(Data.getPersonList());
         lv.setPrefHeight(200.0);
-
-        // 用于list选项
-        oal = lv.getItems();
-        FxPerson pe1 = new FxPerson("教化", "15");
-        FxPerson pe2 = new FxPerson("北京饭店", "56");
-        FxPerson pe3 = new FxPerson("ggu", "69");
-        oal.add(pe1);
-        oal.add(pe2);
-        oal.add(pe3);
-
         getChildren().add(lv);
     }
 
@@ -70,6 +60,14 @@ public class TextFieldListCellDemo extends ContentBox {
      * 象会被转换为字符串，更新到界面中；
      */
     public void editAction() {
+        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
+        callback = TextFieldListCell.forListView(getStringConverter());
+
+        lv.setEditable(true);
+        lv.setCellFactory(callback);
+    }
+    
+    public static StringConverter<FxPerson> getStringConverter() {
         StringConverter<FxPerson> sc = new StringConverter<>() {
 
             @Override
@@ -84,12 +82,7 @@ public class TextFieldListCellDemo extends ContentBox {
             }
 
         };
-
-        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
-        callback = TextFieldListCell.forListView(sc);
-
-        lv.setEditable(true);
-        lv.setCellFactory(callback);
+        return sc;
     }
 
 }

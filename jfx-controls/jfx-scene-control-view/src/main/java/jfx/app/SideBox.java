@@ -38,6 +38,10 @@ public class SideBox extends AbstractSideBox {
             btn.setStyle("-fx-background-color: #aa99aa");
         }
 
+        if (title.startsWith("ListCell")) {
+            btn.setStyle("-fx-background-color: #aae4aa");
+        }
+
         if (title.startsWith("TableView")) {
             btn.setStyle("-fx-background-color: #ffe4aa");
         }
@@ -46,8 +50,12 @@ public class SideBox extends AbstractSideBox {
             btn.setStyle("-fx-background-color: #aae4aa");
         }
 
-        if (title.startsWith("TreeTableView")) {
+        if (title.startsWith("TreeCell")) {
             btn.setStyle("-fx-background-color: #aa99aa");
+        }
+
+        if (title.startsWith("TreeTableView")) {
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         btn.setAlignment(Pos.CENTER_LEFT);

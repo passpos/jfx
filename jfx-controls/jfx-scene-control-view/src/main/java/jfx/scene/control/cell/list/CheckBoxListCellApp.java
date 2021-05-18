@@ -5,14 +5,13 @@
  */
 package jfx.scene.control.cell.list;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
+import jfx.core.data.Data;
 import jfx.core.entity.FxPerson;
 
 /**
@@ -21,38 +20,23 @@ import jfx.core.entity.FxPerson;
  */
 public class CheckBoxListCellApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - CheckBoxListCell";
+    public static final boolean SHOWING = true;
+    public static final String TITLE = "ListCell - CheckBoxListCell - FxPerson";
     private ListView<FxPerson> lv;
-    private ObservableList<FxPerson> oal;
 
     @Override
     public void index() {
-        base();
-        checkBoxListCellDemo();
-    }
-
-    public void base() {
-        lv = new ListView<>();
+        lv = new ListView<>(Data.getPersonList());
         lv.setPrefHeight(200.0);
-
-        // 用于list选项
-        oal = lv.getItems();
-        FxPerson pe1 = new FxPerson("教化", "15");
-        FxPerson pe2 = new FxPerson("北京饭店", "56");
-        FxPerson pe3 = new FxPerson("ggu", "69");
-        oal.add(pe1);
-        oal.add(pe2);
-        oal.add(pe3);
-
         getChildren().add(lv);
+        base();
     }
 
     /**
      * setCellFactory | Callback - CheckBoxListCell
      *
      */
-    public void checkBoxListCellDemo() {
+    public void base() {
         Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
         callback = CheckBoxListCell.forListView(
                 getCallback(),
@@ -64,6 +48,8 @@ public class CheckBoxListCellApp extends ContentBox {
 
     /**
      * call()返回true，表示默认选中。允许多选；
+     * 调用call()后，会将对象的 GenderProperty 绑定到视图中的复选框，复选框的选
+     * 择状态会被自动设定到该 GenderProperty 上；
      *
      * @return
      */
@@ -72,11 +58,7 @@ public class CheckBoxListCellApp extends ContentBox {
 
             @Override
             public ObservableValue<Boolean> call(FxPerson param) {
-                if (param.getName().equals("教化")) {
-                    return new SimpleBooleanProperty(true);
-                } else {
-                    return new SimpleBooleanProperty(false);
-                }
+                return param.getGenderProperty();
             }
         };
 

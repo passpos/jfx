@@ -25,13 +25,14 @@ import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 
 /**
+ * 显示 String 与 StringConverter
  *
  * @author realpai <paiap@outlook.com>
  */
 public class TextFieldListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - TextFieldListCell - String";
+    public static final String TITLE = "ListCell - TextFieldListCell - String";
     private ListView<String> lv;
     private ObservableList<String> oal;
 
@@ -60,13 +61,20 @@ public class TextFieldListCellApp extends ContentBox {
      */
     public void editAction() {
         lv.setEditable(true);
-        // Callback<ListView<String>, ListCell<String>> callback = TextFieldListCell.forListView();
 
-        Callback<ListView<String>, ListCell<String>> callback = TextFieldListCell.forListView(
-                new StringConverter<String>() {
+        Callback<ListView<String>, ListCell<String>> callback;
+        // callback = TextFieldListCell.forListView();
+        callback = TextFieldListCell.forListView(getStringConverter());
+
+        lv.setCellFactory(callback);
+    }
+
+    public static StringConverter<String> getStringConverter() {
+        StringConverter<String> sc = new StringConverter<>() {
 
             /**
              * toString(String t)方法会在程序初始化时就进行调用；
+             *
              * @param t
              * @return
              */
@@ -83,9 +91,8 @@ public class TextFieldListCellApp extends ContentBox {
             public String fromString(String string) {
                 return string + " - hello";
             }
-        });
+        };
 
-        lv.setCellFactory(callback);
+        return sc;
     }
-
 }

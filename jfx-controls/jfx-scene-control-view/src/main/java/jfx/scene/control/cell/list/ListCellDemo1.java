@@ -7,7 +7,6 @@ package jfx.scene.control.cell.list;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.SnapshotParameters;
@@ -24,6 +23,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
+import jfx.core.data.Data;
 
 /**
  * B88
@@ -33,7 +33,7 @@ import jfx.core.app.ContentBox;
 public class ListCellDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - ListCell 拖拽排序";
+    public static final String TITLE = "ListCell - 拖拽排序";
     private ListView<String> lv;
     private ObservableList<String> oal;
 
@@ -44,12 +44,7 @@ public class ListCellDemo1 extends ContentBox {
     }
 
     public void base() {
-        oal = FXCollections.observableArrayList();
-        oal.add("data - a");
-        oal.add("data - b");
-        oal.add("data - c");
-        oal.add("data - d");
-        oal.add("data - e");
+        oal = Data.getStringList();
 
         lv = new ListView<>();
         // lv2 = new ListView<>(oal2);

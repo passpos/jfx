@@ -14,7 +14,7 @@ import jfx.core.app.ContentBox;
 public class TextFieldTreeCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Cell - TextFieldTreeCell";
+    public static final String TITLE = "TreeCell - TextFieldTreeCell";
 
     @Override
     public void index() {

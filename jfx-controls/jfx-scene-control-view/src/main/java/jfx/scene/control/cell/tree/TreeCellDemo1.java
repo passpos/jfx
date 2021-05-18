@@ -22,7 +22,7 @@ import jfx.core.utils.TreeUtils;
 public class TreeCellDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Tree - TreeCell 节点文本编辑";
+    public static final String TITLE = "TreeCell - Demo1 节点文本编辑";
     private TreeView<String> tv;
 
     @Override

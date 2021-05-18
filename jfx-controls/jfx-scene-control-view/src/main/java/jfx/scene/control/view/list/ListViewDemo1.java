@@ -5,112 +5,67 @@
  */
 package jfx.scene.control.view.list;
 
-import java.util.Comparator;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.util.Callback;
 import jfx.core.app.ContentBox;
+import jfx.core.data.Data;
 
 /**
- * 操作列表中的数据
- * 实际是通过操作数据源实现CRUD；
+ * 编辑事件
+ * 对编辑动作进行监听；
  *
  * @author passpos <paiap@outlook.com>
  */
 public class ListViewDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - Demo1 编辑";
+    public static final String TITLE = "ListView - Demo2 编辑";
     private ListView<String> lv;
-    private ObservableList<String> oList;
 
     @Override
     public void index() {
         base();
-        modifyDataDemo();
+        editEventDemo();
     }
 
     public void base() {
-        oList = FXCollections.observableArrayList();
-        oList.add("data - a");
-        oList.add("data - b");
-        oList.add("data - c");
-        oList.add("data - d");
-        oList.add("data - e");
-
-        lv = new ListView<>(oList);
+        lv = new ListView<>(Data.getStringList());
         lv.setPrefWidth(300.0);
         lv.setPrefHeight(200.0);
         getChildren().add(lv);
+
+        lv.setEditable(true);
+        Callback<ListView<String>, ListCell<String>> call1 = TextFieldListCell.forListView();
+
+        // 可以接收一个StringConverter类型参数（StringConverter参考ListCell）
+        // Callback<ListView<String>, ListCell<String>> call2 = TextFieldListCell.forListView(sc);
+        lv.setCellFactory(call1);
     }
 
-    public void modifyDataDemo() {
-        Button b = new Button("点击查看效果");
-        b.setOnAction(new EventHandler<ActionEvent>() {
+    public void editEventDemo() {
+        lv.setOnEditStart(new EventHandler<ListView.EditEvent<String>>() {
             @Override
-            public void handle(ActionEvent t) {
-                oList.add("data - x");
-                oList.add(2, "data - x");
-                oList.set(0, "data - modify");
-                oList.remove(4);
-                oList.sort(new Comparator<String>() {
-                    @Override
-                    public int compare(String o1, String o2) {
-                        return o2.compareTo(o1);
-                    }
-                });
+            public void handle(ListView.EditEvent<String> t) {
+                ol(t.getIndex());
 
-                lv.scrollTo(4);
-                lv.edit(2);
+                // 此时返回null
+                ol(t.getNewValue());
+            }
+        });
+        lv.setOnEditCancel(new EventHandler<ListView.EditEvent<String>>() {
+            @Override
+            public void handle(ListView.EditEvent<String> t) {
+            }
+        });
+        lv.setOnEditCommit(new EventHandler<ListView.EditEvent<String>>() {
+            @Override
+            public void handle(ListView.EditEvent<String> t) {
+                ol(t.getNewValue());
             }
         });
 
-        oList.addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable o) {
-                @SuppressWarnings("unchecked")
-                ObservableList<String> ol = (ObservableList) o;
-                ol(ol);
-            }
-        });
-
-        /*
-         * 替换动作被拆解为两步，先添加、再删除。所以，执行替换动作会：
-         * 先打印“添加动作”、“删除动作”，再打印“替换动作”；
-         *
-         * 更新动作的结果一般不会被打印，原因见 ListViewDemo1 的 dataOperatorAndUIUpdateDemo()
-         * 方法；
-         */
-        oList.addListener(new ListChangeListener<String>() {
-            @Override
-            public void onChanged(ListChangeListener.Change<? extends String> c) {
-                if (c.next()) {
-                    if (c.wasAdded()) {
-                        ol("添加动作");
-                    }
-                    if (c.wasPermutated()) {
-                        ol("排序操作");
-                    }
-                    if (c.wasRemoved()) {
-                        ol("删除动作");
-                    }
-                    if (c.wasReplaced()) {
-                        ol("替换动作");
-                    }
-                    if (c.wasUpdated()) {
-                        ol("更新动作");
-                    }
-                }
-            }
-        });
-        getChildren().add(b);
-        setTopAnchor(b, 300.0);
-        setLeftAnchor(b, 400.0);
     }
 }
