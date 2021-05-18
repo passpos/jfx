@@ -26,6 +26,7 @@ public class FxPerson {
     }
 
     public FxPerson(String name, String age, boolean gender) {
+        this();
         this.name.set(name);
         this.age.set(age);
         this.gender.set(gender);
