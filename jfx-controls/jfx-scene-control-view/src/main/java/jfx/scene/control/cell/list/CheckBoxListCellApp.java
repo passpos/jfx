@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package jfx.scene.control.cell.list;
 
 import javafx.beans.property.SimpleBooleanProperty;
@@ -13,7 +12,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
-import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 import jfx.core.entity.FxPerson;
 
@@ -24,7 +22,7 @@ import jfx.core.entity.FxPerson;
 public class CheckBoxListCellApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - CheckBoxListCell";
+    public static final String TITLE = "ListView - CheckBoxListCell";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 
@@ -55,11 +53,23 @@ public class CheckBoxListCellApp extends ContentBox {
      *
      */
     public void checkBoxListCellDemo() {
-        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback = CheckBoxListCell.forListView(new Callback<FxPerson, ObservableValue<Boolean>>() {
-            /**
-             * 返回true，表示默认选中。允许多选；
-             *
-             */
+        Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
+        callback = CheckBoxListCell.forListView(
+                getCallback(),
+                TextFieldListCellDemo.getStringConverter()
+        );
+
+        lv.setCellFactory(callback);
+    }
+
+    /**
+     * call()返回true，表示默认选中。允许多选；
+     *
+     * @return
+     */
+    public Callback<FxPerson, ObservableValue<Boolean>> getCallback() {
+        Callback<FxPerson, ObservableValue<Boolean>> c = new Callback<>() {
+
             @Override
             public ObservableValue<Boolean> call(FxPerson param) {
                 if (param.getName().equals("教化")) {
@@ -68,20 +78,8 @@ public class CheckBoxListCellApp extends ContentBox {
                     return new SimpleBooleanProperty(false);
                 }
             }
-        },
-                new StringConverter<FxPerson>() {
-            @Override
-            public String toString(FxPerson t) {
-                return t.getName();
-            }
+        };
 
-            @Override
-            public FxPerson fromString(String string) {
-                return null;
-            }
-        });
-
-        lv.setCellFactory(callback);
+        return c;
     }
-
 }
