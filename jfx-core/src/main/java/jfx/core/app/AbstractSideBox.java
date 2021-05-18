@@ -93,7 +93,7 @@ public abstract class AbstractSideBox extends AnchorPane {
         btnBox.setStyle("-fx-background-color:#778899");
         btnBox.setPadding(new Insets(5.0));
         btnBox.setSpacing(5);
-        btnBox.setAlignment(Pos.TOP_CENTER);
+        btnBox.setAlignment(Pos.CENTER_LEFT);
         this.prefHeightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
