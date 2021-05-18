@@ -34,14 +34,14 @@ import javafx.scene.input.ScrollEvent;
 import jfx.core.app.ContentBox;
 
 /**
- * B82-88课
+ * B82-88课 当前 B82
  *
  * @author realpai <paiap@outlook.com>
  */
 public class ListViewApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "List - ListView";
+    public static final String TITLE = "ListView - ListView";
     private ListView<String> lv;
     private ObservableList<String> oList;
 
@@ -77,12 +77,16 @@ public class ListViewApp extends ContentBox {
         // lv.setPlaceholder(new Label("没有数据"));
         // 默认为列表垂直
         // lv.setOrientation(Orientation.HORIZONTAL);
+
         // 小尺寸下，会自动出现滚动条；
         lv.setPrefWidth(300.0);
         lv.setPrefHeight(200.0);
 
         // 设置列表单元的尺寸
         lv.setFixedCellSize(50);
+
+        lv.scrollTo("data - c");
+        lv.scrollTo(3);
 
         getChildren().add(lv);
     }
@@ -93,7 +97,7 @@ public class ListViewApp extends ContentBox {
      * 焦点用于光标导航或内容输入；
      */
     public void focusModelDemo() {
-        // 是否转移焦点
+        // 是否可以将焦点转移到这里；
         lv.setFocusTraversable(true);
 
         lv.getFocusModel().getFocusedIndex();
@@ -102,8 +106,24 @@ public class ListViewApp extends ContentBox {
         // 设置焦点
         lv.getFocusModel().focus(1);
 
-        // 由于焦点转移，选中项实际是灰色的
+        // 由于焦点转移，选中项实际是灰色的；
         lv.requestFocus();
+    }
+
+    /**
+     * 焦点事件
+     */
+    public void focusEventDemo() {
+        lv.getFocusModel().focusedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+            }
+        });
+        lv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+            }
+        });
     }
 
     /**
@@ -130,22 +150,6 @@ public class ListViewApp extends ContentBox {
 
         // 选中第0和3项
         // lv.getSelectionModel().selectIndices(0, 3);
-    }
-
-    /**
-     * 焦点事件
-     */
-    public void focusEventDemo() {
-        lv.getFocusModel().focusedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-            }
-        });
-        lv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-            }
-        });
     }
 
     /**

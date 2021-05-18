@@ -34,19 +34,19 @@ public class SideBox extends AbstractSideBox {
         // 为按钮设置宽度；
         btn.setPrefWidth(this.getBtnBox().getPrefWidth());
 
-        if (title.startsWith("List - ")) {
+        if (title.startsWith("ListView")) {
             btn.setStyle("-fx-background-color: #aa99aa");
         }
 
-        if (title.startsWith("Table - ")) {
+        if (title.startsWith("TableView")) {
             btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
-        if (title.startsWith("Tree - ")) {
+        if (title.startsWith("TreeView")) {
             btn.setStyle("-fx-background-color: #aae4aa");
         }
 
-        if (title.startsWith("TreeTable - ")) {
+        if (title.startsWith("TreeTableView")) {
             btn.setStyle("-fx-background-color: #aa99aa");
         }
 
