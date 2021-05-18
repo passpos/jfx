@@ -35,6 +35,7 @@ import jfx.core.app.ContentBox;
 
 /**
  * B82-88课
+ *
  * @author realpai <paiap@outlook.com>
  */
 public class ListViewApp extends ContentBox {
@@ -42,7 +43,7 @@ public class ListViewApp extends ContentBox {
     public static final boolean SHOWING = false;
     public static final String TITLE = "List - ListView";
     private ListView<String> lv;
-    private ObservableList<String> oal;
+    private ObservableList<String> oList;
 
     @Override
     public void index() {
@@ -60,27 +61,28 @@ public class ListViewApp extends ContentBox {
     }
 
     public void base() {
-        oal = FXCollections.observableArrayList();
-        oal.add("data - a");
-        oal.add("data - b");
-        oal.add("data - c");
-        oal.add("data - d");
-        oal.add("data - e");
+        oList = FXCollections.observableArrayList();
+        oList.add("data - a");
+        oList.add("data - b");
+        oList.add("data - c");
+        oList.add("data - d");
+        oList.add("data - e");
 
         lv = new ListView<>();
         // lv1 = new ListView<>(oal1);
-        lv.setItems(oal);
-        // lv.setPlaceholder(new Label("没有数据"));
-        // lv.setOrientation(Orientation.HORIZONTAL);
 
+        // lv.getItems().add("");
+        lv.setItems(oList);
+
+        // lv.setPlaceholder(new Label("没有数据"));
+        // 默认为列表垂直
+        // lv.setOrientation(Orientation.HORIZONTAL);
         // 小尺寸下，会自动出现滚动条；
         lv.setPrefWidth(300.0);
         lv.setPrefHeight(200.0);
 
         // 设置列表单元的尺寸
         lv.setFixedCellSize(50);
-
-        ol(lv.getSelectionModel().getSelectedIndex());
 
         getChildren().add(lv);
     }
@@ -116,10 +118,16 @@ public class ListViewApp extends ContentBox {
         // lv.getSelectionModel().clearAndSelect(0);
         // lv.getSelectionModel().clearSelection();
         // lv.getSelectionModel().clearSelection(1);
+
+        // 获取被选中项的索引，没有选中项时为-1
+        lv.getSelectionModel().getSelectedIndex();
+
         // 返回所有选中项的索引
         lv.getSelectionModel().getSelectedIndices();
+
         // 返回所有选中项
         lv.getSelectionModel().getSelectedItems();
+
         // 选中第0和3项
         // lv.getSelectionModel().selectIndices(0, 3);
     }
@@ -212,11 +220,11 @@ public class ListViewApp extends ContentBox {
         b.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                oal.add("data - x");
-                oal.add(2, "data - x");
-                oal.set(0, "data - modify");
-                oal.remove(4);
-                oal.sort(new Comparator<String>() {
+                oList.add("data - x");
+                oList.add(2, "data - x");
+                oList.set(0, "data - modify");
+                oList.remove(4);
+                oList.sort(new Comparator<String>() {
                     @Override
                     public int compare(String o1, String o2) {
                         return o2.compareTo(o1);
@@ -228,7 +236,7 @@ public class ListViewApp extends ContentBox {
             }
         });
 
-        oal.addListener(new InvalidationListener() {
+        oList.addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable o) {
                 @SuppressWarnings("unchecked")
@@ -244,7 +252,7 @@ public class ListViewApp extends ContentBox {
          * 更新动作的结果一般不会被打印，原因见 ListViewDemo1 的 dataOperatorAndUIUpdateDemo()
          * 方法；
          */
-        oal.addListener(new ListChangeListener<String>() {
+        oList.addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> c) {
                 if (c.next()) {
