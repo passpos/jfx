@@ -100,7 +100,7 @@ public class ListViewDemo5 extends ContentBox {
     }
 
     public void modifyDataDemo() {
-        Button b1 = new Button("点击修改");
+        Button b1 = new Button("点击修改并更新");
         getChildren().add(b1);
         setTopAnchor(b1, 300.0);
         setLeftAnchor(b1, 250.0);
