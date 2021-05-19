@@ -20,13 +20,13 @@ import jfx.core.entity.FxPerson;
  */
 public class CheckBoxListCellApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "ListCell - CheckBoxListCell - FxPerson";
     private ListView<FxPerson> lv;
 
     @Override
     public void index() {
-        lv = new ListView<>(Data.getPersonList());
+        lv = new ListView<>(Data.getFxPersonList());
         lv.setPrefHeight(200.0);
         getChildren().add(lv);
         base();

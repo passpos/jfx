@@ -43,7 +43,7 @@ public class TextFieldListCellDemo extends ContentBox {
     }
 
     public void base() {
-        lv = new ListView<>(Data.getPersonList());
+        lv = new ListView<>(Data.getFxPersonList());
         lv.setPrefHeight(200.0);
         getChildren().add(lv);
     }

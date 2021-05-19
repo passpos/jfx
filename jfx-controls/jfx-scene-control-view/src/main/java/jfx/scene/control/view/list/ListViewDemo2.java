@@ -26,7 +26,7 @@ import jfx.core.common.Data;
 public class ListViewDemo2 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - Demo2 操作String类型";
+    public static final String TITLE = "ListView - Demo2 监听数据列表变化";
     private ListView<String> lv;
     private ObservableList<String> oList;
 
@@ -50,7 +50,7 @@ public class ListViewDemo2 extends ContentBox {
         Button b = new Button("点击修改");
         getChildren().add(b);
         setTopAnchor(b, 300.0);
-        setLeftAnchor(b, 300.0);
+        setLeftAnchor(b, 250.0);
 
         b.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -74,7 +74,7 @@ public class ListViewDemo2 extends ContentBox {
                     }
                 });
 
-                // 关于更新动作，请参考Demo4
+                // 关于更新动作，请参考Demo5
                 lv.scrollTo(4);
                 lv.edit(2);
             }

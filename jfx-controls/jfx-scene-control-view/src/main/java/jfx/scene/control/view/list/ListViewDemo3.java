@@ -25,7 +25,7 @@ import utils.entity.demo.sample.Person;
  */
 public class ListViewDemo3 extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "ListView - Demo3 更新基本类型属性";
     private ListView<Person> lv;
     private ObservableList<Person> list;
@@ -39,8 +39,9 @@ public class ListViewDemo3 extends ContentBox {
     public void base() {
         list = Data.getPersonList();
         lv = new ListView<>(list);
+        lv.setPrefWidth(300.0);
+        lv.setPrefHeight(200.0);
 
-        lv.setEditable(true);
         StringConverter<Person> pc = Converter.getPersonConverter();
         lv.setCellFactory(TextFieldListCell.forListView(pc));
         getChildren().add(lv);
@@ -50,7 +51,7 @@ public class ListViewDemo3 extends ContentBox {
         Button b1 = new Button("点击修改");
         getChildren().add(b1);
         setTopAnchor(b1, 300.0);
-        setLeftAnchor(b1, 300.0);
+        setLeftAnchor(b1, 250.0);
 
         b1.setOnAction(new EventHandler<ActionEvent>() {
             @Override

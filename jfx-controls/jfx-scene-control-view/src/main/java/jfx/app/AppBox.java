@@ -47,6 +47,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(ListViewDemo2.class);
         appList.add(ListViewDemo3.class);
         appList.add(ListViewDemo4.class);
+        appList.add(ListViewDemo5.class);
         appList.add(ListViewDemo11.class);
         appList.add(ListViewDemo12.class);
 
