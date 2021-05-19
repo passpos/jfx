@@ -48,6 +48,7 @@ public abstract class AbstractSideBox extends AnchorPane {
         scrollPane.setContent(btnBox);
         scrollPane.setFitToHeight(true);
         scrollPane.setFitToWidth(true);
+        this.getChildren().add(scrollPane);
     }
 
     /**
@@ -58,7 +59,6 @@ public abstract class AbstractSideBox extends AnchorPane {
      * step-8 by Switcher-init()
      */
     public final void init() {
-        this.getChildren().add(scrollPane);
         initStyle();
 
         // App列表
@@ -82,18 +82,12 @@ public abstract class AbstractSideBox extends AnchorPane {
             setButtonStyle(btn);
         });
 
-        setDefaultBtn();
-        setFinalDefault();  // step-21
+        setDefaultBtn();  // step-21
     }
 
     private void initStyle() {
         this.setPrefWidth(width);
         this.setPrefHeight(50);
-
-        btnBox.setStyle("-fx-background-color:#778899");
-        btnBox.setPadding(new Insets(5.0));
-        btnBox.setSpacing(5);
-        btnBox.setAlignment(Pos.CENTER_LEFT);
 
         scrollPane.setPannable(true);
         this.prefHeightProperty().addListener(new ChangeListener<Number>() {
@@ -102,6 +96,12 @@ public abstract class AbstractSideBox extends AnchorPane {
                 scrollPane.setPrefHeight(t1.doubleValue());
             }
         });
+
+        btnBox.setFillWidth(true);
+        btnBox.setPadding(new Insets(5.0));
+        btnBox.setSpacing(5);
+        btnBox.setAlignment(Pos.CENTER_LEFT);
+        btnBox.setStyle("-fx-background-color:#778899");
     }
 
     public Switcher getSwitcher() {
@@ -128,33 +128,26 @@ public abstract class AbstractSideBox extends AnchorPane {
         return defaultBtn;
     }
 
-    public void setDefaultBtn() {
-        if (defaultBtn == null) {
-            this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(0);
-        }
-        ContentBox.getPrimaryStage().setTitle(defaultBtn.getTitle());
-    }
-
-    public abstract void setButtonStyle(ButtonWrapper btn);
-
     /**
-     * 在用户实现 setDefaultBtn() 方法后，如果 defaultBtn 仍为空，则设置btnBox的
-     * 第一个元素为默认显示的应用；
+     * 如果 defaultBtn 仍为空，则设置btnBox的第一个元素为默认显示的应用；
      *
      * step-21
      */
-    private void setFinalDefault() {
+    private void setDefaultBtn() {
         if (defaultBtn == null) {
-            if (btnBox.getChildren().isEmpty()) {
-                ol("SideBox - btnBox：没有设置任何内容");
-                return;
-            }
-            defaultBtn = (ButtonWrapper) btnBox.getChildren().get(0);
+            this.defaultBtn = (ButtonWrapper) btnBox.getChildren().get(0);
         }
+        if (btnBox.getChildren().isEmpty()) {
+            ol("SideBox - btnBox：没有设置任何内容");
+            return;
+        }
+        ContentBox.getPrimaryStage().setTitle(defaultBtn.getTitle());
         defaultBtn.setApp();    // step-25
         appBox.getChildren().clear();
         appBox.getChildren().add(defaultBtn.getApp());
     }
+
+    public abstract void setButtonStyle(ButtonWrapper btn);
 
     public double getSideWidth() {
         return width;
