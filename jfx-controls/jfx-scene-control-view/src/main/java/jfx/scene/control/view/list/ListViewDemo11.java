@@ -112,9 +112,8 @@ public class ListViewDemo11 extends ContentBox {
         hb.setAlignment(Pos.CENTER_LEFT);
         ImageView iv = new ImageView(loadResource("icon/fav.jpg").toExternalForm());
         Button btn = new Button(item.getName());
-        Label nameLabel = new Label(item.getName());
         Label ageLabel = new Label(item.getAge());
-        hb.getChildren().addAll(iv, btn, nameLabel, ageLabel);
+        hb.getChildren().addAll(iv, btn, ageLabel);
 
         return hb;
     }
