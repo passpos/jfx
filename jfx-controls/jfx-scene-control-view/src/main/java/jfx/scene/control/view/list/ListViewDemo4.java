@@ -55,7 +55,7 @@ public class ListViewDemo4 extends ContentBox {
         Callback<SimpleStringProperty, Observable[]> callback = new Callback<>() {
             @Override
             public Observable[] call(SimpleStringProperty param) {
-                SimpleStringProperty[] ssps = new SimpleStringProperty[]{param};
+                Observable[] ssps = new Observable[]{param};
                 return ssps;
             }
         };

@@ -18,7 +18,8 @@ import jfx.core.app.ContentBox;
 import jfx.core.common.Data;
 
 /**
- * B-85 操作列表中的数据
+ * B-85 操作列表中的数据，并监听数据列表的变化；
+ *
  * 实际是通过操作数据源实现CRUD；
  *
  * @author passpos <paiap@outlook.com>

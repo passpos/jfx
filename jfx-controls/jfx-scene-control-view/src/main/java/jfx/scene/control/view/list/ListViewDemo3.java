@@ -11,8 +11,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.TextFieldListCell;
-import static javafx.scene.layout.AnchorPane.setLeftAnchor;
-import static javafx.scene.layout.AnchorPane.setTopAnchor;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
 import jfx.core.common.Converter;
@@ -26,7 +24,7 @@ import utils.entity.demo.sample.Person;
 public class ListViewDemo3 extends ContentBox {
 
     public static final boolean SHOWING = true;
-    public static final String TITLE = "ListView - Demo3 更新基本类型属性";
+    public static final String TITLE = "ListView - Demo3 更新对象的基本类型成员";
     private ListView<Person> lv;
     private ObservableList<Person> list;
 
