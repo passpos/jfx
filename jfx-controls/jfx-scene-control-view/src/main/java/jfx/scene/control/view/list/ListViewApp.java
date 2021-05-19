@@ -25,7 +25,7 @@ import javafx.scene.control.ScrollToEvent;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.ScrollEvent;
 import jfx.core.app.ContentBox;
-import jfx.core.data.Data;
+import jfx.core.common.Data;
 
 /**
  * B82-88课 当前 B82

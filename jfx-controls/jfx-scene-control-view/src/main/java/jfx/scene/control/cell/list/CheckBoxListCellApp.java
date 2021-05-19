@@ -11,7 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
-import jfx.core.data.Data;
+import jfx.core.common.Data;
 import jfx.core.entity.FxPerson;
 
 /**

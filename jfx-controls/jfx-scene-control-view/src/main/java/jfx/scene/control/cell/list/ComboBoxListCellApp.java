@@ -13,7 +13,7 @@ import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import jfx.core.app.ContentBox;
-import jfx.core.data.Data;
+import jfx.core.common.Data;
 import jfx.core.entity.FxPerson;
 
 /**

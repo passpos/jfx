@@ -13,7 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
-import jfx.core.data.Data;
+import jfx.core.common.Data;
 
 /**
  * B88 鼠标悬停效果

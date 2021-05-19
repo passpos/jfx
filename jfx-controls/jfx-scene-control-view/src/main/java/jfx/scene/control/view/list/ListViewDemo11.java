@@ -19,7 +19,6 @@ import jfx.core.app.ContentBox;
 import jfx.core.entity.FxPerson;
 
 /**
- * B85 - 关于五种类型数据的加载和更新删除等操作；
  * B86 自定义选项样式（实现自定义的Callback对象）
  *
  * @author realpai <paiap@outlook.com>
@@ -56,7 +55,7 @@ public class ListViewDemo11 extends ContentBox {
     }
 
     /**
-     * 通过回调，创建自定义的ListCell；
+     * 通过回调，创建自定义的ListCell实例；
      *
      * @return
      */
@@ -67,14 +66,23 @@ public class ListViewDemo11 extends ContentBox {
 
             @Override
             public ListCell<FxPerson> call(ListView<FxPerson> param) {
-                return getListCell();
+                return getCustomCell();
             }
         };
         return callback;
     }
 
-    private ListCell<FxPerson> getListCell() {
+    private ListCell<FxPerson> getCustomCell() {
         ListCell<FxPerson> lc = new ListCell<>() {
+            @Override
+            protected void updateItem(FxPerson item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty == false) {
+                    HBox hb = getCustomGraphic(item);
+                    this.setGraphic(hb);
+                }
+            }
+
             @Override
             public void startEdit() {
                 super.startEdit();
@@ -82,7 +90,7 @@ public class ListViewDemo11 extends ContentBox {
                 hb.setAlignment(Pos.CENTER_LEFT);
                 TextField name = new TextField("");
                 TextField age = new TextField("");
-                ol("vvv");
+                ol("startEdit");
             }
 
             @Override
@@ -95,22 +103,20 @@ public class ListViewDemo11 extends ContentBox {
                 super.commitEdit(newValue);
             }
 
-            @Override
-            protected void updateItem(FxPerson item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty == false) {
-                    HBox hb = new HBox(10);
-                    hb.setAlignment(Pos.CENTER_LEFT);
-                    ImageView iv = new ImageView(loadResource("icon/fav.jpg").toExternalForm());
-                    Button btn = new Button(item.getName());
-                    Label nameLabel = new Label(item.getName());
-                    Label ageLabel = new Label(item.getAge());
-                    hb.getChildren().addAll(iv, btn, nameLabel, ageLabel);
-                    this.setGraphic(hb);
-                }
-            }
         };
         return lc;
+    }
+
+    public HBox getCustomGraphic(FxPerson item) {
+        HBox hb = new HBox(10);
+        hb.setAlignment(Pos.CENTER_LEFT);
+        ImageView iv = new ImageView(loadResource("icon/fav.jpg").toExternalForm());
+        Button btn = new Button(item.getName());
+        Label nameLabel = new Label(item.getName());
+        Label ageLabel = new Label(item.getAge());
+        hb.getChildren().addAll(iv, btn, nameLabel, ageLabel);
+
+        return hb;
     }
 
 }

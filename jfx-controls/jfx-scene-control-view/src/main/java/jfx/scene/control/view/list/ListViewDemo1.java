@@ -11,7 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
-import jfx.core.data.Data;
+import jfx.core.common.Data;
 
 /**
  * 编辑事件
@@ -22,7 +22,7 @@ import jfx.core.data.Data;
 public class ListViewDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - Demo2 编辑";
+    public static final String TITLE = "ListView - Demo1 编辑文本";
     private ListView<String> lv;
 
     @Override
