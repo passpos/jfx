@@ -32,7 +32,7 @@ import jfx.core.common.Data;
 public class ListViewDemo5 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - Demo5 更新这个对象或属性";
+    public static final String TITLE = "ListView - Demo5 更新整个对象或属性";
     private ListView<SimpleStringProperty> lv;
     private ObservableList<SimpleStringProperty> list;
 
