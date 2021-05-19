@@ -44,14 +44,12 @@ public class ListViewApp extends ContentBox {
     @Override
     public void index() {
         base();
-
         focusModelDemo();
         selectModelDemo();
 
-        focusEventDemo();
-        selectEventDemo();
-        scrollEventDemo();
-
+        // focusEventDemo();
+        // selectEventDemo();
+        // scrollEventDemo();
     }
 
     public void base() {
@@ -75,7 +73,6 @@ public class ListViewApp extends ContentBox {
 
         lv.scrollTo("data - c");
         lv.scrollTo(3);
-
         getChildren().add(lv);
     }
 
@@ -83,6 +80,10 @@ public class ListViewApp extends ContentBox {
      * 焦点与选中是两种不同的效果，允许出现焦点所在未被选中的情况。
      *
      * 焦点用于光标导航或内容输入；
+     * 当焦点不在ListView上时，焦点项没有任何提示样式；
+     * 当焦点在ListView上（但并未直接落在其内部）时，焦点项显示为提示虚框；
+     *
+     * 设置焦点项不会导致选中项转移；
      */
     public void focusModelDemo() {
         // 是否可以将焦点转移到这里；
@@ -92,34 +93,23 @@ public class ListViewApp extends ContentBox {
         lv.getFocusModel().getFocusedItem();
 
         // 设置焦点
-        lv.getFocusModel().focus(1);
+        lv.getFocusModel().focus(3);
 
         // 由于焦点转移，选中项实际是灰色的；
         lv.requestFocus();
     }
 
     /**
-     * 焦点事件
-     */
-    public void focusEventDemo() {
-        lv.getFocusModel().focusedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-            }
-        });
-        lv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-            }
-        });
-    }
-
-    /**
      * 默认为单选模式
+     *
+     * 当焦点不在ListView上（也不在其内部的某项上）时，选中项是灰色的；
+     * 当焦点在ListView上时，选中项是根据样式的设定，显示为高亮颜色；
+     *
+     * 选中项会使得之前设置的焦点项发生转移，转移到选中项上面；
      */
     public void selectModelDemo() {
         lv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        // lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         // 设置默认选中
         lv.getSelectionModel().select(0);
@@ -138,6 +128,23 @@ public class ListViewApp extends ContentBox {
 
         // 选中第0和3项
         // lv.getSelectionModel().selectIndices(0, 3);
+        int f = lv.getFocusModel().getFocusedIndex();
+    }
+
+    /**
+     * 焦点事件
+     */
+    public void focusEventDemo() {
+        lv.getFocusModel().focusedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+            }
+        });
+        lv.getFocusModel().focusedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+            }
+        });
     }
 
     /**
@@ -176,6 +183,5 @@ public class ListViewApp extends ContentBox {
             }
         });
     }
-
 
 }
