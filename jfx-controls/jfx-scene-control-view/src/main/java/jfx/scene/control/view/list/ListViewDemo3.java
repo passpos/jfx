@@ -67,7 +67,6 @@ public class ListViewDemo3 extends ContentBox {
         getChildren().add(b1);
         setTopAnchor(b1, 300.0);
         setLeftAnchor(b1, 300.0);
-
         b1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
@@ -88,7 +87,6 @@ public class ListViewDemo3 extends ContentBox {
         getChildren().add(b2);
         setTopAnchor(b2, 300.0);
         setLeftAnchor(b2, 350.0);
-
         b2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
