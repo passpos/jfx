@@ -37,7 +37,6 @@ public abstract class AbstractSideBox extends AnchorPane {
     private ScrollPane scrollPane;
     private VBox btnBox;
     protected ButtonWrapper defaultBtn;
-    private double width = 250.0;
 
     /**
      * step-1
@@ -86,10 +85,11 @@ public abstract class AbstractSideBox extends AnchorPane {
     }
 
     private void initStyle() {
-        this.setPrefWidth(width);
-        this.setPrefHeight(50);
+        this.setPrefWidth(350.0);
+        //this.setPrefHeight(50);
 
         scrollPane.setPannable(true);
+        scrollPane.prefWidthProperty().bind(this.widthProperty());
         this.prefHeightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
@@ -148,10 +148,6 @@ public abstract class AbstractSideBox extends AnchorPane {
     }
 
     public abstract void setButtonStyle(ButtonWrapper btn);
-
-    public double getSideWidth() {
-        return width;
-    }
 
     public static <T> void ol(T arg) {
         System.out.println(arg);
