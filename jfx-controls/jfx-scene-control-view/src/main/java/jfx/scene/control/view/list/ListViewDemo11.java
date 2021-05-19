@@ -27,7 +27,7 @@ public class ListViewDemo11 extends ContentBox {
 
     public static final boolean SHOWING = false;
     public static final String TITLE = "ListView - Demo11";
-    private ListView<FxPerson> llv;
+    private ListView<FxPerson> lv;
     private ObservableList<FxPerson> list;
 
     @Override
@@ -36,8 +36,8 @@ public class ListViewDemo11 extends ContentBox {
     }
 
     public void base() {
-        llv = new ListView<>();
-        list = llv.getItems();
+        lv = new ListView<>();
+        list = lv.getItems();
 
         FxPerson m1 = new FxPerson("独树花发自分明", "54");
         FxPerson m2 = new FxPerson("简繁", "32");
@@ -49,9 +49,9 @@ public class ListViewDemo11 extends ContentBox {
         list.add(m3);
         list.add(m4);
 
-        llv.setEditable(true);
-        llv.setCellFactory(getCallback());
-        getChildren().add(llv);
+        lv.setEditable(true);
+        lv.setCellFactory(getCallback());
+        getChildren().add(lv);
     }
 
     /**
