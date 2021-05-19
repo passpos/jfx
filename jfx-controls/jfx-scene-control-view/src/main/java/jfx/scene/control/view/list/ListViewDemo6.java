@@ -6,6 +6,7 @@
 package jfx.scene.control.view.list;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,8 +15,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import jfx.core.app.ContentBox;
@@ -29,12 +28,11 @@ import jfx.core.entity.FxPerson;
  */
 public class ListViewDemo6 extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "ListView - Demo6 自定义单元格";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> list;
     // 用于commitEdit()的newValue；
-    private FxPerson tmp = null;
 
     @Override
     public void index() {
@@ -44,6 +42,7 @@ public class ListViewDemo6 extends ContentBox {
     public void base() {
         list = Data.getFxPersonList();
         lv = new ListView<>(list);
+        lv.setFocusTraversable(true);
         lv.setEditable(true);
 
         Callback<ListView<FxPerson>, ListCell<FxPerson>> callback;
@@ -79,14 +78,15 @@ public class ListViewDemo6 extends ContentBox {
             @Override
             public void startEdit() {
                 super.startEdit();
-                tmp = getItem();
                 HBox hb = getEditGraphic(this);
                 this.setGraphic(hb);
+                ol("start");
             }
 
             @Override
             public void commitEdit(FxPerson newValue) {
                 super.commitEdit(newValue);
+                ol("commit");
             }
 
             @Override
@@ -120,19 +120,39 @@ public class ListViewDemo6 extends ContentBox {
         TextField ageField = new TextField(cell.getItem().getAge());
         ageField.setPrefWidth(50.0);
 
-        nameField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        /*
+         * 所有的控件都具有 onAction 属性，该属性会阻止鼠标点击/ENTER按键事件向
+         * 上级传递；
+         * 其他所有属性出发的事件都不能阻止
+         */
+        nameField.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(KeyEvent t) {
+            public void handle(ActionEvent t) {
+                FxPerson item = cell.getItem();
                 String text1 = nameField.getText();
                 String text2 = ageField.getText();
-                if (t.getCode() == KeyCode.ENTER) {
-                    if (text1.equals("") || text2.equals("")) {
-                        cell.cancelEdit();
-                    } else {
-                        tmp.setName(text1);
-                        tmp.setAge(text2);
-                        cell.commitEdit(tmp);
-                    }
+                if (text1.equals("") || text2.equals("")) {
+                    cell.cancelEdit();
+                } else {
+                    item.setName(text1);
+                    item.setAge(text2);
+                    cell.commitEdit(item);
+                }
+
+            }
+        });
+        ageField.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                FxPerson item = cell.getItem();
+                String text1 = nameField.getText();
+                String text2 = ageField.getText();
+                if (text1.equals("") || text2.equals("")) {
+                    cell.cancelEdit();
+                } else {
+                    item.setName(text1);
+                    item.setAge(text2);
+                    cell.commitEdit(item);
                 }
             }
         });
