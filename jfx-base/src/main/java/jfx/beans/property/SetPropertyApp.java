@@ -24,47 +24,49 @@ import javafx.collections.SetChangeListener;
 import jfx.core.app.ContentBox;
 
 /**
+ * B-53
  *
  * @author realpai <paiap@outlook.com>
  */
 public class SetPropertyApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
-    public static final String TITLE = "Property - SetProperty";
+    public static final boolean SHOWING = true;
+    public static final String TITLE = "Property - SetProperty SetChange";
     private SimpleSetProperty<String> ssp;
     private ObservableSet<String> set;
 
     @Override
     public void index() {
         setConsole();
+        base();
+    }
 
+    public void base() {
         set = FXCollections.observableSet("A", "B", "C");
         ssp = new SimpleSetProperty<>(set);
 
-        baseDemo();
-        listenerDemo();
-    }
+        ssp.addListener(new SetChangeListener<String>() {
+            @Override
+            public void onChanged(SetChangeListener.Change<? extends String> c) {
+                change(c);
+            }
+        });
 
-    public void baseDemo() {
-        // ssp.set(set);
+        // ssp.set("E");
         ssp.add("D");
         ssp.remove("D");
     }
 
-    public void listenerDemo() {
-        ssp.addListener(new SetChangeListener<String>() {
-            @Override
-            public void onChanged(SetChangeListener.Change<? extends String> change) {
-                // 没有索引所以不需要next()方法
-                change.getSet().forEach((e) -> ob(e));
-            }
-        });
+    public void change(SetChangeListener.Change<? extends String> c) {
+        c.getSet().forEach((e) -> ol(e));
 
+        // 没有索引所以不需要next()方法
         Iterator<String> it = ssp.iterator();
         while (it.hasNext()) {
-            ob(it.next());
+            ol("next() - " + it.next());
         }
 
-        ssp.forEach((e) -> ob(e));
+        ol("所有元素：");
+        ssp.forEach((e) -> ol(e));
     }
 }

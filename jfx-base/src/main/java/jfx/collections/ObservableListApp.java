@@ -34,7 +34,7 @@ import jfx.core.app.ContentBox;
  */
 public class ObservableListApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Collections - ObservableList";
 
     @Override

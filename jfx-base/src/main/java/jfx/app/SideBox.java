@@ -108,11 +108,4 @@ public class SideBox extends AbstractSideBox {
         }
     }
 
-    @Override
-    public void setDefaultBtn() {
-        if (defaultBtn == null) {
-            defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(4);
-        }
-    }
-
 }

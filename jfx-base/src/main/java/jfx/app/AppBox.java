@@ -22,11 +22,11 @@ import jfx.beans.binding.*;
 import jfx.beans.property.*;
 import jfx.beans.value.*;
 import jfx.collections.*;
-import jfx.event.*;
-import jfx.event.input.*;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ContentBox;
+import jfx.event.*;
+import jfx.event.input.*;
 
 /**
  *
@@ -66,6 +66,7 @@ public class AppBox extends AbstractAppBox {
         appList.add(PropertyChangeSupportApp.class);
         appList.add(PropertyApp.class);
         appList.add(ListPropertyApp.class);
+        appList.add(ListPropertyDemo.class);
         appList.add(SetPropertyApp.class);
         appList.add(MapPropertyApp.class);
 

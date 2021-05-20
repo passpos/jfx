@@ -29,8 +29,8 @@ import jfx.core.app.ContentBox;
  */
 public class BindingApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
-    public static final String TITLE = "Binding - Bindings";
+    public static final boolean SHOWING = false;
+    public static final String TITLE = "Binding - Binding";
     private SimpleIntegerProperty sip;
 
     @Override

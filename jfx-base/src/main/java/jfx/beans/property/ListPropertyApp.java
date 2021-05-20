@@ -24,6 +24,7 @@ import javafx.collections.ObservableList;
 import jfx.core.app.ContentBox;
 
 /**
+ * B-53
  * SimpleListProperty<E>
  * abstract class ListProperty<E>
  *
@@ -46,14 +47,13 @@ import jfx.core.app.ContentBox;
 public class ListPropertyApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Property - ListProperty ChangeListener";
+    public static final String TITLE = "Property - ListProperty Change";
     private ObservableList<String> list;
     private SimpleListProperty<String> slp;
 
     @Override
     public void index() {
         base();
-        changeListenerDemo();
         modifyList();
     }
 
@@ -63,14 +63,6 @@ public class ListPropertyApp extends ContentBox {
         // 必须将 list 传入ListProperty，否则报错；
         list = FXCollections.observableArrayList();
         slp = new SimpleListProperty<>(list);
-    }
-
-    /**
-     * 注意：
-     * 新旧列表相同，且打印时，列表的所有属性元素（forEach()）都会被打印.
-     * t1.forEach(ListPropertyApp::ol);
-     */
-    public void changeListenerDemo() {
         slp.addListener(new ChangeListener<ObservableList<String>>() {
             @Override
             public void changed(
@@ -78,16 +70,23 @@ public class ListPropertyApp extends ContentBox {
                     ObservableList<String> t,
                     ObservableList<String> t1
             ) {
-                ob("t：");
-                t.forEach(ListPropertyApp.this::ob);
-
-                ob("-----------------------------------------------------");
-
-                ob("t1：");
-                t1.forEach(ListPropertyApp.this::ob);
+                change(t, t1);
             }
-
         });
+    }
+
+    /**
+     * 注意：
+     * 新旧列表相同，且打印时，列表的所有属性元素（forEach()）都会被打印.
+     *
+     * @param t
+     * @param t1
+     */
+    private void change(ObservableList<String> t, ObservableList<String> t1) {
+        ol("t：");
+        t.forEach(ListPropertyApp::ol);
+        ol("t1：");
+        t1.forEach(ListPropertyApp::ol);
     }
 
     public void modifyList() {

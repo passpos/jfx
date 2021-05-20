@@ -36,7 +36,7 @@ import jfx.core.app.ContentBox;
  */
 public class MouseEventApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Input - MouseEvent";
     public double X;
     public double Y;
@@ -216,7 +216,7 @@ public class MouseEventApp extends ContentBox {
             @Override
             public void handle(MouseEvent t) {
                 setTopAnchor(btn, t.getSceneY() - Y);
-                setLeftAnchor(btn, t.getSceneX() - getSideBox().getSideWidth() - X);
+                setLeftAnchor(btn, t.getSceneX() - getSideBox().getWidth() - X);
             }
         });
         this.getChildren().add(btn);
