@@ -30,38 +30,42 @@ import jfx.core.app.ContentBox;
 public class MapPropertyApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Property - MapProperty";
+    public static final String TITLE = "Property - MapProperty MapChange";
     private SimpleMapProperty<String, String> smp;
     private ObservableMap<String, String> map;
 
     @Override
     public void index() {
         setConsole();
-
-        map = FXCollections.observableHashMap();
-        map.put("教主", "任我行");
-        map.put("圣女", "任盈盈");
-        smp = new SimpleMapProperty<>(map);
-
         baseDemo();
+        modify();
     }
 
     public void baseDemo() {
+        map = FXCollections.observableHashMap();
+        map.put("教主", "任我行");
+
+        smp = new SimpleMapProperty<>(map);
         smp.forEach(new BiConsumer<String, String>() {
             @Override
             public void accept(String t, String u) {
                 ob(t + " - " + u);
             }
         });
-
-    }
-
-    public void listenerDemo() {
         smp.addListener(new MapChangeListener<String, String>() {
             @Override
-            public void onChanged(MapChangeListener.Change<? extends String, ? extends String> change) {
-                ob(change.getKey());
+            public void onChanged(MapChangeListener.Change<? extends String, ? extends String> c) {
+                change(c);
             }
         });
+    }
+
+    public void change(MapChangeListener.Change<? extends String, ? extends String> c) {
+        ob(c.getKey());
+    }
+
+    public void modify() {
+        map.put("圣女", "任盈盈");
+        map.put("副教主", "向问天");
     }
 }
