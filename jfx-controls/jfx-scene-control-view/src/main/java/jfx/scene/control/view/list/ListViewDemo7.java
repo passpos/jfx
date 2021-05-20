@@ -31,10 +31,10 @@ import jfx.core.entity.FxPerson;
  * B87
  * @author realpai <paiap@outlook.com>
  */
-public class ListViewDemo12 extends ContentBox {
+public class ListViewDemo7 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "ListView - 列表过滤/排序";
+    public static final String TITLE = "ListView - Demo7 列表过滤/排序";
     private ListView<FxPerson> lv;
     private ObservableList<FxPerson> oal;
 

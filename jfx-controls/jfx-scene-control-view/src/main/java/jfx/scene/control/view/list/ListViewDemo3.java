@@ -23,7 +23,7 @@ import utils.entity.demo.sample.Person;
  */
 public class ListViewDemo3 extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "ListView - Demo3 更新对象的基本类型成员";
     private ListView<Person> lv;
     private ObservableList<Person> list;
