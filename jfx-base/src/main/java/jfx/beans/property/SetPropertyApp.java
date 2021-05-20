@@ -30,7 +30,7 @@ import jfx.core.app.ContentBox;
  */
 public class SetPropertyApp extends ContentBox {
     
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Property - SetProperty SetChange";
     private SimpleSetProperty<String> ssp;
     private ObservableSet<String> set;
