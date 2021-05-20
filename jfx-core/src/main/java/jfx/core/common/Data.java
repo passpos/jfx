@@ -44,12 +44,14 @@ public class Data {
 
     public static ObservableList<FxPerson> getFxPersonList() {
         ObservableList<FxPerson> list = FXCollections.observableArrayList();
-        FxPerson pe1 = new FxPerson("教化", "15", true);
-        FxPerson pe2 = new FxPerson("北京饭店", "56", false);
+        FxPerson pe1 = new FxPerson("桃仁", "15", true);
+        FxPerson pe2 = new FxPerson("甫和", "56", false);
         FxPerson pe3 = new FxPerson("复活卡", "69", true);
+        FxPerson pe4 = new FxPerson("独树花发自分明", "54", true);
         list.add(pe1);
         list.add(pe2);
         list.add(pe3);
+        list.add(pe4);
         return list;
     }
 
