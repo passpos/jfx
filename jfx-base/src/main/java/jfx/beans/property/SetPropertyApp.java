@@ -29,22 +29,30 @@ import jfx.core.app.ContentBox;
  * @author realpai <paiap@outlook.com>
  */
 public class SetPropertyApp extends ContentBox {
-
+    
     public static final boolean SHOWING = true;
     public static final String TITLE = "Property - SetProperty SetChange";
     private SimpleSetProperty<String> ssp;
     private ObservableSet<String> set;
-
+    
     @Override
     public void index() {
         setConsole();
         base();
+        modify();
     }
 
+    /**
+     * 从不同的时间和代码位置，多次获取迭代器，迭代器的指针位置都是共享的；
+     * 例如，从一个位置获取了迭代器，迭代元素到某个位置A，那么在其他位置获取的迭
+     * 代器的迭代位置将会从该位置A开始，而不是从头开始；
+     *
+     * 但是，当集合发生改变时，迭代器中存储的指针会被重置到起始位置；
+     */
     public void base() {
         set = FXCollections.observableSet("A", "B", "C");
         ssp = new SimpleSetProperty<>(set);
-
+        
         ssp.addListener(new SetChangeListener<String>() {
             @Override
             public void onChanged(SetChangeListener.Change<? extends String> c) {
@@ -52,21 +60,32 @@ public class SetPropertyApp extends ContentBox {
             }
         });
 
-        // ssp.set("E");
-        ssp.add("D");
-        ssp.remove("D");
-    }
-
-    public void change(SetChangeListener.Change<? extends String> c) {
-        c.getSet().forEach((e) -> ol(e));
-
-        // 没有索引所以不需要next()方法
+        ol("集合中的所有元素：");
         Iterator<String> it = ssp.iterator();
         while (it.hasNext()) {
-            ol("next() - " + it.next());
+            o("\t" + it.next());
         }
-
-        ol("所有元素：");
-        ssp.forEach((e) -> ol(e));
+        // ssp.forEach((e) -> ol(e));
+        // ssp.forEach(ContentBox::ol);
+    }
+    
+    private void change(SetChangeListener.Change<? extends String> c) {
+        ol("\n集合中的所有元素：");
+        ol(c.getSet());
+        
+        if (c.wasAdded()) {
+            ol("wasAdded() - " + c.wasAdded());
+            ol("getElementAdded() - " + c.getElementAdded());
+        }
+        if (c.wasRemoved()) {
+            ol("wasRemoved() - " + c.wasRemoved());
+            ol("getElementRemoved() - " + c.getElementRemoved());
+        }
+    }
+    
+    public void modify() {
+        // ssp.set("E");
+        ssp.add("D");
+        ssp.remove("B");
     }
 }
