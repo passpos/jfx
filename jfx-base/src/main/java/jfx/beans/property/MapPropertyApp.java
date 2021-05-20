@@ -16,7 +16,6 @@
  */
 package jfx.beans.property;
 
-import java.util.function.BiConsumer;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.MapChangeListener;
@@ -29,7 +28,7 @@ import jfx.core.app.ContentBox;
  */
 public class MapPropertyApp extends ContentBox {
 
-    public static final boolean SHOWING = false;
+    public static final boolean SHOWING = true;
     public static final String TITLE = "Property - MapProperty MapChange";
     private SimpleMapProperty<String, String> smp;
     private ObservableMap<String, String> map;
@@ -46,22 +45,31 @@ public class MapPropertyApp extends ContentBox {
         map.put("教主", "任我行");
 
         smp = new SimpleMapProperty<>(map);
-        smp.forEach(new BiConsumer<String, String>() {
-            @Override
-            public void accept(String t, String u) {
-                ob(t + " - " + u);
-            }
-        });
         smp.addListener(new MapChangeListener<String, String>() {
             @Override
             public void onChanged(MapChangeListener.Change<? extends String, ? extends String> c) {
                 change(c);
             }
         });
+
+        ol("集合中的所有元素：");
+        smp.forEach((t, u) -> {
+            ol(t + " - " + u);
+        });
     }
 
     public void change(MapChangeListener.Change<? extends String, ? extends String> c) {
-        ob(c.getKey());
+        if (c.wasAdded()) {
+            ol("wasAdded() - " + c.wasAdded());
+            ol("added - " + c.getKey() + " - " + c.getValueAdded());
+        }
+        if (c.wasRemoved()) {
+            ol("wasRemoved() - " + c.wasRemoved());
+            ol("removed - " + c.getKey() + " - " + c.getValueRemoved());
+        }
+
+        ol("\n集合中的所有元素：");
+        ol(c.getMap());
     }
 
     public void modify() {
