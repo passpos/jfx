@@ -28,7 +28,7 @@ import jfx.core.app.ContentBox;
  */
 public class MapPropertyApp extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Property - MapProperty MapChange";
     private SimpleMapProperty<String, String> smp;
     private ObservableMap<String, String> map;

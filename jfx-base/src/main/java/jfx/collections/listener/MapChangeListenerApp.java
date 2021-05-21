@@ -14,25 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package jfx.beans.value.listener;
 
-import jfx.core.app.ContentBox;
+package jfx.collections.listener;
 
 /**
- * Package javafx.collections 函数式接口；
- * public interface ListChangeListener<E>
- *
- * 监听List集合的改变，在JavaFX中尤其是 javafx.collections.ObservableList ，
- *
  *
  * @author realpai <paiap@outlook.com>
  */
-public class ListChangeListenerApp extends ContentBox {
+public class MapChangeListenerApp {
 
-    public static final boolean SHOWING = false;
-    public static final String TITLE = "Listener - ObservableList";
-
-    @Override
-    public void index() {
-    }
 }

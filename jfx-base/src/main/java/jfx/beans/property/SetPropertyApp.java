@@ -29,12 +29,12 @@ import jfx.core.app.ContentBox;
  * @author realpai <paiap@outlook.com>
  */
 public class SetPropertyApp extends ContentBox {
-    
+
     public static final boolean SHOWING = false;
     public static final String TITLE = "Property - SetProperty SetChange";
     private SimpleSetProperty<String> ssp;
     private ObservableSet<String> set;
-    
+
     @Override
     public void index() {
         setConsole();
@@ -52,7 +52,7 @@ public class SetPropertyApp extends ContentBox {
     public void base() {
         set = FXCollections.observableSet("A", "B", "C");
         ssp = new SimpleSetProperty<>(set);
-        
+
         ssp.addListener(new SetChangeListener<String>() {
             @Override
             public void onChanged(SetChangeListener.Change<? extends String> c) {
@@ -68,11 +68,11 @@ public class SetPropertyApp extends ContentBox {
         // ssp.forEach((e) -> ol(e));
         // ssp.forEach(ContentBox::ol);
     }
-    
+
     private void change(SetChangeListener.Change<? extends String> c) {
         ol("\n集合中的所有元素：");
         ol(c.getSet());
-        
+
         if (c.wasAdded()) {
             ol("wasAdded() - " + c.wasAdded());
             ol("getElementAdded() - " + c.getElementAdded());
@@ -82,7 +82,7 @@ public class SetPropertyApp extends ContentBox {
             ol("getElementRemoved() - " + c.getElementRemoved());
         }
     }
-    
+
     public void modify() {
         // ssp.set("E");
         ssp.add("D");

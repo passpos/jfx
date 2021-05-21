@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package jfx.beans;
+package jfx.beans.listener;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,47 +23,42 @@ import javafx.beans.value.WeakChangeListener;
 import jfx.core.app.ContentBox;
 
 /**
+ * B-54 防止内存泄漏
+ *
+
+ *
+ * 也可以将匿名内部类提取出来，不再通过“new”的方式获取。
+ * 参考：InvalidationListenerDemo
  *
  * @author realpai <paiap@outlook.com>
  */
-public class WeakChangeListenerApp extends ContentBox {
+public class WeakListenerApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Beans - Listener WeakChangeListener";
+    public static final String TITLE = "Listener - Beans WeakListener";
+    private SimpleIntegerProperty sip;
 
     @Override
     public void index() {
-        baseDemo();
+        base();
         noLeakDemo();
+        modify();
     }
 
-    public void baseDemo() {
-        Chl chl = new Chl();
-        WeakChangeListener<Number> wcl = new WeakChangeListener<>(chl);
-        SimpleIntegerProperty sip = new SimpleIntegerProperty();
-        sip.addListener(wcl);
-        sip.set(5);
+    public void base() {
+        sip = new SimpleIntegerProperty();
+
     }
 
-    /**
-     * 防止内存泄露
-     *
-     * 使用匿名内部类的方式，本身潜在一些安全隐患，这在事件监听中尤其凸显；
-     * 为了避免这种问题，可以将匿名内部类提取出来，不再通过“new”的方式获取。
-     *
-     * 也可以使用 Interface javafx.beans.WeakListener 的实现：
-     * WeakInvalidationListener
-     * WeakChangeListener
-     */
     public void noLeakDemo() {
-        SimpleIntegerProperty sip = new SimpleIntegerProperty();
-        InvaL il = new InvaL();
+        Chl chl = new Chl();
+        WeakChangeListener<Number> wcListener = new WeakChangeListener<>(chl);
 
-        sip.addListener(il);
+        sip.addListener(wcListener);
+    }
+
+    public void modify() {
         sip.set(5);
-
-        sip.removeListener(il);
-        sip.set(10);
     }
 }
 
@@ -76,12 +69,4 @@ class Chl implements ChangeListener<Number> {
         ContentBox.ol(t1);
     }
 
-}
-
-class InvaL implements InvalidationListener {
-
-    @Override
-    public void invalidated(Observable o) {
-        ContentBox.ol("noLeakDemo：" + o);
-    }
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package jfx.beans.value;
+package jfx.beans.value.listener;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
@@ -28,24 +28,28 @@ import jfx.core.app.ContentBox;
 public class ChangeListenerApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Values - Listener ChangeListener";
+    public static final String TITLE = "Listener - Values ChangeListener";
     private SimpleIntegerProperty sip;
 
     @Override
     public void index() {
-        sip = new SimpleIntegerProperty();
         baseDemo();
     }
 
     public void baseDemo() {
+        sip = new SimpleIntegerProperty();
         sip.addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-                ob("更改监听");
+                ol("更改了！");
             }
         });
+    }
 
+    public void modify() {
         sip.set(5);
-        sip.set(5); // 由于与上次设置的值相同，所以这里不会触发更改监听
+        // 由于与上次设置的值相同，所以这里不会触发更改监听；
+        sip.set(5);
+
     }
 }

@@ -36,9 +36,9 @@ public class UnidirectionalBindingApp extends ContentBox {
     /**
      * 单向绑定
      *
-     * 绑定的两边，数据类型必须一致；
+     * 绑定的两边，数据类型必须一致。值可以不同；
      * 解绑后，A的数据已经被修改；
-     * A 单向绑定到 B，以B为主（括号内），A将不能做出修改；
+     * A 单向绑定到 B，以B为主（括号内），A将不能做出修改，B可以做出修改；
      */
     public void baseDemo() {
         SimpleIntegerProperty sip1 = new SimpleIntegerProperty(1);

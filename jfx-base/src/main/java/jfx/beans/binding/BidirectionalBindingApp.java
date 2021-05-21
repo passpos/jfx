@@ -30,7 +30,7 @@ public class BidirectionalBindingApp extends ContentBox {
 
     @Override
     public void index() {
-        baseDemo();
+        base();
     }
 
     /**
@@ -40,30 +40,30 @@ public class BidirectionalBindingApp extends ContentBox {
      * A 双向绑定到 B，以B为主（括号内），A仍可以被修改；
      * 解绑后，A的数据已经被修改；
      */
-    public void baseDemo() {
+    public void base() {
         SimpleIntegerProperty sip1 = new SimpleIntegerProperty(1);
         SimpleIntegerProperty sip2 = new SimpleIntegerProperty(5);
-        ob("绑定前：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("绑定前：");
+        ol(sip1.get());
+        ol(sip2.get());
 
         sip1.bindBidirectional(sip2);
-        ob("绑定后：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("绑定后：");
+        ol(sip1.get());
+        ol(sip2.get());
 
         // 解绑
         sip1.unbindBidirectional(sip2);
-        ob(sip1.get());
+        ol(sip1.get());
 
         // 反向绑定
         sip2.bindBidirectional(sip1);
-        ob("反向绑定后：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("反向绑定后：");
+        ol(sip1.get());
+        ol(sip2.get());
 
-        ob("绑定关系：", 400);
-        ob("sip1：" + sip1.isBound());
-        ob("sip2：" + sip2.isBound());
+        ol("绑定关系：");
+        ol("sip1：" + sip1.isBound());
+        ol("sip2：" + sip2.isBound());
     }
 }

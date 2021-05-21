@@ -35,76 +35,46 @@ public class SideBox extends AbstractSideBox {
         // 设置按钮对齐；
         btn.setAlignment(Pos.CENTER_LEFT);
 
+//        btn.setStyle("-fx-background-color: #aa99c4");
+//        btn.setStyle("-fx-background-color: #aa66aa");
+//        btn.setStyle("-fx-background-color: #aae4aa");
+//        btn.setStyle("-fx-background-color: #aae4c4");
+//        btn.setStyle("-fx-background-color: #ffe4aa");
+//        btn.setStyle("-fx-background-color: #ffe4c4");
         if (title.startsWith("Beans - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Binding - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Property - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Values - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
         }
 
         if (title.startsWith("Collections - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #aae4aa");
         }
 
         if (title.startsWith("Collections - Transformation - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
-        }
-
-        if (title.startsWith("Event - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aa99c4");
-            } else {
-                btn.setStyle("-fx-background-color: #aa66aa");
-            }
-        }
-
-        if (title.startsWith("Input - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #ffe4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #ffe4c4");
-            }
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
 
         if (title.startsWith("Listener - ")) {
-            if (title.contains("Demo")) {
-                btn.setStyle("-fx-background-color: #aae4aa");
-            } else {
-                btn.setStyle("-fx-background-color: #aae4c4");
-            }
+            btn.setStyle("-fx-background-color: #aa99c4");
+        }
+
+        if (title.startsWith("Event - ")) {
+            btn.setStyle("-fx-background-color: #aae4aa");
+        }
+
+        if (title.startsWith("Input - ")) {
+            btn.setStyle("-fx-background-color: #ffe4aa");
         }
     }
 

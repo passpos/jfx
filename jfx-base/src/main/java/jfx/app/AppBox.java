@@ -17,10 +17,10 @@
 package jfx.app;
 
 import java.util.ArrayList;
-import jfx.beans.*;
 import jfx.beans.binding.*;
+import jfx.beans.listener.*;
 import jfx.beans.property.*;
-import jfx.beans.value.*;
+import jfx.beans.value.listener.*;
 import jfx.collections.*;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
@@ -47,10 +47,6 @@ public class AppBox extends AbstractAppBox {
         ArrayList<Class<? extends ContentBox>> appList = getAppList();
 
         // Beans
-        appList.add(InvalidationListenerApp.class);
-        appList.add(WeakListenerApp.class);
-        appList.add(WeakChangeListenerApp.class);
-
         // Binding
         appList.add(BindingsApp.class);
         appList.add(BindingApp.class);
@@ -71,10 +67,17 @@ public class AppBox extends AbstractAppBox {
         appList.add(MapPropertyApp.class);
 
         // Value
-        appList.add(ChangeListenerApp.class);
-
         // Collections
         appList.add(ObservableListApp.class);
+
+        // Listener
+        // Beans.Listener
+        appList.add(InvalidationListenerApp.class);
+        appList.add(WeakListenerApp.class);
+        appList.add(WeakListenerDemo.class);
+        // Value.Listener
+        appList.add(ChangeListenerApp.class);
+        appList.add(WeakListenerApp.class);
 
         // Event
         appList.add(EventApp.class);

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jfx.beans.value.listener;
+package jfx.collections.listener;
 
 /**
  *
