@@ -43,28 +43,28 @@ public class UnidirectionalBindingApp extends ContentBox {
     public void baseDemo() {
         SimpleIntegerProperty sip1 = new SimpleIntegerProperty(1);
         SimpleIntegerProperty sip2 = new SimpleIntegerProperty(5);
-        ob("绑定前：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("绑定前：");
+        ol("sip1：" + sip1.get());
+        ol("sip2：" + sip2.get());
 
         // sip1单向绑定到sip2上，sip1不能控制sip2
         sip1.bind(sip2);
-        ob("绑定后：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("绑定后：");
+        ol("sip1：" + sip1.get());
+        ol("sip2：" + sip2.get());
 
-        ob("绑定关系：", 400);
-        ob("sip1：" + sip1.isBound());
-        ob("sip2：" + sip2.isBound());
+        ol("绑定关系：");
+        ol("sip1：" + sip1.isBound());
+        ol("sip2：" + sip2.isBound());
         // sip1.set(8); // 抛出异常
 
         // 解绑
         sip1.unbind();
-        ob("即使解绑，sip1的数据已经改变：" + sip1.get(), 400);
+        ol("即使解绑，sip1的数据已经改变：" + sip1.get());
 
         sip1.set(8);
-        ob("解除绑定后：", 400);
-        ob(sip1.get());
-        ob(sip2.get());
+        ol("解除绑定后：");
+        ol("sip1：" + sip1.get());
+        ol("sip2：" + sip2.get());
     }
 }
