@@ -20,6 +20,11 @@ import javafx.beans.property.SimpleIntegerProperty;
 import jfx.core.app.ContentBox;
 
 /**
+ * B-55 双向绑定
+ *
+ * 绑定的两边，数据类型必须一致。值可以不同；
+ * A 双向绑定到 B，以B为主（括号内），A的值会变成B的值。A、B都可以被修改；
+ * 解绑后，A的数据已经被修改；
  *
  * @author realpai <paiap@outlook.com>
  */
@@ -33,13 +38,6 @@ public class BidirectionalBindingApp extends ContentBox {
         base();
     }
 
-    /**
-     * 双向绑定
-     *
-     * 绑定的两边，数据类型必须一致；
-     * A 双向绑定到 B，以B为主（括号内），A仍可以被修改；
-     * 解绑后，A的数据已经被修改；
-     */
     public void base() {
         SimpleIntegerProperty sip1 = new SimpleIntegerProperty(1);
         SimpleIntegerProperty sip2 = new SimpleIntegerProperty(5);

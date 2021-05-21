@@ -48,15 +48,18 @@ public class AppBox extends AbstractAppBox {
 
         // Beans
         // Binding
-        appList.add(BindingsApp.class);
         appList.add(BindingApp.class);
+        appList.add(BindingDemo1.class);
+        appList.add(BindingDemo2.class);
+        appList.add(BindingDemo3.class);
+        appList.add(BindingsApp.class);
         appList.add(UnidirectionalBindingApp.class);
         appList.add(BidirectionalBindingApp.class);
         appList.add(ComputingApp.class);
         appList.add(LogicApp.class);
         appList.add(WhenApp.class);
         appList.add(SimpleListBindingApp.class);
-        appList.add(DemoBindingApp.class);
+        appList.add(BindingDemo1.class);
 
         // Property
         appList.add(PropertyChangeSupportApp.class);

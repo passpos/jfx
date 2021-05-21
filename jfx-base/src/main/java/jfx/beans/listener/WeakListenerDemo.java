@@ -25,7 +25,7 @@ import jfx.core.app.ContentBox;
  */
 public class WeakListenerDemo extends ContentBox {
 
-    public static final boolean SHOWING = true;
+    public static final boolean SHOWING = false;
     public static final String TITLE = "Listener - Beans WeakListener noLeak";
     private SimpleIntegerProperty sip;
     private InvalidationListener listener;
