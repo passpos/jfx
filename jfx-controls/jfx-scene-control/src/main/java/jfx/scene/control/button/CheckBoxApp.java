@@ -16,7 +16,6 @@
  */
 package jfx.scene.control.button;
 
-import jfx.core.app.ContentBox;
 import java.util.Iterator;
 import java.util.function.Consumer;
 import javafx.event.EventHandler;
@@ -24,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import jfx.core.app.ContentBox;
 
 /**
  *
@@ -37,14 +37,13 @@ public class CheckBoxApp extends ContentBox {
 
     @Override
     public void index() {
-        baseDemo();
+        base();
 
         // 获取所有多选项的选择状态
         selectDemo();
     }
 
-    public void baseDemo() {
-
+    public void base() {
         CheckBox cb1 = new CheckBox("cb1");
         cb1.setSelected(true);
 

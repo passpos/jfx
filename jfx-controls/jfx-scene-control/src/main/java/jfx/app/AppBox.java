@@ -87,9 +87,11 @@ public class AppBox extends AbstractAppBox {
         appList.add(DatePickerApp.class);
         appList.add(MenuBarApp.class);
         appList.add(ChoiceBoxApp.class);
-        appList.add(ComboBoxApp.class);
         appList.add(ChoiceBoxDemo.class);
-        appList.add(ComboBoxDemo.class);
+        appList.add(ComboBoxApp.class);
+        appList.add(ComboBoxDemo1.class);
+        appList.add(ComboBoxDemo2.class);
+        appList.add(ComboBoxDemo3.class);
         appList.add(RadioMenuItemApp.class);
 
         // Pane
