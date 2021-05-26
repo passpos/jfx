@@ -90,6 +90,7 @@ public class AppBox extends AbstractAppBox {
 
         // Input
         appList.add(ClipboardApp.class);
+        appList.add(ClipboardDemo1.class);
         appList.add(ClipboardContentApp.class);
         appList.add(ClipboardContentDemo.class);
         appList.add(DragboardApp.class);
