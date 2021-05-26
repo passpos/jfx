@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
 import jfx.core.app.ContentBox;
+import jfx.scene.control.*;
 import jfx.scene.control.cell.list.*;
 import jfx.scene.control.cell.tree.*;
 import jfx.scene.control.view.list.*;
@@ -40,6 +41,9 @@ public class AppBox extends AbstractAppBox {
     @Override
     public void initAppList() {        // 7
         ArrayList<Class<? extends ContentBox>> appList = getAppList();
+
+        // Cell
+        appList.add(CellApp.class);
 
         // List
         appList.add(ListViewApp.class);
