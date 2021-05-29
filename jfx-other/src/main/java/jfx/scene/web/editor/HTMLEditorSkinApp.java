@@ -79,7 +79,7 @@ import jfx.core.app.ContentBox;
 public class HTMLEditorSkinApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Web - HTMLEditorSkin";
+    public static final String TITLE = "Editor - HTMLEditorSkin";
 
     @Override
     public void index() {

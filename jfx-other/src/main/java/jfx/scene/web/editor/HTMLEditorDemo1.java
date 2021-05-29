@@ -19,13 +19,14 @@ import javafx.scene.web.HTMLEditor;
 import jfx.core.app.ContentBox;
 
 /**
- * 内置HTMLEditor与源码查看
+ * HTMLEditor 内容源码查看
+ *
  * @author realpai <paiap@outlook.com>
  */
 public class HTMLEditorDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Editor - HTMLEditor";
+    public static final String TITLE = "Editor - HTMLEditor内容源码查看";
 
     @Override
     public void index() {

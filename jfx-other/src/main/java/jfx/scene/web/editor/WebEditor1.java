@@ -29,12 +29,12 @@ public class WebEditor1 extends ContentBox {
 
     @Override
     public void index() {
-        baseDemo();
-        webEngineDemo();
+        base();
+        setEditable();
         webViewDemo();
     }
 
-    public void baseDemo() {
+    public void base() {
         wv = new WebView();
         getChildren().add(wv);
 
@@ -48,7 +48,7 @@ public class WebEditor1 extends ContentBox {
     /**
      * 通过引擎设置文档为可编辑状态
      */
-    public void webEngineDemo() {
+    public void setEditable() {
         engine = wv.getEngine();
 //        engine.loadContent("<html><body style=\"-webkit-user-modify: read-write\"><p>这是一个HTML段落</p></body></html>");
         engine.loadContent("<html><body contenteditable=\"true\"><p>这是一个HTML段落</p></body></html>");

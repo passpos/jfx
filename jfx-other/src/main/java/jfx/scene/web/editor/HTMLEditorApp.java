@@ -29,7 +29,7 @@ import jfx.core.app.ContentBox;
 public class HTMLEditorApp extends ContentBox {
 
     public static final boolean SHOWING = true;
-    public static final String TITLE = "Web - HTMLEditor";
+    public static final String TITLE = "Editor - HTMLEditor";
     private HTMLEditor editor;
 
     @Override
