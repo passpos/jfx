@@ -16,6 +16,7 @@
  */
 package jfx.app;
 
+import jfx.swing.JFrameApp;
 import java.util.ArrayList;
 import jfx.core.app.AbstractAppBox;
 import jfx.core.app.AbstractSideBox;
@@ -30,7 +31,6 @@ import jfx.scene.web.editor.HTMLEditorDemo1;
 import jfx.scene.web.editor.HTMLEditorSkinApp;
 import jfx.scene.web.editor.JEditorPaneApp;
 import jfx.scene.web.editor.WebEditor1;
-import jfx.swing.*;
 
 /**
  *

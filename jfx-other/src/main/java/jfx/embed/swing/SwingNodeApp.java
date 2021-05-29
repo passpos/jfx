@@ -18,8 +18,8 @@ package jfx.embed.swing;
 
 import javafx.embed.swing.SwingNode;
 import javax.swing.JPanel;
-import jfx.swing.JFrameApp;
 import jfx.core.app.ContentBox;
+import jfx.swing.JFrameApp;
 
 /**
  * SwingNode extends Node
@@ -29,7 +29,7 @@ import jfx.core.app.ContentBox;
 public class SwingNodeApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "JavaFX Swing - SwingNode";
+    public static final String TITLE = "JFX - SwingNode";
 
     @Override
     public void index() {

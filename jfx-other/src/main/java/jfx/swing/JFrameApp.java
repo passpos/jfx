@@ -26,6 +26,7 @@ import javax.swing.JPanel;
 import jfx.core.app.ContentBox;
 
 /**
+ * Java内置的Swing组件
  *
  * @author realpai <paiap@outlook.com>
  */
