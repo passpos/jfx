@@ -25,6 +25,11 @@ import jfx.features.other.*;
 import jfx.fxml.*;
 import jfx.scene.media.*;
 import jfx.scene.web.*;
+import jfx.scene.web.editor.HTMLEditorApp;
+import jfx.scene.web.editor.HTMLEditorDemo1;
+import jfx.scene.web.editor.HTMLEditorSkinApp;
+import jfx.scene.web.editor.JEditorPaneApp;
+import jfx.scene.web.editor.WebEditor1;
 import jfx.swing.*;
 
 /**
@@ -56,14 +61,17 @@ public class AppBox extends AbstractAppBox {
         appList.add(MediaPlayerDemoApp.class);
 
         // Web
-        appList.add(HTMLEditorApp.class);
-        appList.add(HTMLEditorSkinApp.class);
         appList.add(WebViewApp.class);
+        appList.add(WebViewDemo6.class);
         appList.add(WebEngineApp.class);
         appList.add(WebHistoryApp.class);
-        appList.add(Demo1HTMLEditorApp.class);
-        appList.add(Demo2JEditorPaneApp.class);
-        appList.add(Demo3WebViewApp.class);
+
+        // Editor
+        appList.add(HTMLEditorApp.class);
+        appList.add(HTMLEditorDemo1.class);
+        appList.add(HTMLEditorSkinApp.class);
+        appList.add(JEditorPaneApp.class);
+        appList.add(WebEditor1.class);
 
         // JavaFX Swing
         appList.add(SwingNodeApp.class);

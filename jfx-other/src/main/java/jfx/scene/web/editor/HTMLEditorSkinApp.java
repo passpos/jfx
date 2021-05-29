@@ -1,4 +1,4 @@
-package jfx.scene.web;
+package jfx.scene.web.editor;
 
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.HTMLEditorSkin;

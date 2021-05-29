@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.web;
+package jfx.scene.web.editor;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,10 +22,10 @@ import jfx.core.app.ContentBox;
  * 内置HTMLEditor与源码查看
  * @author realpai <paiap@outlook.com>
  */
-public class Demo1HTMLEditorApp extends ContentBox {
+public class HTMLEditorDemo1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Web - Demo HTMLEditor";
+    public static final String TITLE = "Editor - HTMLEditor";
 
     @Override
     public void index() {

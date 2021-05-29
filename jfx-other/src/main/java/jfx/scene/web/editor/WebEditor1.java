@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.web;
+package jfx.scene.web.editor;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -20,10 +20,10 @@ import jfx.core.app.ContentBox;
  *
  * @author realpai <paiap@outlook.com>
  */
-public class Demo3WebViewApp extends ContentBox {
+public class WebEditor1 extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Web - Demo WebView";
+    public static final String TITLE = "Editor - 可编辑";
     private WebView wv;
     private WebEngine engine;
 

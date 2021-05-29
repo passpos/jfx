@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx.scene.web;
+package jfx.scene.web.editor;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,10 +21,10 @@ import jfx.core.app.ContentBox;
  * JEditorPane得到的文本传递到TextArea中后乱码
  * @author realpai <paiap@outlook.com>
  */
-public class Demo2JEditorPaneApp extends ContentBox {
+public class JEditorPaneApp extends ContentBox {
 
     public static final boolean SHOWING = false;
-    public static final String TITLE = "Web - Demo JEditorPane";
+    public static final String TITLE = "Editor - JEditorPane(Swing)";
     private SwingNode swingNode;
     private JEditorPane jep;
     private Button btn;
@@ -34,7 +34,7 @@ public class Demo2JEditorPaneApp extends ContentBox {
         try {
             baseDemo();
         } catch (IOException ex) {
-            Logger.getLogger(Demo2JEditorPaneApp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JEditorPaneApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -77,11 +77,4 @@ public class SideBox extends AbstractSideBox {
         btn.setAlignment(Pos.CENTER_LEFT);
     }
 
-    @Override
-    public void setDefaultBtn() {
-        if (defaultBtn == null) {
-            this.defaultBtn = (ButtonWrapper) this.getBtnBox().getChildren().get(2);
-        }
-    }
-
 }
