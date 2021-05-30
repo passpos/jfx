@@ -37,17 +37,19 @@ public class ShortcutDemo extends ContentBox {
 
     @Override
     public void index() {
-        baseDemo();
+        base();
         stringKeyCombination();
-        keyCodeCombination();
-        bySetAccelerator();
+        putAccelerator();
+        setAccelerator();
     }
 
     /**
+     * 方法3：
+     *
      * 节点的的快捷键，会激活节点的setOnAction()点击事件；
      * 有些快捷键在设置时，也可以另外设置动作；
      */
-    public void baseDemo() {
+    public void base() {
         Button btn = new Button("确认");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -67,19 +69,36 @@ public class ShortcutDemo extends ContentBox {
 
         // 设置快捷键的应用区域为整个场景；
         getBaseScene().addMnemonic(mn);
-
         this.getChildren().add(btn);
     }
 
     /**
-     * 方法4：组合快捷键（可以设置区分按键状态，并设置响应动作）
+     * 方法4：从字符串解析快捷键组合，然后关联到具体的节点；
      *
-     * 该方法设置的快捷键不会绑定具体的节点，在应用的全局生效，与平台无关；
+     */
+    public void stringKeyCombination() {
+        KeyCombination kc = KeyCombination.valueOf("alt+k");
+
+        // 设置关联
+        Button btn = new Button("btn5");
+        Mnemonic mn = new Mnemonic(btn, kc);
+
+        // 设置快捷键的应用区域为整个场景；
+        getBaseScene().addMnemonic(mn);
+        this.getChildren().add(btn);
+    }
+
+    /**
+     * 方法5：全局快捷键
+     * 将组合快捷键直接绑定到场景上，响应执行多线程任务。
+     * 可以设置区分按键状态，并设置响应动作。
+     *
+     * 该方法设置的快捷键不会绑定在具体的节点上，而是在应用的全局生效；
      * 运行时，会创建一个后台任务，所以运行时非常灵活；
      *
      * Win下，SHORTCUT为Ctrl键；
      */
-    public void keyCodeCombination() {
+    public void putAccelerator() {
         // 设置快捷键
         KeyCombination kc = new KeyCodeCombination(KeyCode.V, KeyCombination.SHORTCUT_DOWN);
 
@@ -93,26 +112,9 @@ public class ShortcutDemo extends ContentBox {
     }
 
     /**
-     * 方法5：从字符串解析快捷键组合，然后关联到具体的节点
-     *
+     * 方法6：对 MenuItem 执行setAccelerator()方法；
      */
-    public void stringKeyCombination() {
-        KeyCombination kc = KeyCombination.valueOf("alt+k");
-
-        // 设置关联
-        Button btn = new Button("btn5");
-        Mnemonic mn = new Mnemonic(btn, kc);
-
-        // 设置快捷键的应用区域为整个场景；
-        getBaseScene().addMnemonic(mn);
-
-        this.getChildren().add(btn);
-    }
-
-    /**
-     * 方法6：对节点执行setAccelerator()方法；
-     */
-    public void bySetAccelerator() {
+    public void setAccelerator() {
         MenuItem itm6 = new MenuItem("itm6");
         itm6.setAccelerator(KeyCombination.valueOf("alt+j"));
     }
