@@ -27,6 +27,7 @@ import jfx.scene.*;
 import jfx.scene.canvas.*;
 import jfx.scene.image.*;
 import jfx.scene.input.*;
+import jfx.scene.input.shortcut.*;
 import jfx.scene.paint.*;
 import jfx.scene.paint.material.*;
 import jfx.scene.text.*;
@@ -96,7 +97,13 @@ public class AppBox extends AbstractAppBox {
         appList.add(DragboardApp.class);
         appList.add(DragboardDemo.class);
         appList.add(DragEventApp.class);
-        appList.add(ShortcutDemo.class);
+
+        // Input - Shortcut
+        appList.add(ShortcutApp.class);
+        appList.add(ShortcutDemo1.class);
+        appList.add(ShortcutDemo2.class);
+        appList.add(ShortcutDemo3.class);
+        appList.add(ShortcutDemo4.class);
 
         // Paint
         appList.add(PaintAndColorApp.class);

@@ -14,13 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package jfx.scene.input.shortcut;
 
-package jfx.scene.input;
+import jfx.core.app.ContentBox;
 
 /**
  *
  * @author realpai <paiap@outlook.com>
  */
-public class KeyCodeCombinationApp {
+public class ShortcutDemo3 extends ContentBox {
+
+    public static final boolean SHOWING = false;
+    public static final String TITLE = "Shortcut - KeyCodeCombination";
+
+    @Override
+    public void index() {
+    }
 
 }

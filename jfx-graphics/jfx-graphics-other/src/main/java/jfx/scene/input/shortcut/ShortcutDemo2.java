@@ -14,13 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package jfx.scene.input.shortcut;
 
-package jfx.scene.input;
+import jfx.core.app.ContentBox;
 
 /**
+ * 表示在键盘快捷键中使用的键的组合。组合键由一个主键和一组修改键组成。主键可以
+ * 通过其键代码-KeyCodeCombination或键字符-KeyCharacterCombination指定。修改键是
+ * shift、control、alt、meta或shortcut，可以定义为DOWN、UP或ANY。
  *
  * @author realpai <paiap@outlook.com>
  */
-public class MnemonicApp {
+public class ShortcutDemo2 extends ContentBox {
+
+    public static final boolean SHOWING = false;
+    public static final String TITLE = "Shortcut - KeyCombination";
+
+    @Override
+    public void index() {
+    }
 
 }
