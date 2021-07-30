@@ -20,7 +20,7 @@ import java.net.URL;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -106,6 +106,7 @@ public abstract class ContentBox extends AnchorPane {
 
     /**
      * step-6
+     *
      * @param switcher
      */
     public static void init(Switcher switcher) {
@@ -131,6 +132,7 @@ public abstract class ContentBox extends AnchorPane {
 
     /**
      * 打印内容到控制台（不换行）
+     *
      * @param <T> 输出内容
      * @param arg 要打印的内容
      */
@@ -140,6 +142,7 @@ public abstract class ContentBox extends AnchorPane {
 
     /**
      * 打印内容到控制台（自动换行）
+     *
      * @param <T> 输出内容
      * @param arg 要打印的内容
      */
@@ -149,38 +152,40 @@ public abstract class ContentBox extends AnchorPane {
 
     /**
      * 使用默认的控制台样式，将内容输出到界面中；
+     *
      * @param <T> 输出字符串
      * @param arg
      */
     public <T> void ob(T arg) {
         setConsole();
-        Button btn = new Button(arg.toString());
-        btn.setPrefWidth(100);
-        setObStyle(btn);
-        console.getChildren().add(btn);
+        Label l = new Label(arg.toString());
+        l.setPrefWidth(100);
+        setObStyle(l);
+        console.getChildren().add(l);
     }
 
     /**
      * 使用默认的控制台样式，将内容输出到界面中。用户可以自定义按钮的宽度；
+     *
      * @param <T>   输出字符串
      * @param width 按钮宽度
      * @param arg   打印参数
      */
     public <T> void ob(T arg, double width) {
         setConsole();
-        Button btn = new Button(arg.toString());
-        btn.setPrefWidth(width);
-        setObStyle(btn);
-        console.getChildren().add(btn);
+        Label l = new Label(arg.toString());
+        l.setPrefWidth(width);
+        setObStyle(l);
+        console.getChildren().add(l);
+    }
+
+    private void setObStyle(Label l) {
+        l.setAlignment(Pos.CENTER_LEFT);
     }
 
     public URL loadResource(String path) {
         URL resource = getClass().getClassLoader().getResource(path);
         return resource;
-    }
-
-    private void setObStyle(Button btn) {
-        btn.setAlignment(Pos.CENTER_LEFT);
     }
 
     /**
